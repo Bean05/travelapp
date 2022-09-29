@@ -9,21 +9,27 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       email: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       password: {
         type: Sequelize.TEXT,
+        allowNull: false,
       },
       phone: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       social: {
         type: Sequelize.TEXT,
+        allowNull: false,
       },
       photo: {
         type: Sequelize.TEXT,
+        allowNull: false,
       },
       about: {
         type: Sequelize.TEXT,

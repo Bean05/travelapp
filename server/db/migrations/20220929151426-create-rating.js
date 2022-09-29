@@ -9,15 +9,18 @@ module.exports = {
       },
       text: {
         type: Sequelize.TEXT,
+        allowNull: false,
       },
       author: {
         type: Sequelize.INTEGER,
+        allowNull: false,
       },
       photo: {
         type: Sequelize.TEXT,
       },
       stars: {
         type: Sequelize.INTEGER,
+        allowNull: false,
       },
       userId: {
         type: Sequelize.INTEGER,
