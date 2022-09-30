@@ -1,1 +1,2 @@
-// Тестовое сообщение, чтобы папка или файл не исчезли
+// user
+export const SET_USER_INFO = SET_USER_INFO;
