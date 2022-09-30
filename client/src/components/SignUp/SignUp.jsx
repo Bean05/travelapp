@@ -26,7 +26,7 @@ export default function SignUp() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundImage: 'url(https://dalinfotour.ru/uploads/People_Friends__entertainment__recreation_A_trip_to_the_sea_012981_.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) => (t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900]),
             backgroundSize: 'cover',
@@ -79,16 +79,6 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="age"
-                label="Возраст"
-                name="age"
-                autoComplete="age"
-                autoFocus
               />
               <TextField
                 margin="normal"
