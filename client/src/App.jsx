@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Search from './components/Search';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import UserAccount from './components/UserAccount';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/page" element={<UserAccount />} />
+
       </Routes>
     </Container>
   );
