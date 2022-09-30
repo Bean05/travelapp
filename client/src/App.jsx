@@ -7,7 +7,8 @@ import Navbar from './components/Navbar';
 import Search from './components/Search';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
-import UserAccout from './components/UserAccount/UserAccount';
+import TripCreate from './components/TripCreate';
+import UserAccount from './components/UserAccount';
 
 function App() {
   // const dispatch = useDispatch();
@@ -20,11 +21,14 @@ function App() {
     <Container>
       <Navbar />
       <Routes>
+
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/page" element={<UserAccout />} />
+        <Route path="/page" element={<UserAccount />} />
+        <Route path="/create" element={<TripCreate />} />
+
       </Routes>
     </Container>
   );

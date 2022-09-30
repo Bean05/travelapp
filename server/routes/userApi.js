@@ -2,7 +2,7 @@
 
 const router = express.Router();
 router.route
-  .post('/info', (req, res) => {
+  .post('/page', (req, res) => {
     const {name, phone, social, photo, about, pets, habits, drivLic, city, transport, telegram, age} = req.body;
     const newInfo = await 
   });
