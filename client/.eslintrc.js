@@ -17,11 +17,5 @@ module.exports = {
     'react',
   ],
   rules: {
-    'react/jsx-filename-extension': 0,
-    'no-restricted-exports': 0,
-    'react/prop-types': 0,
-    'no-console': 0,
-    'react/jsx-no-constructed-context-values': 0,
-    'default-param-last': 0,
   },
 };
