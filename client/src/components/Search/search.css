@@ -1,0 +1,23 @@
+.searchFatherDiv{
+  margin-top: 200px;
+  margin-bottom: 100px;
+}
+.searchFatherDiv{
+  white-space: pre-wrap;
+  width:100%;
+}
+
+.SearchInput {
+  width: 50%;
+  };
+
+  .indexDiv{
+    align-items: center;
+
+  }
+  .textSearch{
+    font-style: italic;
+    width: 30%;
+    color: rgb(6, 109, 226);
+  }
+ 

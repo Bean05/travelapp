@@ -10,6 +10,7 @@ import SignUp from './components/SignUp';
 import TripCreate from './components/TripCreate';
 import UserAccount from './components/UserAccount';
 
+
 function App() {
   // const dispatch = useDispatch();
   // useEffect(() => {
@@ -21,6 +22,7 @@ function App() {
     <Container>
       <Navbar />
       <Routes>
+
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
