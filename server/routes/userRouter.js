@@ -58,6 +58,21 @@ router.get('/logout', (req, res) => {
   res.clearCookie('sid').sendStatus(200);
 });
 
+router.post('/page/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const reqBody = req.body;
+    delete reqBody.password;
+    const oneInfo = await User.findOne({ where: { id } });
+    Object.assign(oneInfo, reqBody);
+    oneInfo.save();
+    delete oneInfo.password;
+    res.json(oneInfo);
+  } catch (e) {
+    console.log(e);
+  }
+});
+
 router.post('/check', (req, res) => {
   if (req.session.user) {
     return res.json(req.session.user);
