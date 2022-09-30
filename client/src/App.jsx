@@ -2,6 +2,7 @@ import { Container } from '@mui/material';
 import React from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Search from './components/Search';
@@ -20,6 +21,7 @@ function App() {
     <Container>
       <Navbar />
       <Routes>
+
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
