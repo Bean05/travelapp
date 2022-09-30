@@ -35,6 +35,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
+      tripPhoto: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
       userId: {
         type: Sequelize.INTEGER,
         references: {
