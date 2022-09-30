@@ -12,7 +12,9 @@ router.post('/signup', async (req, res) => {
     try {
       const [user, created] = await User.findOrCreate({
         where: { email },
-        defaults: { name, password: await bcrypt.hash(password, 10) },
+        defaults: {
+          name, password: await bcrypt.hash(password, 10), phone, social, photo,
+        },
       });
       if (created) {
         const sessionUser = JSON.parse(JSON.stringify(user));

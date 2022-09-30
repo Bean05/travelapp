@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.hasMany(models.Trip, { foreignKey: 'userId' });
-      this.belongsTo(models.Rating, { foreignKey: 'userId' });
+      this.hasMany(models.Rating, { as: 'authorId', foreignKey: 'author' });
+      this.hasMany(models.Rating, { as: 'receiver', foreignKey: 'userId' });
       this.hasMany(models.Membership, { foreignKey: 'userId' });
     }
   }
