@@ -26,18 +26,30 @@ function Navbar() {
           <Button component={NavLink} to="/signin" variant="filled">
             Войти
           </Button>
-          <Button component={NavLink} to="/" variant="filled">
+
+          <Button component={NavLink} to="/create" variant="filled">
             Создать поездку
           </Button>
-          <Button component={NavLink} to="/" variant="filled">
+          <Button component={NavLink} to="/search" variant="filled">
             Найти поездку
           </Button>
-
-          {/* <Button onClick={() => dispatch(logoutUserAsync())}
-          variant="filled">Выйти</Button> */}
+          <Button component={NavLink} to="/page" variant="filled">
+            Личная страница
+          </Button>
           <IconButton onClick={() => dispatch(logoutUserAsync())} edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <LogoutIcon />
           </IconButton>
+          {/* {user.id
+            ? (
+              <> */}
+
+          {/* </>
+            )
+            : (
+              <> */}
+
+          {/* </>
+            )} */}
         </Toolbar>
       </AppBar>
     </Box>

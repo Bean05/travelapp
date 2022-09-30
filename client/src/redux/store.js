@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import { userReducer } from './reducers'
+import tripCardReducer from './reducers/tripCardReducer';
+import userReducer from './reducers/userReducer';
 
 export default configureStore({
   reducer: {
-    // user: userReducer,
+    user: userReducer,
+    tripCard: tripCardReducer,
   },
 });

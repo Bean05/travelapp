@@ -4,8 +4,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import axios from 'axios';
 import App from './App';
-import store from './redux/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import store from './redux/store';
+
 
 axios.defaults.baseURL = process.env.REACT_APP_BASEURL;
 axios.defaults.withCredentials = true;
