@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Search from './components/Search';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import TripCreate from './components/TripCreate';
 import UserAccount from './components/UserAccount';
 
 
@@ -27,6 +28,8 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<Search />} />
         <Route path="/page" element={<UserAccount />} />
+        <Route path="/create" element={<TripCreate />} />
+
       </Routes>
     </Container>
   );
