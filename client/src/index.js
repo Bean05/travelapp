@@ -11,6 +11,7 @@ axios.defaults.baseURL = process.env.REACT_APP_BASEURL;
 axios.defaults.withCredentials = true;
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // eslint-disable-next-line react/jsx-filename-extension
   <BrowserRouter>
     <Provider store={store}>
       <App />
