@@ -84,16 +84,6 @@ export default function SignUp() {
                 margin="normal"
                 required
                 fullWidth
-                id="age"
-                label="Возраст"
-                name="age"
-                autoComplete="age"
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
                 id="phone"
                 label="Телефон"
                 name="phone"

@@ -6,9 +6,9 @@ const router = express.Router();
 
 router.post('/signup', async (req, res) => {
   const {
-    name, email, password, age, phone, social, photo,
+    name, email, password, phone, social, photo,
   } = req.body;
-  if (name && email && password && age && phone && social && photo) {
+  if (name && email && password && phone && social && photo) {
     try {
       const [user, created] = await User.findOrCreate({
         where: { email },

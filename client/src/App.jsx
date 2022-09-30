@@ -1,19 +1,32 @@
 import { Container } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-// import Navbar from './components/Navbar';
+import Navbar from './components/Navbar';
 import Search from './components/Search';
-import SignIn from './components/UserAccount/SignIn';
-import SignUp from './components/UserAccount/SignUp';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import ProtectedRoute from './HOCs/ProtectedRoute';
+import { checkAuth } from './redux/actions/userActions';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, []);
+
+  const user = useSelector((state) => state.user);
   return (
     <Container>
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/search" element={<Search />} />
+        <Route element={<ProtectedRoute redirect="/todo" isAllowed={!user.id} />}>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn />} />
+        </Route>
+        <Route element={<ProtectedRoute redirect="/signup" isAllowed={!!user.id} />}>
+          <Route path="/search" element={<Search />} />
+        </Route>
       </Routes>
     </Container>
   );
