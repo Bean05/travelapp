@@ -10,7 +10,6 @@ import SignUp from './components/SignUp';
 import TripCreate from './components/TripCreate';
 import UserAccount from './components/UserAccount';
 
-
 function App() {
   // const dispatch = useDispatch();
   // useEffect(() => {
