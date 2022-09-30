@@ -3,17 +3,10 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-<<<<<<< HEAD
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import Button from '@mui/material/Button';
-import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-=======
 import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LogoutIcon from '@mui/icons-material/Logout';
->>>>>>> lk
 import { logoutUserAsync } from '../../redux/actions/userActions';
 
 function Navbar() {
@@ -24,23 +17,6 @@ function Navbar() {
       <AppBar position="static">
         <Toolbar variant="dense">
           <IconButton href="/" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-<<<<<<< HEAD
-            <AccountBalanceIcon />
-          </IconButton>
-
-          <Button component={NavLink} to="/signup" variant="filled">
-            SignUp
-          </Button>
-          <Button component={NavLink} to="/signin" variant="filled">
-            SignIn
-          </Button>
-          <Button component={NavLink} to="/home" variant="filled">
-            Home
-          </Button>
-          <Button onClick={() => dispatch(logoutUserAsync())} variant="filled">Logout</Button>
-
-
-=======
             Friends Trip
           </IconButton>
 
@@ -62,7 +38,6 @@ function Navbar() {
           <IconButton onClick={() => dispatch(logoutUserAsync())} edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <LogoutIcon />
           </IconButton>
->>>>>>> lk
         </Toolbar>
       </AppBar>
     </Box>
