@@ -6,5 +6,6 @@ export default configureStore({
   reducer: {
     user: userReducer,
     tripCard: tripCardReducer,
+
   },
 });

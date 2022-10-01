@@ -1,10 +1,8 @@
 import axios from 'axios';
-import { SET_AUTH, LOGOUT, SET_USER_INFO } from '../types';
+import { SET_AUTH, LOGOUT } from '../types';
 
 export const setAuthUser = (payload) => ({ type: SET_AUTH, payload });
 export const logoutUser = () => ({ type: LOGOUT });
-
-export const setInfoUser = (payload) => ({ type: SET_USER_INFO, payload });
 
 export const checkAuth = () => (dispatch) => {
   axios.post('/api/users/check', { withCredentials: true })
@@ -29,5 +27,17 @@ export const signupUser = (e, inputs) => (dispatch) => {
 export const logoutUserAsync = () => (dispatch) => {
   axios('/api/users/logout')
     .then(() => dispatch(logoutUser()))
+    .catch(console.log);
+};
+
+export const allInfo = (id) => (dispatch) => {
+  axios(`api/users/page/${id}`)
+    .then((res) => dispatch(setAuthUser(res.data)))
+    .catch(console.log);
+};
+
+export const editHandler = (id, input) => (dispatch) => {
+  axios.patch(`/api/users/page/${id}`, input)
+    .then((res) => dispatch(setAuthUser(res.data)))
     .catch(console.log);
 };

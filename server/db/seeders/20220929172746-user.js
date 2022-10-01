@@ -22,7 +22,7 @@ module.exports = {
         photo: 'https://gate.undelete.news/uploads/elivosk/KdHduO2FFtFYIjrX6Asgf.jpg',
         about: 'Привет! Меня зовут Илия я обычный человек, муж, папа, фотограф. Люблю путешествовать по скандинавским странам, а так же по России',
         drivLic: 'Водительские права категории В',
-        telegram: 'https://t.me/elivosk',
+        telegram: 'elivosk',
       },
       {
         name: 'Александр',
@@ -35,7 +35,7 @@ module.exports = {
         drivLic: 'Водительские права категории В',
         city: 'Санкт-Петербург',
         transport: 'SKODA OCTAVIA',
-        telegram: 'https://t.me/withalexmazurov',
+        telegram: 'withalexmazurov',
       },
 
     ];
