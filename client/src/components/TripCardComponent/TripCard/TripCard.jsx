@@ -7,7 +7,7 @@ import './tripCardStyle.css';
 export default function TripCard() {
   const allCards = useSelector((state) => state.tripCard);
 
-  // console.log(allCards);
+  console.log(allCards);
   return (
     <div className="containerCard">
       {allCards && allCards?.map((el) => (
