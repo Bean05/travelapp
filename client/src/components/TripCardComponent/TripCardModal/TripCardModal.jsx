@@ -5,12 +5,13 @@ import Modal from '@mui/joy/Modal';
 import ModalDialog from '@mui/joy/ModalDialog';
 import Typography from '@mui/joy/Typography';
 
-export default function TripCardModal() {
+export default function TripCardModal({ oneCard }) {
   const [open, setOpen] = React.useState(false);
+
   return (
     <>
       <Button variant="outlined" color="neutral" onClick={() => setOpen(true)}>
-        готов ехать!
+        Подробнее
       </Button>
       <Transition in={open} timeout={400}>
         {(state) => (
@@ -54,14 +55,88 @@ export default function TripCardModal() {
                 fontSize="1.25em"
                 mb="0.25em"
               >
-                Transition modal
+                <h4>{oneCard.tripName}</h4>
               </Typography>
               <Typography
                 id="fade-modal-dialog-description"
                 textColor="text.tertiary"
               >
-                Using `react-transition-group` to create a fade animation.
+                <strong>
+                  Даты:
+                  {' '}
+                  {' '}
+                </strong>
+                {oneCard.date}
               </Typography>
+              <Typography
+                id="fade-modal-dialog-description"
+                textColor="text.tertiary"
+              >
+                <strong>
+                  Откуда:
+                  {' '}
+
+                </strong>
+                {oneCard.cityStart}
+              </Typography>
+              <Typography
+                id="fade-modal-dialog-description"
+                textColor="text.tertiary"
+              >
+                <strong>
+                  Куда:
+                  {' '}
+                </strong>
+                {oneCard.cityWhere}
+              </Typography>
+
+              <Typography
+                id="fade-modal-dialog-description"
+                textColor="text.tertiary"
+              >
+                <strong>
+                  О поездке:
+                  {' '}
+
+                </strong>
+                {oneCard.aboutTrip}
+              </Typography>
+
+              <Typography
+                id="fade-modal-dialog-description"
+                textColor="text.tertiary"
+              >
+                <strong>
+                  Кого ищу:
+                  {' '}
+
+                </strong>
+                {oneCard.aboutMembers}
+              </Typography>
+
+              <Typography
+                id="fade-modal-dialog-description"
+                textColor="text.tertiary"
+              >
+                <strong>
+                  Cколько человек:
+                  {' '}
+
+                </strong>
+                {oneCard.membersCount}
+
+              </Typography>
+              <Typography>
+                <strong>
+                  Контакты:
+                </strong>
+                {' '}
+                {' '}
+                {oneCard.User.phone}
+              </Typography>
+              <a href={`tg://resolve?domain=${oneCard.User.telegram}`}>
+                Телеграм
+              </a>
             </ModalDialog>
           </Modal>
         )}
