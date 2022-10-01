@@ -7,6 +7,7 @@ import Typography from '@mui/joy/Typography';
 
 export default function TripCardModal({ oneCard }) {
   const [open, setOpen] = React.useState(false);
+
   return (
     <>
       <Button variant="outlined" color="neutral" onClick={() => setOpen(true)}>
@@ -125,6 +126,17 @@ export default function TripCardModal({ oneCard }) {
                 {oneCard.membersCount}
 
               </Typography>
+              <Typography>
+                <strong>
+                  Контакты:
+                </strong>
+                {' '}
+                {' '}
+                {oneCard.User.phone}
+              </Typography>
+              <a href={`tg://resolve?domain=${oneCard.User.telegram}`}>
+                Телеграм
+              </a>
             </ModalDialog>
           </Modal>
         )}
