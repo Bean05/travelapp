@@ -6,3 +6,4 @@ export const UPDATE_POST = 'UPDATE_POST';
 
 // TripCard
 export const SET_ALL_CARDS = 'SET_ALL_CARDS';
+export const ADD_CARD = 'ADD_CARD';

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   Container, Avatar, Grid, Button,
 } from '@mui/material';
 import { ListGroup, ListGroupItem } from 'reactstrap';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { allInfo, editHandler } from '../../redux/actions/userInfoActions';
 import UserComments from '../UserComments';
@@ -14,11 +15,13 @@ export default function UserAccount() {
   const user = useSelector((state) => state.user);
   console.log(user);
 
+
   useEffect(() => { dispatch(allInfo()); }, []);
   useEffect(() => {
     fetch('http://localhost:3001/api/users/session')
       .then((data) => setSession(data));
   }, []);
+
 
   const [editing, setEditing] = useState(false);
   const [input, setInput] = useState({
@@ -52,6 +55,7 @@ export default function UserAccount() {
           </Button>
         ) : (
           <> </>)}
+
 
       <Grid container spacing={2}>
         <Grid item xs={4}>
