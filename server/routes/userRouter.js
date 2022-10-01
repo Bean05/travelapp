@@ -20,6 +20,7 @@ router.post('/signup', async (req, res) => {
         const sessionUser = JSON.parse(JSON.stringify(user));
         delete sessionUser.hashpass;
         req.session.user = sessionUser;
+        req.session.userId = sessionUser.id;
         return res.json(sessionUser);
       }
       return res.sendStatus(401);
@@ -42,6 +43,7 @@ router.post('/signin', async (req, res) => {
         const sessionUser = JSON.parse(JSON.stringify(user));
         delete sessionUser.hashpass;
         req.session.user = sessionUser;
+        req.session.userId = sessionUser.id;
         return res.json(sessionUser);
       }
       return res.sendStatus(401);

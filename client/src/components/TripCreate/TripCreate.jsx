@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -17,11 +17,50 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Stack from '@mui/material/Stack';
+import axios from 'axios';
+// import { useParams } from 'react-router-dom';
 
 const theme = createTheme();
 
 export default function TripCreate() {
 //   const dispatch = useDispatch();
+//   const { id } = useParams();
+
+  //   const [img, setImg] = useState(null);
+  //   const [tripPhoto, setTripPhoto] = useState(null);
+  const [inputs, setInputs] = useState({
+    tripName: '',
+    date: '',
+    cityStart: '',
+    cityWhere: '',
+    aboutMembers: '',
+    aboutTrip: '',
+    membersCount: '',
+    tripPhoto: null,
+  });
+
+  const changeHandlerImg = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.files[0] }));
+  };
+  const changeHandler = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const data = new FormData();
+    data.append('tripPhoto', inputs.tripPhoto);
+    data.append('tripName', inputs.tripName);
+    data.append('date', inputs.date);
+    data.append('cityStart', inputs.cityStart);
+    data.append('cityWhere', inputs.cityWhere);
+    data.append('aboutMembers', inputs.aboutMembers);
+    data.append('aboutTrip', inputs.aboutTrip);
+    data.append('membersCount', inputs.membersCount);
+
+    axios.post('/api/trip/create', data)
+      .then((res) => setInputs(res.data.path));
+  };
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
@@ -68,7 +107,7 @@ export default function TripCreate() {
             {/* <Box component="form" noValidate onSubmit={(e) =>
                 dispatch(signinUser(e, Object.fromEntries(new FormData(e.target))))}
                  sx={{ mt: 1 }}> */}
-            <Box component="form" noValidate sx={{ mt: 1 }}>
+            <Box onSubmit={(e) => submitHandler(e, inputs)} component="form" noValidate sx={{ mt: 1 }}>
 
               <TextField
                 margin="normal"
@@ -79,6 +118,8 @@ export default function TripCreate() {
                 name="tripName"
                 autoComplete="tripName"
                 autoFocus
+                value={inputs.tripName}
+                onChange={changeHandler}
               />
               <TextField
                 margin="normal"
@@ -90,6 +131,8 @@ export default function TripCreate() {
                 id="date"
                 autoComplete="date"
                 autoFocus
+                value={inputs.date}
+                onChange={changeHandler}
               />
               <TextField
                 margin="normal"
@@ -101,6 +144,8 @@ export default function TripCreate() {
                 id="cityStart"
                 autoComplete="cityStart"
                 autoFocus
+                value={inputs.cityStart}
+                onChange={changeHandler}
               />
               <TextField
                 margin="normal"
@@ -112,6 +157,8 @@ export default function TripCreate() {
                 id="cityWhere"
                 autoComplete="cityWhere"
                 autoFocus
+                value={inputs.cityWhere}
+                onChange={changeHandler}
               />
               <TextField
                 margin="normal"
@@ -123,6 +170,8 @@ export default function TripCreate() {
                 id="aboutMembers"
                 autoComplete="aboutMembers"
                 autoFocus
+                value={inputs.aboutMembers}
+                onChange={changeHandler}
               />
               <TextField
                 margin="normal"
@@ -134,6 +183,8 @@ export default function TripCreate() {
                 id="aboutTrip"
                 autoComplete="aboutTrip"
                 autoFocus
+                value={inputs.aboutTrip}
+                onChange={changeHandler}
               />
               <TextField
                 margin="normal"
@@ -145,12 +196,26 @@ export default function TripCreate() {
                 id="membersCount"
                 autoComplete="membersCount"
                 autoFocus
+                value={inputs.membersCount}
+                onChange={changeHandler}
               />
               {/* <input type="file" label="Фото поездки" /> */}
               <Stack direction="row" alignItems="center" spacing={2}>
-                <Button variant="contained" component="label">
+                <Button
+                  variant="contained"
+                  component="label"
+
+                >
                   Фото поездки
-                  <input hidden accept="image/*" name="tripPhoto" multiple type="file" />
+                  <input
+                    hidden
+                    accept="image/*"
+                    name="tripPhoto"
+                    multiple
+                    type="file"
+                    onChange={changeHandlerImg}
+                    // onChange={(e) => setImg(e.target.files[0])}
+                  />
                 </Button>
                 <IconButton color="primary" aria-label="upload picture" component="label">
                   {/* <input hidden accept="image/*" type="file" /> */}

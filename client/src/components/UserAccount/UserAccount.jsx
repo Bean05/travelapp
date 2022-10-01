@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   Container, Avatar, Grid,
 } from '@mui/material';
 // import UserInfo from '../UserInfo';
 import { ListGroup, ListGroupItem } from 'reactstrap';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 export default function UserAccount() {
-  const user = useSelector((state) => state.user);
+  // const user = useSelector((state) => state.user);
   useEffect(() => {
 
   }, []);
-  const [editing, setIditing] = useState(false);
+  // const [editing, setIditing] = useState(false);
 
   return (
     <Container>
-      <Button
+      {/* <Button
         variant="contained"
         onClick={() => dispatch(changeInfo(id))}
         style={{
@@ -23,7 +23,7 @@ export default function UserAccount() {
         }}
       >
         Изменить
-      </Button>
+      </Button> */}
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <Avatar

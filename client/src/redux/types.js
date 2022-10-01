@@ -5,3 +5,4 @@ export const SET_USER_INFO = 'SET_USER_INFO';
 
 // TripCard
 export const SET_ALL_CARDS = 'SET_ALL_CARDS';
+export const ADD_CARD = 'ADD_CARD';
