@@ -29,6 +29,7 @@ function App() {
         <Route path="/user/:id" element={<UserAccount />} />
         <Route path="/page/:id" element={<UserPage />} />
         <Route path="/create" element={<TripCreate />} />
+
       </Routes>
     </Container>
   );

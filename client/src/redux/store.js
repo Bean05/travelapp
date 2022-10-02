@@ -4,6 +4,7 @@ import userReducer from './reducers/userReducer';
 import oneUserInfoReducer from './reducers/oneUserInfoReducer';
 import allUserTripsReducer from './reducers/oneUserTripsReduser';
 import allCommentsReducer from './reducers/allCommentsReducer';
+// import membershipReducer from './reducers/membershipReducer';
 
 export default configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export default configureStore({
     oneUserInfo: oneUserInfoReducer,
     oneUserTrips: allUserTripsReducer,
     allComments: allCommentsReducer,
+    // membership: membershipReducer,
 
   },
 });
