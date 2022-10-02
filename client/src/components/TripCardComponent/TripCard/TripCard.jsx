@@ -38,7 +38,7 @@ export default function TripCard() {
                   {el.cityWhere}
                 </div>
                 <div className="user">
-                  <img src={el?.User.photo} alt={el.User.name} />
+                  <img src={`http://localhost:3001/${el.User.photo}`} alt={el.User.name} />
                   <div className="user-info">
                     Организатор
                     <Link to="/page">
