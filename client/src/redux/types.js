@@ -6,3 +6,6 @@ export const UPDATE_POST = 'UPDATE_POST';
 
 // TripCard
 export const SET_ALL_CARDS = 'SET_ALL_CARDS';
+
+// Membership
+export const SET_ALL_MEMBERS = 'SET_ALL_MEMBERS';

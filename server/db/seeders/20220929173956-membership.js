@@ -4,10 +4,17 @@ module.exports = {
       {
         tripId: 1,
         userId: 2,
+        request: true,
       },
       {
         tripId: 2,
         userId: 1,
+        request: true,
+      },
+      {
+        tripId: 1,
+        userId: 1,
+        request: true,
       },
     ];
 

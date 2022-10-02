@@ -1,11 +1,13 @@
 const express = require('express');
-const { Trip, User } = require('../db/models');
+const { Trip, User, Membership } = require('../db/models');
 
 const router = express.Router();
 
 router.get('/allcards', async (req, res) => {
-  const allCards = await Trip.findAll({ include: User });
-  //   console.log('SERVER', allCards);
+  const allCards = await Trip.findAll({ include: [Membership, User] });
+  //   { include: [{ model: Trip, include: [User] }, User] },
+
+  console.log('SERVER', allCards);
   res.json(allCards);
 });
 
