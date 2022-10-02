@@ -9,13 +9,18 @@ router.post('/signup', fileMiddleware.single('photo'), async (req, res) => {
   const {
     name, email, password, phone, social,
   } = req.body;
+  console.log(req.body);
   if (name && email && password && phone && social
   ) {
     try {
       const [user, created] = await User.findOrCreate({
         where: { email },
         defaults: {
-          name, password: await bcrypt.hash(password, 10), phone, social, photo: req.file.filename,
+          name,
+          password: await bcrypt.hash(password, 10),
+          phone,
+          social,
+          photo: req.file.filename,
         },
       });
       if (created) {
