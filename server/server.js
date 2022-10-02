@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const path = require('path');
 const userRouter = require('./routes/userRouter');
 const tripCardApi = require('./routes/tripCardApi');
 // const membershipApi = require('./routes/membershipApi');
@@ -11,6 +12,9 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// app.use(express.json({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors({
   credentials: true,
