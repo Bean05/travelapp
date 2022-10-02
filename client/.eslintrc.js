@@ -23,5 +23,6 @@ module.exports = {
     'no-console': 0,
     'react/jsx-no-constructed-context-values': 0,
     'default-param-last': 0,
+    'import/no-extraneous-dependencies': 0,
   },
 };

@@ -26,9 +26,10 @@ export default function SignUp() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundImage: 'url(https://otvprim.ru/wp-content/uploads/2019/10/freedom-2768515_960_720-752x440.jpg)',
             backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) => (t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900]),
+            backgroundColor: (t) => (t.palette.mode === 'light'
+              ? t.palette.grey[50] : t.palette.grey[900]),
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

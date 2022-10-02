@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -9,13 +9,46 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useDispatch } from 'react-redux';
-import { signupUser } from '../../redux/actions/userActions';
+import { IconButton, Stack } from '@mui/material';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
+// import { useDispatch } from 'react-redux';
+// import { signupUser } from '../../redux/actions/userActions';
+import axios from 'axios';
 
 const theme = createTheme();
 
 export default function SignUp() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const [inputs, setInputs] = useState({
+    name: '',
+    email: '',
+    password: '',
+    phone: '',
+    social: '',
+    photo: null,
+  });
+
+  const changeHandlerImg = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.files[0] }));
+  };
+  const changeHandler = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const data = new FormData();
+    data.append('name', inputs.name);
+    data.append('email', inputs.email);
+    data.append('password', inputs.password);
+    data.append('phone', inputs.phone);
+    data.append('social', inputs.social);
+    data.append('photo', inputs.photo);
+
+    axios.post('/api/users/signup', data)
+      .then((res) => setInputs(res.data.path));
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
@@ -26,7 +59,7 @@ export default function SignUp() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundImage: 'url(https://dalinfotour.ru/uploads/People_Friends__entertainment__recreation_A_trip_to_the_sea_012981_.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) => (t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900]),
             backgroundSize: 'cover',
@@ -49,7 +82,11 @@ export default function SignUp() {
             <Typography component="h1" variant="h5">
               Регистрация
             </Typography>
-            <Box component="form" noValidate onSubmit={(e) => dispatch(signupUser(e, Object.fromEntries(new FormData(e.target))))} sx={{ mt: 1 }}>
+            {/* <Box component="form" noValidate
+            onSubmit={(e) => dispatch(signupUser(e,
+            Object.fromEntries(new FormData(e.target))))} sx={{ mt: 1 }}> */}
+            <Box onSubmit={(e) => submitHandler(e, inputs)} component="form" noValidate sx={{ mt: 1 }}>
+
               <TextField
                 margin="normal"
                 required
@@ -59,6 +96,8 @@ export default function SignUp() {
                 name="name"
                 autoComplete="name"
                 autoFocus
+                value={inputs.name}
+                onChange={changeHandler}
               />
               <TextField
                 margin="normal"
@@ -69,6 +108,8 @@ export default function SignUp() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                value={inputs.email}
+                onChange={changeHandler}
               />
               <TextField
                 margin="normal"
@@ -79,16 +120,8 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="age"
-                label="Возраст"
-                name="age"
-                autoComplete="age"
-                autoFocus
+                value={inputs.password}
+                onChange={changeHandler}
               />
               <TextField
                 margin="normal"
@@ -99,6 +132,8 @@ export default function SignUp() {
                 name="phone"
                 autoComplete="phone"
                 autoFocus
+                value={inputs.phone}
+                onChange={changeHandler}
               />
               <TextField
                 margin="normal"
@@ -109,8 +144,10 @@ export default function SignUp() {
                 name="social"
                 autoComplete="social"
                 autoFocus
+                value={inputs.social}
+                onChange={changeHandler}
               />
-              <TextField
+              {/* <TextField
                 margin="normal"
                 required
                 fullWidth
@@ -119,7 +156,29 @@ export default function SignUp() {
                 name="photo"
                 autoComplete="photo"
                 autoFocus
-              />
+              /> */}
+              <Stack direction="row" alignItems="center" spacing={2}>
+                <Button
+                  variant="contained"
+                  component="label"
+
+                >
+                  Аватарка
+                  <input
+                    hidden
+                    accept="image/*"
+                    name="photo"
+                    multiple
+                    type="file"
+                    onChange={changeHandlerImg}
+                    // onChange={(e) => setImg(e.target.files[0])}
+                  />
+                </Button>
+                <IconButton color="primary" aria-label="upload picture" component="label">
+                  {/* <input hidden accept="image/*" type="file" /> */}
+                  <PhotoCamera />
+                </IconButton>
+              </Stack>
               <Button
                 type="submit"
                 fullWidth
