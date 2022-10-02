@@ -15,7 +15,7 @@ export default function TripCard() {
           <div className="box">
             <div className="card">
               <div className="card-header">
-                <img src={el.tripPhoto} alt={el.tripName} />
+                <img src={`http://localhost:3001/${el.tripPhoto}`} alt={el.tripName} />
               </div>
               <div className="card-body">
                 {/* <span className="tag tag-teal">{el.tripName}</span> */}

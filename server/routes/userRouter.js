@@ -1,20 +1,21 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
+const fileMiddleware = require('../middleware/file');
 
 const router = express.Router();
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', fileMiddleware.single('photo'), async (req, res) => {
   const {
-    name, email, password, phone, social, photo,
+    name, email, password, phone, social,
   } = req.body;
-  if (name && email && password && phone && social && photo
+  if (name && email && password && phone && social
   ) {
     try {
       const [user, created] = await User.findOrCreate({
         where: { email },
         defaults: {
-          name, password: await bcrypt.hash(password, 10), phone, social, photo,
+          name, password: await bcrypt.hash(password, 10), phone, social, photo: req.file.filename,
         },
       });
       if (created) {
