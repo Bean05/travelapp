@@ -90,7 +90,7 @@ export default function SignUp() {
                 autoComplete="phone"
                 autoFocus
               />
-              {/* <TextField
+              <TextField
                 margin="normal"
                 required
                 fullWidth
@@ -99,8 +99,8 @@ export default function SignUp() {
                 name="social"
                 autoComplete="social"
                 autoFocus
-              /> */}
-              {/* <TextField
+              />
+              <TextField
                 margin="normal"
                 required
                 fullWidth
@@ -109,7 +109,7 @@ export default function SignUp() {
                 name="photo"
                 autoComplete="photo"
                 autoFocus
-              /> */}
+              />
               <Button
                 type="submit"
                 fullWidth

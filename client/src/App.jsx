@@ -29,7 +29,6 @@ function App() {
         <Route path="/page/:id" element={<UserAccount />} />
         <Route path="/create" element={<TripCreate />} />
 
-
       </Routes>
     </Container>
   );
