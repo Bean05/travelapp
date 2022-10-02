@@ -7,8 +7,6 @@ export default function userReducer(state = {}, action) {
       return payload;
     case LOGOUT:
       return {};
-    // case SET_USER_INFO:
-    //   return payload;
     default:
       return state;
   }

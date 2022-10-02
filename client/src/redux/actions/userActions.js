@@ -31,13 +31,13 @@ export const logoutUserAsync = () => (dispatch) => {
 };
 
 export const allInfo = (id) => (dispatch) => {
-  axios(`api/users/page/${id}`)
+  axios(`/api/users/user/${id}`)
     .then((res) => dispatch(setAuthUser(res.data)))
     .catch(console.log);
 };
 
 export const editHandler = (id, input) => (dispatch) => {
-  axios.patch(`/api/users/page/${id}`, input)
+  axios.patch(`/api/users/user/${id}`, input)
     .then((res) => dispatch(setAuthUser(res.data)))
     .catch(console.log);
 };
