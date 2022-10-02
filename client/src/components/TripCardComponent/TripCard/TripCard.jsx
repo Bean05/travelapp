@@ -1,13 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import TripCardModal from '../TripCardModal';
 import './tripCardStyle.css';
 
 export default function TripCard() {
   const allCards = useSelector((state) => state.tripCard);
 
-  console.log(allCards);
+  // console.log(allCards);
+
   return (
     <div className="containerCard">
       {allCards && allCards?.map((el) => (
@@ -15,7 +17,7 @@ export default function TripCard() {
           <div className="box">
             <div className="card">
               <div className="card-header">
-                <img src={`http://localhost:3001/${el.tripPhoto}`} alt={el.tripName} />
+                <img src={el.tripPhoto} alt={el.tripName} />
               </div>
               <div className="card-body">
                 {/* <span className="tag tag-teal">{el.tripName}</span> */}
@@ -38,10 +40,10 @@ export default function TripCard() {
                   {el.cityWhere}
                 </div>
                 <div className="user">
-                  <img src={`http://localhost:3001/${el.User.photo}`} alt={el.User.name} />
+                  <img src={el?.User.photo} alt={el.User.name} />
                   <div className="user-info">
                     Организатор
-                    <Link to="/page">
+                    <Link to={`/page/${el.User.id}`}>
                       <h5>{el.User.name}</h5>
                     </Link>
                   </div>
