@@ -12,6 +12,8 @@ import TripCreate from './components/TripCreate';
 import UserAccount from './components/UserAccount';
 import { checkAuth } from './redux/actions/userActions';
 import ProtectedRoute from './HOCs/ProtectedRoute';
+import UserPage from './components/UserPageComponent/UserPage';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -33,7 +35,9 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/page/:id" element={<UserAccount />} />
           <Route path="/create" element={<TripCreate />} />
+           <Route path="/user/:id" element={<UserAccount />} />
         </Route>
+
       </Routes>
     </Container>
   );

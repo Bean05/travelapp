@@ -5,31 +5,33 @@ import {
 import { ListGroup, ListGroupItem } from 'reactstrap';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { allInfo, editHandler } from '../../redux/actions/userInfoActions';
-import UserComments from '../UserComments';
+import { allInfo, editHandler } from '../../redux/actions/userActions';
+import UserComments from '../UserPageComponent/UserComments';
+// import TripCard from '../TripCardComponent/TripCard';
 
 export default function UserAccount() {
   const dispatch = useDispatch();
-  const [session, setSession] = useState({});
+  // const [session, setSession] = useState({});
 
-  const user = useSelector((state) => state.user);
-  console.log(user);
+  // const user = useSelector((state) => state.user);
+  const tripCard = useSelector((state) => state.tripCard);
+  console.log(tripCard);
 
   useEffect(() => { dispatch(allInfo()); }, []);
-  useEffect(() => {
-    fetch('http://localhost:3001/api/users/session')
-      .then((data) => setSession(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/api/users/session')
+  //     .then((data) => setSession(data));
+  // }, []);
 
   const [editing, setEditing] = useState(false);
   const [input, setInput] = useState({
-    age: user.age,
-    city: user.city,
-    about: user.about,
-    driveLic: user.driverLic,
-    habits: user.habits,
-    pets: user.pets,
-    transport: user.transport,
+    age: tripCard.User.age,
+    city: tripCard.User.city,
+    about: tripCard.User.about,
+    driveLic: tripCard.User.driverLic,
+    habits: tripCard.User.habits,
+    pets: tripCard.User.pets,
+    transport: tripCard.User.transport,
   });
   const inpuntHandler = (e) => (setInput((prev) => ({ ...prev, [e.target.name]: e.target.value })));
 
@@ -40,19 +42,19 @@ export default function UserAccount() {
 
   return (
     <Container>
-      {user.id === session.id
-        ? (
-          <Button
-            variant="contained"
-            onClick={() => setEditing(!editing)}
-            style={{
-              width: '35px', height: '25px', fontSize: '50%',
-            }}
-          >
-            Изменить
-          </Button>
-        ) : (
-          <> </>)}
+      {/* {user.id === session.id
+        ? ( */}
+      <Button
+        variant="contained"
+        onClick={() => setEditing(!editing)}
+        style={{
+          width: '35px', height: '25px', fontSize: '50%',
+        }}
+      >
+        Изменить
+      </Button>
+      {/* ) : (
+          <> </>)} */}
 
       <Grid container spacing={2}>
         <Grid item xs={4}>
@@ -83,7 +85,7 @@ export default function UserAccount() {
               marginTop: '150px', width: '80%', heigh: '100px',
             }}
             >
-              {Object.values(user).filter((info) => (
+              {Object.values(tripCard.User).filter((info) => (
                 <ListGroupItem>
                   {' '}
                   {info !== null}
@@ -93,7 +95,13 @@ export default function UserAccount() {
           )}
         </Grid>
       </Grid>
-      <UserComments />
+      <Grid style={{ marginTop: '40px' }}>
+        <h3>Ближайшие поездки</h3>
+        {/* {user.id }
+        <TripCard /> */}
+        <UserComments />
+
+      </Grid>
     </Container>
   );
 }

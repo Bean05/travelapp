@@ -5,6 +5,8 @@ import Modal from '@mui/joy/Modal';
 import ModalDialog from '@mui/joy/ModalDialog';
 import Typography from '@mui/joy/Typography';
 
+// import { NavLink } from 'react-router-dom';
+
 export default function TripCardModal({ oneCard }) {
   const [open, setOpen] = React.useState(false);
 
@@ -119,11 +121,21 @@ export default function TripCardModal({ oneCard }) {
                 textColor="text.tertiary"
               >
                 <strong>
-                  Cколько человек:
+                  Cколько человек всего:
                   {' '}
-
                 </strong>
                 {oneCard.membersCount}
+
+              </Typography>
+              <Typography
+                id="fade-modal-dialog-description"
+                textColor="text.tertiary"
+              >
+                <strong>
+                  Занято:
+                  {' '}
+                </strong>
+                {oneCard?.Memberships?.length}
 
               </Typography>
               <Typography>
