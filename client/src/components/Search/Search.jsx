@@ -21,7 +21,7 @@ export default function Search() {
     user: '',
   });
   const { searchTrip } = useSelector((state) => state);
-  console.log('searchTrip', searchTrip);
+  // console.log('searchTrip', searchTrip);
   useEffect(() => {
     if (!window.initState?.allBase) {
       dispatch(setTripFunction());
@@ -110,7 +110,7 @@ export default function Search() {
                         <h5>{el.User.name}</h5>
                       </Link>
                     </div>
-                    {console.log('элемент в поиске', el)}
+                    {/* {console.log('элемент в поиске', el)} */}
                   </div>
                   <TripCardModal oneCard={el} />
                 </div>
