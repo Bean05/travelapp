@@ -16,7 +16,6 @@ export default function Home() {
         <h1>Сайт о путешествиях с друзьями</h1>
       </div>
       <TripCard />
-      <input type="file" />
     </div>
   );
 }
