@@ -7,9 +7,7 @@ const router = express.Router();
 router.get('/allcards', async (req, res) => {
   const allCards = await Trip.findAll({ include: [Membership, User] });
   //   { include: [{ model: Trip, include: [User] }, User] },
-
-  console.log('SERVER', allCards);
-  res.json(allCards);
+res.json(allCards);
 });
 
 // создаем карточку

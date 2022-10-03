@@ -15,3 +15,9 @@ export const searchSetTrip = (input) => (dispatch) => {
     .then((res) => dispatch(setAllCards(res.data)))
     .catch(console.log);
 };
+
+export const randomSetTrip = () => (dispatch) => {
+  axios.post('/api/v1/random')
+    .then((res) => dispatch(setAllCards([res.data])))
+    .catch(console.log);
+};
