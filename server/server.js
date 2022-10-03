@@ -5,6 +5,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const userRouter = require('./routes/userRouter');
 const tripCardApi = require('./routes/tripCardApi');
+const tripSearchRouter = require('./routes/tripSearchRouter');
 
 require('dotenv').config();
 
@@ -32,5 +33,6 @@ app.use(session({
 
 app.use('/api/users', userRouter);
 app.use('/api/trip', tripCardApi);
+app.use('/api/v1', tripSearchRouter);
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));
