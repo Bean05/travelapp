@@ -14,14 +14,14 @@ router.get('/page/:id', async (req, res) => {
 });
 
 router.get('/alltripsuser/:id', async (req, res) => {
-  // console.log('okkkk');
+  console.log('okkkk');
   const { id } = req.params;
   const allTrips = await Trip.findAll({ where: { userId: id } });
   // console.log(`ТО, ЧТО ВЫВОДИТ ${allTrips}`);
   res.json(allTrips);
 });
 
-router.get('/page/:id/allComents', async (req, res) => {
+router.get('/allcoments/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const allComents = await Rating.findAll({ where: { userId: id } });
