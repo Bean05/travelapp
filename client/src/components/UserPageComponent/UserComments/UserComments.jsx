@@ -12,6 +12,7 @@ export default function UserComments() {
   useEffect(() => { dispatch(setAllComments(id)); }, []);
 
   const allComments = useSelector((state) => state.allComments);
+  console.log('ALL COMMENT', allComments);
   return (
     <Card
       style={{
