@@ -28,7 +28,7 @@ router.post('/create', fileMiddleware.single('tripPhoto'), async (req, res) => {
       aboutTrip,
       membersCount,
     });
-    console.log('NEEEEWCAAARD', newCard);
+    // console.log('NEEEEWCAAARD', newCard);
     res.json(newCard);
   } catch (error) {
     console.log(error);
