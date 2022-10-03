@@ -14,7 +14,7 @@ export const ALL_USER_TRIPS = 'ALL_USER_TRIPS';
 export const ALL_COMMENTS = 'ALL_COMMENTS';
 
 // Search
-export const SEARCH_TRIP = 'SET_ALL_CARDS';
+export const SEARCH_TRIP = 'SEARCH_TRIP';
 export const SET_TRIP = 'SET_TRIP';
 
 // Membership
