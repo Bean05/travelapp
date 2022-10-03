@@ -41,7 +41,7 @@ router.post('/search', async (req, res) => {
   //   res.json(trip);
   // }
   const trip = await Trip.findAll({ where, include: User });
-  console.log('trip>>>', trip);
+  // console.log('trip>>>', trip);
   res.json(trip);
 });
 
