@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 .searchFatherDiv{
-  margin-top: 200px;
-  margin-bottom: 100px;
+  margin-top: 10px;
+  margin-bottom: 20px;
   white-space: pre-wrap;
   width:100%;
 }
