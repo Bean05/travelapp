@@ -18,6 +18,7 @@ import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Stack from '@mui/material/Stack';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 // import { useParams } from 'react-router-dom';
 
 const theme = createTheme();
@@ -28,6 +29,7 @@ export default function TripCreate() {
 
   //   const [img, setImg] = useState(null);
   //   const [tripPhoto, setTripPhoto] = useState(null);
+  const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     tripName: '',
     date: '',
@@ -60,6 +62,7 @@ export default function TripCreate() {
 
     axios.post('/api/trip/create', data)
       .then((res) => setInputs(res.data.path));
+    navigate('/');
   };
   return (
     <ThemeProvider theme={theme}>

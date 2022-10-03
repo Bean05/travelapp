@@ -14,11 +14,13 @@ import PhotoCamera from '@mui/icons-material/PhotoCamera';
 // import { useDispatch } from 'react-redux';
 // import { signupUser } from '../../redux/actions/userActions';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const theme = createTheme();
 
 export default function SignUp() {
   // const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     name: '',
     email: '',
@@ -47,6 +49,7 @@ export default function SignUp() {
 
     axios.post('/api/users/signup', data)
       .then((res) => setInputs(res.data.path));
+    navigate('/');
   };
 
   return (
@@ -185,7 +188,7 @@ export default function SignUp() {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign Up
+                Регистрация
               </Button>
             </Box>
           </Box>

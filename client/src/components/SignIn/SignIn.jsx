@@ -14,7 +14,7 @@ import { signinUser } from '../../redux/actions/userActions';
 
 const theme = createTheme();
 
-export default function SignUp() {
+export default function SignIn() {
   const dispatch = useDispatch();
   return (
     <ThemeProvider theme={theme}>
@@ -77,7 +77,7 @@ export default function SignUp() {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Авторизация
               </Button>
             </Box>
           </Box>
