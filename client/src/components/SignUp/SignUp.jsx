@@ -11,15 +11,16 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { IconButton, Stack } from '@mui/material';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { signupUser } from '../../redux/actions/userActions';
-import axios from 'axios';
+// import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { signupUser } from '../../redux/actions/userActions';
 
 const theme = createTheme();
 
 export default function SignUp() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     name: '',
@@ -47,9 +48,11 @@ export default function SignUp() {
     data.append('social', inputs.social);
     data.append('photo', inputs.photo);
 
-    axios.post('/api/users/signup', data)
-      .then((res) => setInputs(res.data.path));
-    navigate('/');
+    dispatch(signupUser(e, data, navigate));
+
+    // axios.post('/api/users/signup', data)
+    //   .then((res) => setInputs(res.data.path));
+    // navigate('/');
   };
 
   return (

@@ -107,7 +107,7 @@ export default function Search() {
                     <div className="user-info">
                       Организатор
                       <Link to={`/page/${el.User.id}`}>
-                      <h5>{el.User.name}</h5>
+                        <h5>{el.User.name}</h5>
                       </Link>
                     </div>
                     {console.log('элемент в поиске', el)}
