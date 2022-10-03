@@ -15,7 +15,7 @@ export default function UserAccount() {
   useEffect(() => { dispatch(oneUser(id)); }, []);
 
   const oneUserInfo = useSelector((state) => state.oneUserInfo);
-  // console.log(`ONEUSERINFO FRONT ${oneUserInfo}`);
+  console.log(oneUserInfo);
 
   const social = oneUserInfo?.social;
   const telega = oneUserInfo?.telegram;
