@@ -8,4 +8,3 @@ export const oneUser = (id) => (dispatch) => {
     .then((res) => dispatch(setInfo(res.data)))
     .catch(console.log);
 };
-console.log(oneUser);

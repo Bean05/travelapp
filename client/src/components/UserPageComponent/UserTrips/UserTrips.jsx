@@ -12,7 +12,7 @@ export default function UserTrips() {
   useEffect(() => { dispatch(allUserTrips(id)); }, []);
 
   const allTrips = useSelector((state) => state.oneUserTrips);
-  console.log(allTrips);
+  // console.log(allTrips);
   const oneUserInfo = useSelector((state) => state.oneUserInfo);
   return (
 
@@ -23,7 +23,7 @@ export default function UserTrips() {
           <div className="box">
             <div className="card">
               <div className="card-header">
-                <img src={el?.tripPhoto} alt={el?.tripName} />
+                <img src={`http://localhost:3001/${el?.tripPhoto}`} alt={el?.tripName} />
               </div>
               <div className="card-body">
                 {/* <span className="tag tag-teal">{el.tripName}</span> */}
@@ -46,7 +46,7 @@ export default function UserTrips() {
                   {el?.cityWhere}
                 </div>
                 <div className="user">
-                  <img src={oneUserInfo?.photo} alt={oneUserInfo?.name} />
+                  <img src={`http://localhost:3001/${oneUserInfo?.photo}`} alt={oneUserInfo?.name} />
                 </div>
               </div>
             </div>
