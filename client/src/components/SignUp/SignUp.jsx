@@ -22,6 +22,7 @@ const theme = createTheme();
 export default function SignUp() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [error, setError] = useState(false);
   const [inputs, setInputs] = useState({
     name: '',
     email: '',
@@ -47,8 +48,14 @@ export default function SignUp() {
     data.append('phone', inputs.phone);
     data.append('social', inputs.social);
     data.append('photo', inputs.photo);
-
-    dispatch(signupUser(e, data, navigate));
+    if (inputs.name
+      && inputs.email
+      && inputs.password
+      && inputs.phone
+      && inputs.social
+      && inputs.photo) {
+      dispatch(signupUser(e, data, navigate));
+    } else { setError(true); }
 
     // axios.post('/api/users/signup', data)
     //   .then((res) => setInputs(res.data.path));
@@ -185,6 +192,7 @@ export default function SignUp() {
                   <PhotoCamera />
                 </IconButton>
               </Stack>
+              {error && <p style={{ color: 'red', fontSize: '30px' }}>Заполни все поля</p>}
               <Button
                 type="submit"
                 fullWidth
