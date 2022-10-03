@@ -6,7 +6,12 @@ export const UPDATE_POST = 'UPDATE_POST';
 
 // TripCard
 export const SET_ALL_CARDS = 'SET_ALL_CARDS';
-export const ADD_CARD = 'ADD_CARD';
 
+// Search
+export const SEARCH_TRIP = 'SET_ALL_CARDS';
+export const SET_TRIP = 'SET_TRIP';
+
+export const ADD_CARD = 'ADD_CARD';
 // Membership
 export const SET_ALL_MEMBERS = 'SET_ALL_MEMBERS';
+

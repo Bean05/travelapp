@@ -1,24 +1,56 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import { TextField, Box, Button } from '@mui/material/';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { useDispatch, useSelector } from 'react-redux';
 import './search.css';
+// import axios from 'axios';
+import { addSearch, searchSetTrip, setTripFunction } from '../../redux/actions/searchTripActions';
 
 export default function Search() {
-  const [value, setValue] = React.useState(null);
+  const [valueStart, setValueStart] = React.useState(null);
+  const dispatch = useDispatch();
+  const [input, setInput] = useState({
+    data: '',
+    cityStart: '',
+    cityWhere: '',
+    user: '',
+  });
+  const searchTrip = useSelector((state) => state);
+  console.log('searchTrip', searchTrip);
+  useEffect(() => {
+    if (!window.initState?.allBase) {
+      dispatch(setTripFunction());
+    } else {
+      delete window.initState.allBase;
+    }
+  }, []);
+  const inputHandler = (e) => {
+    setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    dispatch(searchSetTrip({
+      date: valueStart,
+      cityStart: input.cityStart,
+      cityWhere: input.cityWhere,
+      user: input.user,
+    }))
+      .then((data) => dispatch(addSearch(data.data)));
+  };
 
   return (
-    <div className="searchFatherDiv">
+    <form onSubmit={submitHandler} className="searchFatherDiv">
       <Box display="flex" alignItems="center" sx={{ justifyContent: 'center', mt: 2 }}>
-        <h5 className="textSearch">Дата: </h5>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
             className="SearchInput"
             label="Дата"
-            value={value}
+            value={valueStart}
+            name="data"
             onChange={(newValue) => {
-              setValue(newValue);
+              setValueStart(newValue);
             }}
             // eslint-disable-next-line react/jsx-props-no-spreading
             renderInput={(params) => <TextField {...params} />}
@@ -26,20 +58,17 @@ export default function Search() {
         </LocalizationProvider>
       </Box>
       <Box display="flex" alignItems="center" sx={{ justifyContent: 'center', mt: 2 }}>
-        <h5 className="textSearch">Откуда:</h5>
-        <TextField id="outlined-basic" label="Город" variant="outlined" className="SearchInput" />
+        <TextField onChange={inputHandler} value={input.cityStart} name="cityStart" id="outlined-basic" label="Откуда" variant="outlined" className="SearchInput" />
       </Box>
       <Box display="flex" alignItems="center" sx={{ justifyContent: 'center', mt: 2 }}>
-        <h5 className="textSearch">Куда:</h5>
-        <TextField id="outlined-basic" label="Город" variant="outlined" className="SearchInput" />
+        <TextField onChange={inputHandler} value={input.cityWhere} name="cityWhere" id="outlined-basic" label="Куда" variant="outlined" className="SearchInput" />
       </Box>
-      <Box display="flex" alignItems="center" sx={{ justifyContent: 'center', mt: 2, pl: '69%' }}>
-        <Button size="large" variant="outlined">   Найти   </Button>
+      <Box display="flex" alignItems="center" sx={{ justifyContent: 'center', mt: 2, pl: '38%' }}>
+        <Button type="submit" size="large" variant="outlined">   Найти   </Button>
       </Box>
       <Box display="flex" alignItems="center" sx={{ justifyContent: 'center', mt: 2 }}>
-        <h5 className="textSearch">Поиск по организатору:</h5>
-        <TextField id="outlined-basic" label="Организатор" variant="outlined" className="SearchInput" />
+        <TextField onChange={inputHandler} value={input.user} name="user" id="outlined-basic" label="По организатору" variant="outlined" className="SearchInput" />
       </Box>
-    </div>
+    </form>
   );
 }
