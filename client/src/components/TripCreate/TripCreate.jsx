@@ -30,6 +30,7 @@ export default function TripCreate() {
   //   const [img, setImg] = useState(null);
   //   const [tripPhoto, setTripPhoto] = useState(null);
   const navigate = useNavigate();
+  const [error, setError] = useState(false);
   const [inputs, setInputs] = useState({
     tripName: '',
     date: '',
@@ -59,10 +60,18 @@ export default function TripCreate() {
     data.append('aboutMembers', inputs.aboutMembers);
     data.append('aboutTrip', inputs.aboutTrip);
     data.append('membersCount', inputs.membersCount);
-
-    axios.post('/api/trip/create', data)
-      .then((res) => setInputs(res.data.path));
-    navigate('/');
+    if (inputs.tripPhoto
+  && inputs.tripName
+  && inputs.date
+  && inputs.cityStart
+  && inputs.cityWhere
+  && inputs.aboutMembers
+  && inputs.aboutTrip
+  && inputs.membersCount) {
+      axios.post('/api/trip/create', data)
+        .then((res) => setInputs(res.data.path));
+      navigate('/');
+    } else { setError(true); }
   };
   return (
     <ThemeProvider theme={theme}>
@@ -236,7 +245,7 @@ export default function TripCreate() {
                 autoComplete="tripPhoto"
                 autoFocus
               /> */}
-
+              {error && <p style={{ color: 'red', fontSize: '30px' }}>Заполни все поля</p>}
               <Button
                 type="submit"
                 fullWidth

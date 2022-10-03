@@ -1,5 +1,5 @@
 const express = require('express');
-const { Trip, User } = require('../db/models');
+const { Trip, User, Sequelize, sequelize } = require('../db/models');
 
 const router = express.Router();
 router.post('/trip', async (req, res) => {
@@ -13,36 +13,26 @@ router.post('/search', async (req, res) => {
   const {
     cityStart,
     cityWhere,
-    name,
   } = req.body;
   let { date } = req.body;
   const newData = new Date(date);
-  // console.log(date);
   date = `${newData.getFullYear()}-${newData.getMonth() + 1}-${newData.getDate()}`;
-  // console.log('sityStart>>>', sityStart);
-  // console.log('user>>>', user);
-  // console.log('sityWhere>>>', sityWhere);
-  console.log('>>>', date);
-  // eslint-disable-next-line eqeqeq
-  if (date != '1970-1-1' && date != null) {
+  if (date !== '1970-1-1' && date != null) {
     where.push({ date });
   }
   if (cityStart) {
-    where.push({ cityStart });
+    where.push({ cityStart: sequelize.where(sequelize.fn('LOWER', sequelize.col('cityStart')), 'LIKE', `%${cityStart.toLowerCase()}%`) });
   }
   if (cityWhere) {
-    where.push({ cityWhere });
+    where.push({ cityWhere: sequelize.where(sequelize.fn('LOWER', sequelize.col('cityWhere')), 'LIKE', `%${cityWhere.toLowerCase()}%`) });
   }
-  // if (name) {
-  //   where.push({ name });
-  //   console.log('massive', where);
-  //   const trip = await User.findAll({ where });
-  //   console.log('trip>>>юзер', trip);
-  //   res.json(trip);
-  // }
   const trip = await Trip.findAll({ where, include: User });
-  // console.log('trip>>>', trip);
   res.json(trip);
+});
+
+router.post('/random', async (req, res) => {
+  const random = await Trip.findOne({ order: Sequelize.literal('random()'), include: User });
+  res.json(random);
 });
 
 module.exports = router;
