@@ -13,7 +13,7 @@ router.post('/search', async (req, res) => {
   const {
     cityStart,
     cityWhere,
-    user,
+    name,
   } = req.body;
   let { date } = req.body;
   const newData = new Date(date);
@@ -33,10 +33,14 @@ router.post('/search', async (req, res) => {
   if (cityWhere) {
     where.push({ cityWhere });
   }
-  if (user) {
-    //   res.json(userTrip);
-  }
-  const trip = await Trip.findAll({ include: User }, { where });
+  // if (name) {
+  //   where.push({ name });
+  //   console.log('massive', where);
+  //   const trip = await User.findAll({ where });
+  //   console.log('trip>>>юзер', trip);
+  //   res.json(trip);
+  // }
+  const trip = await Trip.findAll({ where, include: User });
   console.log('trip>>>', trip);
   res.json(trip);
 });
