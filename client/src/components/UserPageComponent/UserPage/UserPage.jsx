@@ -19,9 +19,7 @@ export default function UserAccount() {
 
   const social = oneUserInfo?.social;
   const telega = oneUserInfo?.telegram;
-  // const photo =
 
-  // console.log('PHOTO', actualInfo.photo);
   return (
     <Container>
       <Grid container spacing={2}>
