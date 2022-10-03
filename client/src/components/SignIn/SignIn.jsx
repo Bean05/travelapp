@@ -14,8 +14,21 @@ import { signinUser } from '../../redux/actions/userActions';
 
 const theme = createTheme();
 
-export default function SignUp() {
+export default function SignIn() {
   const dispatch = useDispatch();
+  // const [error, setError] = useState(false);
+
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
+  //   const inputs = Object.fromEntries(new FormData(e.target));
+  //   if (Object.values(inputs).every((str) => str.length)) {
+  //     dispatch(signinUser(e, inputs, setError));
+  //   } else {
+  //     setError(true);
+  //   }
+  // };
+  // console.log('Error state:', error);
+
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
@@ -71,13 +84,15 @@ export default function SignUp() {
                 id="password"
                 autoComplete="current-password"
               />
+              {/* {error && <p>Заполни все поля</p>} */}
+
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Авторизация
               </Button>
             </Box>
           </Box>

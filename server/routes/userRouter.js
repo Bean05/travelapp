@@ -114,4 +114,16 @@ router.post('/check', (req, res) => {
   return res.sendStatus(401);
 });
 
+router.get('/user/:id', async (req, res) => {
+  const { id } = req.params;
+  // const userId = req.session?.userId;
+  // console.log('=============>', userId);
+  const oneInfo = await User.findOne({
+    where: { id },
+    attributes: ['name', 'about', 'photo', 'city', 'age', 'social', 'pets', 'habits', 'drivLic', 'transport', 'telegram', 'phone'],
+  });
+  console.log(`ONEINFO ${oneInfo}`);
+  res.json(oneInfo);
+});
+
 module.exports = router;

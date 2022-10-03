@@ -17,3 +17,10 @@ export const addCardAsync = (input) => (dispatch) => {
     })
     .catch(console.log);
 };
+export const upDateCard = (input) => (dispatch) => {
+  axios.patch('/api/trip/update', { input })
+    .then((res) => {
+      dispatch(addCard(res.data));
+    })
+    .catch(console.log);
+};

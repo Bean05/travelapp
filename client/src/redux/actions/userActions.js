@@ -10,6 +10,16 @@ export const checkAuth = () => (dispatch) => {
     .catch(console.log);
 };
 
+// export const signinUser = (e, inputs, setError) => (dispatch) => {
+//   e.preventDefault();
+//   axios.post('/api/users/signin', inputs)
+//     .then((res) => dispatch(setAuthUser(res.data)))
+//     .catch((er) => {
+//       console.log(er);
+//       setError();
+//     });
+// };
+
 export const signinUser = (e, inputs) => (dispatch) => {
   e.preventDefault();
   axios.post('/api/users/signin', inputs)
@@ -17,10 +27,13 @@ export const signinUser = (e, inputs) => (dispatch) => {
     .catch(console.log);
 };
 
-export const signupUser = (e, inputs) => (dispatch) => {
+export const signupUser = (e, inputs, navigate) => (dispatch) => {
   e.preventDefault();
   axios.post('/api/users/signup', inputs)
-    .then((res) => dispatch(setAuthUser(res.data)))
+    .then((res) => {
+      dispatch(setAuthUser(res.data));
+      navigate('/');
+    })
     .catch(console.log);
 };
 
@@ -30,14 +43,14 @@ export const logoutUserAsync = () => (dispatch) => {
     .catch(console.log);
 };
 
-export const allInfo = (id) => (dispatch) => {
-  axios(`/api/users/user/${id}`)
+export const editHandler = (id, input) => (dispatch) => {
+  axios.patch(`/api/users/user/${id}`, input)
     .then((res) => dispatch(setAuthUser(res.data)))
     .catch(console.log);
 };
 
-export const editHandler = (id, input) => (dispatch) => {
-  axios.patch(`/api/users/user/${id}`, input)
+export const allInfo = (id) => (dispatch) => {
+  axios(`/api/users/user/${id}`)
     .then((res) => dispatch(setAuthUser(res.data)))
     .catch(console.log);
 };

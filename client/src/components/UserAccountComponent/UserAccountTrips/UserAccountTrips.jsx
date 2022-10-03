@@ -1,19 +1,18 @@
-// import { Container } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { allUserTrips } from '../../../redux/actions/allUserTripsActions';
 import '../../TripCardComponent/TripCard/tripCardStyle.css';
+import ChangeCardModal from '../ChangeCardModal/ChangeCardModal';
 
-export default function UserTrips() {
+export default function UserAccountTrips() {
   const dispatch = useDispatch();
 
   const { id } = useParams();
   useEffect(() => { dispatch(allUserTrips(id)); }, []);
 
   const allTrips = useSelector((state) => state.oneUserTrips);
-  // console.log(allTrips);
-  const oneUserInfo = useSelector((state) => state.oneUserInfo);
+  const user = useSelector((state) => state.user);
   return (
 
     <div className="containerCard">
@@ -26,7 +25,6 @@ export default function UserTrips() {
                 <img src={`http://localhost:3001/${el?.tripPhoto}`} alt={el?.tripName} />
               </div>
               <div className="card-body">
-                {/* <span className="tag tag-teal">{el.tripName}</span> */}
                 <h4>
                   {el?.tripName}
                 </h4>
@@ -46,13 +44,15 @@ export default function UserTrips() {
                   {el?.cityWhere}
                 </div>
                 <div className="user">
-                  <img src={`http://localhost:3001/${oneUserInfo?.photo}`} alt={oneUserInfo?.name} />
+                  <img src={`http://localhost:3001/${user?.photo}`} alt={user?.name} />
                 </div>
+                <ChangeCardModal />
               </div>
             </div>
           </div>
         </div>
       )))}
+
     </div>
   );
 }
