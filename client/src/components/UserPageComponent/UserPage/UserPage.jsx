@@ -19,7 +19,9 @@ export default function UserAccount() {
   const actualInfo = Object.values(oneUserInfo).filter((el) => typeof el === 'number' || (el !== null && !el.includes('http')));
   const social = oneUserInfo?.social;
   const telega = oneUserInfo?.telegram;
+  // const photo =
 
+  console.log('PHOTO', actualInfo.photo);
   return (
     <Container>
       <Grid container spacing={2}>
@@ -29,7 +31,7 @@ export default function UserAccount() {
             style={{
               marginLeft: '100px', marginTop: '150px', width: '150px', height: '150px',
             }}
-            src={oneUserInfo.photo}
+            src={actualInfo.photo}
           />
         </Grid>
         <Grid item xs={8}>

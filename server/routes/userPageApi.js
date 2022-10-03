@@ -14,10 +14,10 @@ router.get('/page/:id', async (req, res) => {
 });
 
 router.get('/alltripsuser/:id', async (req, res) => {
-  console.log('okkkk');
+  // console.log('okkkk');
   const { id } = req.params;
   const allTrips = await Trip.findAll({ where: { userId: id } });
-  console.log(`ТО, ЧТО ВЫВОДИТ ${allTrips}`);
+  // console.log(`ТО, ЧТО ВЫВОДИТ ${allTrips}`);
   res.json(allTrips);
 });
 
