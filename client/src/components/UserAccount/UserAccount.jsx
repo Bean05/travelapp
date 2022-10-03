@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Container, Avatar, Grid, Button,
 } from '@mui/material';
 import { ListGroup, ListGroupItem } from 'reactstrap';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { allInfo, editHandler } from '../../redux/actions/userActions';
 import UserComments from '../UserPageComponent/UserComments';

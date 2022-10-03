@@ -1,26 +1,33 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
+const fileMiddleware = require('../middleware/file');
 
 const router = express.Router();
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', fileMiddleware.single('photo'), async (req, res) => {
   const {
-    name, email, password, phone, social, photo,
+    name, email, password, phone, social,
   } = req.body;
-  if (name && email && password && phone && social && photo
+  console.log(req.body);
+  if (name && email && password && phone && social
   ) {
     try {
       const [user, created] = await User.findOrCreate({
         where: { email },
         defaults: {
-          name, password: await bcrypt.hash(password, 10), phone, social, photo,
+          name,
+          password: await bcrypt.hash(password, 10),
+          phone,
+          social,
+          photo: req.file.filename,
         },
       });
       if (created) {
         const sessionUser = JSON.parse(JSON.stringify(user));
         delete sessionUser.hashpass;
         req.session.user = sessionUser;
+        req.session.userId = sessionUser.id;
         return res.json(sessionUser);
       }
       return res.sendStatus(401);
@@ -43,6 +50,7 @@ router.post('/signin', async (req, res) => {
         const sessionUser = JSON.parse(JSON.stringify(user));
         delete sessionUser.hashpass;
         req.session.user = sessionUser;
+        req.session.userId = sessionUser.id;
         return res.json(sessionUser);
       }
       return res.sendStatus(401);
