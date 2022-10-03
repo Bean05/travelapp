@@ -9,6 +9,7 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import TripCreate from './components/TripCreate';
 import UserAccount from './components/UserAccount';
+import UserPage from './components/UserPageComponent/UserPage';
 
 function App() {
   // const dispatch = useDispatch();
@@ -21,12 +22,12 @@ function App() {
     <Container>
       <Navbar />
       <Routes>
-
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/page/:id" element={<UserAccount />} />
+        <Route path="/user/:id" element={<UserAccount />} />
+        <Route path="/page/:id" element={<UserPage />} />
         <Route path="/create" element={<TripCreate />} />
 
       </Routes>

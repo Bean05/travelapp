@@ -71,14 +71,14 @@ router.get('/session', (req, res) => {
   res.json(req.session);
 });
 
-router.get('/page/:id', async (req, res) => {
+router.get('/user/:id', async (req, res) => {
   const { id } = req.params;
   const allInfo = await User.findOne({ where: { id } });
   console.log(allInfo);
   res.json(allInfo);
 });
 
-router.post('/page/:id', async (req, res) => {
+router.post('/user/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const reqBody = req.body;
@@ -94,7 +94,7 @@ router.post('/page/:id', async (req, res) => {
   }
 });
 
-router.patch('/page/:id', async (req, res) => {
+router.patch('/user/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const reqBody = req.body;
