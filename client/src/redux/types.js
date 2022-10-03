@@ -12,6 +12,7 @@ export const ADD_CARD = 'ADD_CARD';
 export const SET_ONE_INFO = 'SET_ONE_INFO';
 export const ALL_USER_TRIPS = 'ALL_USER_TRIPS';
 export const ALL_COMMENTS = 'ALL_COMMENTS';
+export const ADD_COMMENT = 'ADD_COMMENT';
 
 // Search
 export const SEARCH_TRIP = 'SEARCH_TRIP';

@@ -7,7 +7,8 @@ const router = express.Router();
 router.get('/allcards', async (req, res) => {
   const allCards = await Trip.findAll({ include: [Membership, User] });
   //   { include: [{ model: Trip, include: [User] }, User] },
-res.json(allCards);
+  // console.log('SERVER', allCards);
+  res.json(allCards);
 });
 
 // создаем карточку
@@ -28,7 +29,7 @@ router.post('/create', fileMiddleware.single('tripPhoto'), async (req, res) => {
       aboutTrip,
       membersCount,
     });
-    console.log('NEEEEWCAAARD', newCard);
+    // console.log('NEEEEWCAAARD', newCard);
     res.json(newCard);
   } catch (error) {
     console.log(error);

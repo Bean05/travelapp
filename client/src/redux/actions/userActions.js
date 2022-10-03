@@ -10,6 +10,16 @@ export const checkAuth = () => (dispatch) => {
     .catch(console.log);
 };
 
+// export const signinUser = (e, inputs, setError) => (dispatch) => {
+//   e.preventDefault();
+//   axios.post('/api/users/signin', inputs)
+//     .then((res) => dispatch(setAuthUser(res.data)))
+//     .catch((er) => {
+//       console.log(er);
+//       setError();
+//     });
+// };
+
 export const signinUser = (e, inputs) => (dispatch) => {
   e.preventDefault();
   axios.post('/api/users/signin', inputs)
@@ -17,10 +27,13 @@ export const signinUser = (e, inputs) => (dispatch) => {
     .catch(console.log);
 };
 
-export const signupUser = (e, inputs) => (dispatch) => {
+export const signupUser = (e, inputs, navigate) => (dispatch) => {
   e.preventDefault();
   axios.post('/api/users/signup', inputs)
-    .then((res) => dispatch(setAuthUser(res.data)))
+    .then((res) => {
+      dispatch(setAuthUser(res.data));
+      navigate('/');
+    })
     .catch(console.log);
 };
 

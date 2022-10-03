@@ -11,14 +11,18 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { IconButton, Stack } from '@mui/material';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { signupUser } from '../../redux/actions/userActions';
-import axios from 'axios';
+// import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { signupUser } from '../../redux/actions/userActions';
 
 const theme = createTheme();
 
 export default function SignUp() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [error, setError] = useState(false);
   const [inputs, setInputs] = useState({
     name: '',
     email: '',
@@ -44,9 +48,18 @@ export default function SignUp() {
     data.append('phone', inputs.phone);
     data.append('social', inputs.social);
     data.append('photo', inputs.photo);
+    if (inputs.name
+      && inputs.email
+      && inputs.password
+      && inputs.phone
+      && inputs.social
+      && inputs.photo) {
+      dispatch(signupUser(e, data, navigate));
+    } else { setError(true); }
 
-    axios.post('/api/users/signup', data)
-      .then((res) => setInputs(res.data.path));
+    // axios.post('/api/users/signup', data)
+    //   .then((res) => setInputs(res.data.path));
+    // navigate('/');
   };
 
   return (
@@ -179,13 +192,14 @@ export default function SignUp() {
                   <PhotoCamera />
                 </IconButton>
               </Stack>
+              {error && <p style={{ color: 'red', fontSize: '30px' }}>Заполни все поля</p>}
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign Up
+                Регистрация
               </Button>
             </Box>
           </Box>
