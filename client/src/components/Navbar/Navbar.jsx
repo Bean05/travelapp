@@ -30,7 +30,7 @@ function Navbar() {
                 <Button component={NavLink} to="/search" variant="filled">
                   Найти поездку
                 </Button>
-                <Button component={NavLink} to="/page" variant="filled">
+                <Button component={NavLink} to={`/user/${user.id}`} variant="filled">
                   Личная страница
                 </Button>
                 <IconButton onClick={() => dispatch(logoutUserAsync())} edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>

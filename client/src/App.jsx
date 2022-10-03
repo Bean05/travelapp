@@ -9,7 +9,7 @@ import Search from './components/Search';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import TripCreate from './components/TripCreate';
-import UserAccount from './components/UserAccount';
+import UserAccount from './components/UserAccountComponent/UserAccount';
 import { checkAuth } from './redux/actions/userActions';
 import ProtectedRoute from './HOCs/ProtectedRoute';
 import UserPage from './components/UserPageComponent/UserPage';
