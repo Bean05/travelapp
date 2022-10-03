@@ -14,7 +14,6 @@ import { checkAuth } from './redux/actions/userActions';
 import ProtectedRoute from './HOCs/ProtectedRoute';
 import UserPage from './components/UserPageComponent/UserPage';
 
-
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -33,9 +32,9 @@ function App() {
         </Route>
         <Route element={<ProtectedRoute redirect="/signup" isAllowed={!!user.id} />}>
           <Route path="/search" element={<Search />} />
-          <Route path="/page/:id" element={<UserAccount />} />
+          <Route path="/page/:id" element={<UserPage />} />
           <Route path="/create" element={<TripCreate />} />
-           <Route path="/user/:id" element={<UserAccount />} />
+          <Route path="/user/:id" element={<UserAccount />} />
         </Route>
 
       </Routes>
