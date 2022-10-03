@@ -5,7 +5,6 @@ import {
 } from '@mui/material';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 import { useSelector, useDispatch } from 'react-redux';
-// import UserComments from '../UserComments';
 import { oneUser } from '../../../redux/actions/oneUserInfoActions';
 import UserTrips from '../UserTrips/UserTrips';
 import UserComments from '../UserComments';
