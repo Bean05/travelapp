@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   const allMembers = await Membership.findAll(
     { include: [{ model: Trip, include: [User] }, User] },
   );
-  console.log(allMembers);
+  // console.log(allMembers);
   //   const allMembers = await Membership.findAll({ include: User });
   res.json(allMembers);
 });
@@ -21,6 +21,5 @@ router.get('/', async (req, res) => {
 //   //   const allMembers = await Membership.findAll({ include: User });
 //   res.json(allMembers);
 // });
-
 
 module.exports = router;

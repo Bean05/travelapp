@@ -16,5 +16,6 @@ export default configureStore({
     allComments: allCommentsReducer,
     searchTrip: searchTripReducer,
     membership: membershipReducer,
+
   },
 });

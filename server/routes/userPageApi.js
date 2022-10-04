@@ -1,6 +1,6 @@
 const express = require('express');
 const {
-  User, Trip, Rating, Membership,
+  User, Trip, Rating,
 } = require('../db/models');
 
 const router = express.Router();
