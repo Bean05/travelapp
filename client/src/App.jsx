@@ -14,6 +14,7 @@ import { checkAuth } from './redux/actions/userActions';
 import ProtectedRoute from './HOCs/ProtectedRoute';
 import UserPage from './components/UserPageComponent/UserPage';
 import Test from './components/Testoviy';
+import LoaderWrapper from './HOCs/LoaderWrapper';
 
 function App() {
   const dispatch = useDispatch();
@@ -24,21 +25,23 @@ function App() {
   const user = useSelector((state) => state.user);
   return (
     <Container>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route element={<ProtectedRoute redirect="/" isAllowed={!user.id} />}>
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/signin" element={<SignIn />} />
-        </Route>
-        <Route element={<ProtectedRoute redirect="/signup" isAllowed={user.id} />}>
-          <Route path="/search" element={<Search />} />
-          <Route path="/page/:id" element={<UserPage />} />
-          <Route path="/create" element={<TripCreate />} />
-          <Route path="/user/:id" element={<UserAccount />} />
-          <Route path="test" element={<Test />} />
-        </Route>
-      </Routes>
+      <LoaderWrapper>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route element={<ProtectedRoute redirect="/" isAllowed={!user.id} />}>
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/signin" element={<SignIn />} />
+          </Route>
+          <Route element={<ProtectedRoute redirect="/signup" isAllowed={user.id} />}>
+            <Route path="/search" element={<Search />} />
+            <Route path="/page/:id" element={<UserPage />} />
+            <Route path="/create" element={<TripCreate />} />
+            <Route path="/user/:id" element={<UserAccount />} />
+            <Route path="test" element={<Test />} />
+          </Route>
+        </Routes>
+      </LoaderWrapper>
     </Container>
   );
 }
