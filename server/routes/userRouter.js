@@ -9,7 +9,6 @@ router.post('/signup', fileMiddleware.single('photo'), async (req, res) => {
   const {
     name, email, password, phone, social,
   } = req.body;
-  console.log(req.body);
   if (name && email && password && phone && social
   ) {
     try {
@@ -32,7 +31,7 @@ router.post('/signup', fileMiddleware.single('photo'), async (req, res) => {
       }
       return res.sendStatus(401);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       return res.sendStatus(500);
     }
   }
@@ -55,7 +54,7 @@ router.post('/signin', async (req, res) => {
       }
       return res.sendStatus(401);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       return res.sendStatus(500);
     }
   }
@@ -74,7 +73,7 @@ router.get('/session', (req, res) => {
 router.get('/user/:id', async (req, res) => {
   const { id } = req.params;
   const allInfo = await User.findOne({ where: { id } });
-  console.log(allInfo);
+  // console.log(allInfo);
   res.json(allInfo);
 });
 
@@ -82,7 +81,7 @@ router.post('/user/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const reqBody = req.body;
-    console.log(reqBody);
+    // console.log(reqBody);
     delete reqBody.password;
     const oneInfo = await User.findOne({ where: { id } });
     Object.assign(oneInfo, reqBody);
@@ -116,8 +115,6 @@ router.post('/check', (req, res) => {
 
 router.get('/user/:id', async (req, res) => {
   const { id } = req.params;
-  // const userId = req.session?.userId;
-  // console.log('=============>', userId);
   const oneInfo = await User.findOne({
     where: { id },
     attributes: ['name', 'about', 'photo', 'city', 'age', 'social', 'pets', 'habits', 'drivLic', 'transport', 'telegram', 'phone'],

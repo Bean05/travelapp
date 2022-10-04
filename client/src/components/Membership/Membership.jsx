@@ -23,7 +23,7 @@ export default function Membership() {
   }, []);
   return (
     <div className="containerCard">
-      <h3>Я учавствую</h3>
+      <h3>Я участвую</h3>
       {allTrip && allTrip.length < 1 ? (<div>Поездок еще нет</div>) : (allTrip.map((el) => (
         <div key={el?.Trip.id}>
           <div className="box">

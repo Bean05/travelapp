@@ -1,5 +1,7 @@
 const express = require('express');
-const { Trip, User, Sequelize, sequelize } = require('../db/models');
+const {
+  Trip, User, Sequelize, sequelize,
+} = require('../db/models');
 
 const router = express.Router();
 router.post('/trip', async (req, res) => {
