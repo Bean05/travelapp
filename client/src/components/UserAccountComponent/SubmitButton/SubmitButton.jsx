@@ -19,7 +19,7 @@ export default function SubmitButton({ tripId }) {
   //   console.log('все поездки вообще: ', membership);
   //   const [status, setStatus] = useState();
   const { id } = useParams();
-  console.log(id);
+  //   console.log(id);
   const allTrip = membership.filter((el) => el.Trip.User.id === +id);
   const value1 = allTrip.filter((el) => el.request === null);
 

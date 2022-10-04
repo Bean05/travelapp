@@ -21,3 +21,6 @@ export const SET_TRIP = 'SET_TRIP';
 
 // Membership
 export const SET_ALL_MEMBERS = 'SET_ALL_MEMBERS';
+
+// State
+export const SET_ALL_STATE = 'SET_ALL_STATE';
