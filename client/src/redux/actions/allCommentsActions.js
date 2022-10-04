@@ -10,9 +10,9 @@ export const setAllComments = (id) => (dispatch) => {
     .then(console.log());
 };
 
-export const submitMessage = (e, inputs, setInput, id) => (dispatch) => {
+export const submitMessage = (e, input, setInput, id) => (dispatch) => {
   e.preventDefault();
-  axios.post(`/api/userinfo/allcoments/${id}`, { inputs })
+  axios.post(`/api/userinfo/newcoment/${id}`, input)
     .then((res) => {
       dispatch(addComments(res.data));
       setInput('');

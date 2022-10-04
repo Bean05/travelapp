@@ -18,9 +18,13 @@ export default function UserComments() {
 
   const allComments = useSelector((state) => state.allComments);
   // console.log('ALL COMMENT', allComments);
+
   const inputHandler = useCallback((e) => setInput((prev) => (
     { ...prev, [e.target.name]: e.target.value }), []));
-  const addHandler = (e) => dispatch(submitMessage(e, input, setInput));
+  const submitHandler = (e) => {
+    // e.preventDefault();
+    dispatch(submitMessage(e, input, setInput, id));
+  };
 
   console.log(input);
   return (
@@ -62,7 +66,7 @@ export default function UserComments() {
         ))}
       </Card>
       <div>Оставить комментарий обо мне</div>
-      <Box onSubmit={addHandler}>
+      <Box onSubmit={(e) => submitHandler(e, input)} component="form">
         <TextField id="outlined-basic" label="Ваш отзыв" variant="outlined" name="text" value={input.text} onChange={inputHandler} />
         <div style={{ marginTop: '15px' }} />
         <TextField id="outlined-basic" label="Ваш оценка от 1 до 10" variant="outlined" name="stars" value={input.stars} onChange={inputHandler} />
@@ -72,6 +76,7 @@ export default function UserComments() {
         <Button
           color="info"
           variant="outlined"
+          type="submit"
         >
           Оставить отзыв
         </Button>

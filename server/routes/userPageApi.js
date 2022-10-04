@@ -40,11 +40,12 @@ router.get('/allcoments/:id', async (req, res) => {
   }
 });
 
-router.post('allcoments/:id', async (req, res) => {
+router.post('/newcoment/:id', async (req, res) => {
   const { id } = req.params;
+  // console.log('BODYY', req.body);
   const { text, stars, photo } = req.body;
   const newRating = await Rating.create({
-    where: text, photo, stars, userId: id, author: req.session.userId,
+    text, photo, stars, userId: id, author: req.session.userId,
   });
   res.json(newRating);
 });
