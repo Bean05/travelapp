@@ -9,7 +9,7 @@ export default function UserTrips() {
   const dispatch = useDispatch();
 
   const { id } = useParams();
-  useEffect(() => { dispatch(allUserTrips(id)); }, []);
+  useEffect(() => { dispatch(allUserTrips(id)); }, [id]);
 
   const allTrips = useSelector((state) => state.oneUserTrips);
   // console.log(allTrips);

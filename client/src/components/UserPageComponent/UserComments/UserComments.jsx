@@ -16,7 +16,7 @@ export default function UserComments() {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  useEffect(() => { dispatch(setAllComments(id)); }, []);
+  useEffect(() => { dispatch(setAllComments(id)); }, [id]);
 
   const allComments = useSelector((state) => state.allComments);
 
@@ -26,6 +26,8 @@ export default function UserComments() {
   const submitHandler = () => {
     dispatch(submitMessage(input, setInput, id));
   };
+
+  console.log(allComments);
 
   return (
     <>

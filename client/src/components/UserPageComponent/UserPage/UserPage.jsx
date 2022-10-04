@@ -12,7 +12,7 @@ import UserComments from '../UserComments';
 export default function UserAccount() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  useEffect(() => { dispatch(oneUser(id)); }, []);
+  useEffect(() => { dispatch(oneUser(id)); }, [id]);
 
   const oneUserInfo = useSelector((state) => state.oneUserInfo);
   console.log(oneUserInfo);
