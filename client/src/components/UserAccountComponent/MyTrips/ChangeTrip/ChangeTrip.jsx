@@ -5,11 +5,12 @@ import Modal from '@mui/joy/Modal';
 import ModalDialog from '@mui/joy/ModalDialog';
 import Typography from '@mui/joy/Typography';
 import TextField from '@mui/material/TextField';
-import Paper from '@mui/material/Paper';
+// import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import { CssBaseline } from '@mui/material';
 
 export default function ChangeTrip({ tripId }) {
   //   const dispatch = useDispatch();
@@ -82,75 +83,64 @@ export default function ChangeTrip({ tripId }) {
                 }[state],
               }}
             >
-              <Grid container component="main" sx={{ height: '100vh' }}>
+              <Grid container component="main" sx={{ height: '50vh' }}>
+                <CssBaseline />
+                <div style={{ margin: '15px' }}>
+                  <Typography component="h1" variant="h5">
+                    Создать поездку
+                  </Typography>
+                  <Box onSubmit={(e) => submitHandler(e, inputs)} component="form" noValidate sx={{ mt: 1 }}>
 
-                <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-                  <Box
-                    sx={{
-                      my: 8,
-                      mx: 4,
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                    }}
-                  >
-
-                    <Typography component="h1" variant="h5">
-                      Создать поездку
-                    </Typography>
-                    <Box onSubmit={(e) => submitHandler(e, inputs)} component="form" noValidate sx={{ mt: 1 }}>
-
-                      <TextField
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="aboutMembers"
-                        label="Предпочтения"
-                        type="aboutMembers"
-                        id="aboutMembers"
-                        autoComplete="aboutMembers"
-                        autoFocus
-                        value={inputs.aboutMembers}
-                        onChange={changeHandler}
-                      />
-                      <TextField
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="aboutTrip"
-                        label="Подробнее о поездке"
-                        type="aboutTrip"
-                        id="aboutTrip"
-                        autoComplete="aboutTrip"
-                        autoFocus
-                        value={inputs.aboutTrip}
-                        onChange={changeHandler}
-                      />
-                      <TextField
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="membersCount"
-                        label="Количество участников"
-                        type="membersCount"
-                        id="membersCount"
-                        autoComplete="membersCount"
-                        autoFocus
-                        value={inputs.membersCount}
-                        onChange={changeHandler}
-                      />
-                      <Button
-                        type="submit"
-                        onSubmit={(e) => submitHandler(e, inputs)}
-                        fullWidth
-                        variant="contained"
-                        sx={{ mt: 3, mb: 2 }}
-                      >
-                        Поменять!
-                      </Button>
-                    </Box>
+                    <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      name="aboutMembers"
+                      label="Предпочтения"
+                      type="aboutMembers"
+                      id="aboutMembers"
+                      autoComplete="aboutMembers"
+                      autoFocus
+                      value={inputs.aboutMembers}
+                      onChange={changeHandler}
+                    />
+                    <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      name="aboutTrip"
+                      label="Подробнее о поездке"
+                      type="aboutTrip"
+                      id="aboutTrip"
+                      autoComplete="aboutTrip"
+                      autoFocus
+                      value={inputs.aboutTrip}
+                      onChange={changeHandler}
+                    />
+                    <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      name="membersCount"
+                      label="Количество участников"
+                      type="membersCount"
+                      id="membersCount"
+                      autoComplete="membersCount"
+                      autoFocus
+                      value={inputs.membersCount}
+                      onChange={changeHandler}
+                    />
+                    <Button
+                      type="submit"
+                      onSubmit={(e) => submitHandler(e, inputs)}
+                      fullWidth
+                      variant="contained"
+                      sx={{ mt: 3, mb: 2 }}
+                    >
+                      Поменять!
+                    </Button>
                   </Box>
-                </Grid>
+                </div>
               </Grid>
             </ModalDialog>
           </Modal>

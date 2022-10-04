@@ -7,9 +7,8 @@ import ChangeTrip from '../ChangeTrip';
 
 export default function UserAccountTrips() {
   const dispatch = useDispatch();
-  // const [edit, setEdit] = useState(false);
-
   const { id } = useParams();
+
   useEffect(() => { dispatch(allUserTrips(id)); }, []);
 
   const allTrips = useSelector((state) => state.oneUserTrips);
@@ -48,7 +47,7 @@ export default function UserAccountTrips() {
                   <img src={`http://localhost:3001/${user?.photo}`} alt={user?.name} />
                 </div>
                 <ChangeTrip tripId={el.id} />
-                <SubmitButton tripId={el.id} />
+                <SubmitButton />
               </div>
             </div>
           </div>
