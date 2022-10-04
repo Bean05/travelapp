@@ -1,15 +1,23 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
 import { Transition } from 'react-transition-group';
 import Button from '@mui/joy/Button';
 import Modal from '@mui/joy/Modal';
 import ModalDialog from '@mui/joy/ModalDialog';
 import Typography from '@mui/joy/Typography';
+import { addMemberAsync } from '../../../redux/actions/tripCardActions';
 
 // import { NavLink } from 'react-router-dom';
 
 export default function TripCardModal({ oneCard }) {
   const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch();
 
+  const clickHandler = (id) => {
+    dispatch(addMemberAsync(id));
+  };
+  // console.log('------', oneCard);
   return (
     <>
       <Button variant="outlined" color="neutral" onClick={() => setOpen(true)}>
@@ -155,11 +163,16 @@ export default function TripCardModal({ oneCard }) {
                 {' '}
                 {oneCard.User.phone}
               </Typography>
+
               {oneCard?.User?.telegram !== null ? (
                 <a href={`tg://resolve?domain=${oneCard.User.telegram}`}>
                   Телеграм
                 </a>
               ) : ''}
+              <Button onClick={() => clickHandler(oneCard.id)} variant="outlined" color="neutral">
+                Еду
+              </Button>
+
             </ModalDialog>
           </Modal>
         )}

@@ -37,30 +37,27 @@ router.post('/create', fileMiddleware.single('tripPhoto'), async (req, res) => {
   // const newCard = await Trip.create({ tripName: input }); // прописать все поля
   // res.json(newCard);
 });
-router.patch('/update', fileMiddleware.single('tripPhoto'), async (req, res) => {
+router.patch('/update/:id', fileMiddleware.single('tripPhoto'), async (req, res) => {
   try {
-    const {
-      tripName, date, cityStart, cityWhere, aboutMembers, aboutTrip, membersCount,
-    } = req.body;
-    const { userId } = req.session;
-    const newCard = await Trip.update({
-      tripPhoto: req.file.filename,
-      userId,
-      tripName,
-      date,
-      cityStart,
-      cityWhere,
-      aboutMembers,
-      aboutTrip,
-      membersCount,
-    });
-    // console.log('NEEEEWCAAARD', newCard);
-    res.json(newCard);
+    console.log('======================>', req.body);
+    const { id } = req.params;
+    await Trip.update(req.body, { where: { id } });
+    res.sendStatus(200);
   } catch (error) {
     console.log(error);
   }
-  // const { input } = req.body;
-  // const newCard = await Trip.create({ tripName: input }); // прописать все поля
-  // res.json(newCard);
+});
+
+router.patch('/newmember/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const newMember = await Membership.create(
+      { tripId: id, userId: req.session.userId, request: null },
+    );
+    // console.log('newmember ---', newMember);
+    res.json(newMember);
+  } catch (error) {
+    console.log(error);
+  }
 });
 module.exports = router;

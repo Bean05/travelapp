@@ -8,3 +8,10 @@ export const setAllMembersAsync = () => (dispatch) => {
     .then((res) => dispatch(setAllMembers(res.data)))
     .catch(console.log);
 };
+
+// export const oneUserMembersAsync = (id) => (dispatch) => {
+//   axios(`/api/membership/${id}`)
+//     .then((res) => dispatch(setAllMembers(res.data)))
+//     .catch(console.log);
+// };
+
