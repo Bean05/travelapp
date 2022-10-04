@@ -41,25 +41,68 @@ export default function UserAccount() {
             }}
           >
             <ListGroupItem>
+              <strong>Имя:</strong>
+              {' '}
               {oneUserInfo?.name}
             </ListGroupItem>
             <ListGroupItem>
+              <strong>Обо мне:</strong>
+              {' '}
               {oneUserInfo?.about}
             </ListGroupItem>
-            {oneUserInfo?.age !== null ? <ListGroupItem>{oneUserInfo.age}</ListGroupItem> : <> </>}
+            {oneUserInfo?.age !== null ? (
+              <ListGroupItem>
+                {' '}
+                <strong>Возраст:</strong>
+                {' '}
+                {oneUserInfo.age}
+              </ListGroupItem>
+            ) : <> </>}
             <ListGroupItem>
+              <strong> Телефон:</strong>
+              {' '}
               {oneUserInfo?.phone}
             </ListGroupItem>
             {oneUserInfo?.pets !== null
-              ? <ListGroupItem>{oneUserInfo.pets}</ListGroupItem> : <> </>}
+              ? (
+                <ListGroupItem>
+                  <strong> Мои домашние питомцы: </strong>
+                  {' '}
+                  {oneUserInfo.pets}
+                </ListGroupItem>
+              ) : <> </>}
             {oneUserInfo?.habits !== null
-              ? <ListGroupItem>{oneUserInfo.habits}</ListGroupItem> : <> </>}
+              ? (
+                <ListGroupItem>
+                  <strong> Мои привычки:</strong>
+                  {' '}
+                  {oneUserInfo.habits}
+                </ListGroupItem>
+              ) : <> </>}
             {oneUserInfo?.city !== null
-              ? <ListGroupItem>{oneUserInfo.city}</ListGroupItem> : <> </>}
+              ? (
+                <ListGroupItem>
+                  <strong>  Откуда я: </strong>
+                  {' '}
+                  {oneUserInfo.city}
+                </ListGroupItem>
+              ) : <> </>}
             {oneUserInfo?.drivLic !== null
-              ? <ListGroupItem>{oneUserInfo.drivLic}</ListGroupItem> : <> </>}
+              ? (
+                <ListGroupItem>
+                  <strong> Категория прав: </strong>
+                  {' '}
+                  {oneUserInfo.drivLic}
+                </ListGroupItem>
+              ) : <> </>}
             {oneUserInfo?.transport !== null
-              ? <ListGroupItem>{oneUserInfo?.transport}</ListGroupItem> : <> </>}
+              ? (
+                <ListGroupItem>
+                  <strong>  Мой траспорт: </strong>
+                  {' '}
+                  {oneUserInfo?.transport}
+                </ListGroupItem>
+              ) : <> </>}
             <ListGroupItem key={social}>
               <a href={social} style={{ textDecoration: 'none' }}>
                 <img
@@ -68,17 +111,20 @@ export default function UserAccount() {
                   style={{ width: '30px', heigh: '30px' }}
                 />
                 {' '}
-                Моя соц.сеть
+                <strong>  Моя соц.сеть </strong>
               </a>
             </ListGroupItem>
-            <ListGroupItem key={telega}>
-              <a
-                href={`tg://resolve?domain=${telega}`}
-                style={{ textDecoration: 'none' }}
-              >
-                Связаться со мной в  Телеграм
-              </a>
-            </ListGroupItem>
+            {oneUserInfo?.telegram !== null
+              ? (
+                <ListGroupItem key={telega}>
+                  <a
+                    href={`tg://resolve?domain=${telega}`}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    Связаться со мной в  Телеграм
+                  </a>
+                </ListGroupItem>
+              ) : <> </>}
           </ListGroup>
         </Grid>
       </Grid>

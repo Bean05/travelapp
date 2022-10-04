@@ -36,8 +36,8 @@ export default function TripCardModal({ oneCard }) {
                   backdropFilter: 'none',
                   transition: 'opacity 400ms, backdrop-filter 400ms',
                   ...{
-                    entering: { opacity: 1, backdropFilter: 'blur(8px)' },
-                    entered: { opacity: 1, backdropFilter: 'blur(8px)' },
+                    entering: { opacity: 1, backdropFilter: 'blur(50px)' },
+                    entered: { opacity: 1, backdropFilter: 'blur(50px)' },
                   }[state],
                 },
               },
@@ -59,17 +59,18 @@ export default function TripCardModal({ oneCard }) {
               }}
             >
               <Typography
-                id="fade-modal-dialog-title"
-                component="h2"
-                level="inherit"
-                fontSize="1.25em"
-                mb="0.25em"
+                id="fade-modal-dialog-description"
+                // component="h2"
+                // level="inherit"
+                fontSize="10px"
+                // mb="0.25em"
               >
                 <h4>{oneCard.tripName}</h4>
               </Typography>
               <Typography
                 id="fade-modal-dialog-description"
                 textColor="text.tertiary"
+                fontSize="30px"
               >
                 <strong>
                   Даты:
@@ -81,6 +82,7 @@ export default function TripCardModal({ oneCard }) {
               <Typography
                 id="fade-modal-dialog-description"
                 textColor="text.tertiary"
+                fontSize="30px"
               >
                 <strong>
                   Откуда:
@@ -92,6 +94,7 @@ export default function TripCardModal({ oneCard }) {
               <Typography
                 id="fade-modal-dialog-description"
                 textColor="text.tertiary"
+                fontSize="30px"
               >
                 <strong>
                   Куда:
@@ -103,6 +106,7 @@ export default function TripCardModal({ oneCard }) {
               <Typography
                 id="fade-modal-dialog-description"
                 textColor="text.tertiary"
+                fontSize="30px"
               >
                 <strong>
                   О поездке:
@@ -114,6 +118,7 @@ export default function TripCardModal({ oneCard }) {
 
               <Typography
                 id="fade-modal-dialog-description"
+                fontSize="30px"
                 textColor="text.tertiary"
               >
                 <strong>
@@ -126,6 +131,7 @@ export default function TripCardModal({ oneCard }) {
 
               <Typography
                 id="fade-modal-dialog-description"
+                fontSize="30px"
                 textColor="text.tertiary"
               >
                 <strong>
@@ -137,6 +143,7 @@ export default function TripCardModal({ oneCard }) {
               </Typography>
               <Typography
                 id="fade-modal-dialog-description"
+                fontSize="30px"
                 textColor="text.tertiary"
               >
                 <strong>
@@ -146,20 +153,26 @@ export default function TripCardModal({ oneCard }) {
                 {oneCard?.Memberships?.length}
 
               </Typography>
-              <Typography>
+              <Typography
+                fontSize="30px"
+              >
                 <strong>
-                  Контакты:
+                  Телефон:
                 </strong>
                 {' '}
                 {' '}
                 {oneCard.User.phone}
               </Typography>
-              <a href={`tg://resolve?domain=${oneCard.User.telegram}`}>
-                Телеграм
-              </a>
+
+              {oneCard?.User?.telegram !== null ? (
+                <a href={`tg://resolve?domain=${oneCard.User.telegram}`}>
+                  Телеграм
+                </a>
+              ) : ''}
               <Button onClick={() => clickHandler(oneCard.id)} variant="outlined" color="neutral">
                 Еду
               </Button>
+
             </ModalDialog>
           </Modal>
         )}
