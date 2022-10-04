@@ -19,7 +19,7 @@ export default function TripCardModal({ oneCard }) {
   const clickHandler = (id) => {
     dispatch(addMemberAsync(id));
   };
-  // console.log('------', oneCard);
+  // console.log('TripCardModal---oneCard->', oneCard);
   return (
     <>
       <Button variant="outlined" color="neutral" onClick={() => setOpen(true)}>

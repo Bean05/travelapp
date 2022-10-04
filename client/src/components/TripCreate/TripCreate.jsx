@@ -177,7 +177,7 @@ export default function TripCreate() {
                 required
                 fullWidth
                 name="aboutMembers"
-                label="Предпочтения"
+                label="С кем хотелось бы в путь"
                 type="aboutMembers"
                 id="aboutMembers"
                 autoComplete="aboutMembers"
