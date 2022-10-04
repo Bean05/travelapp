@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { allInfo } from '../../../redux/actions/userActions';
 import UserAccountTrips from '../UserAccountTrips';
+import Membership from '../../Membership/Membership';
 
 export default function UserAccount() {
   const dispatch = useDispatch();
@@ -101,6 +102,7 @@ export default function UserAccount() {
         </Grid>
       </Grid>
       <UserAccountTrips />
+      <Membership />
     </Container>
   );
 }
