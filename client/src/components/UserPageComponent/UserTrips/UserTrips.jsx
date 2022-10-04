@@ -17,7 +17,9 @@ export default function UserTrips() {
   return (
 
     <div className="containerCard">
-      <h3>Все поездки</h3>
+      <div>
+        <h5>Поездки, которые я организовал</h5>
+      </div>
       {allTrips && allTrips.length < 1 ? (<div>Поездок еще нет</div>) : (allTrips.map((el) => (
         <div key={el?.id}>
           <div className="box">

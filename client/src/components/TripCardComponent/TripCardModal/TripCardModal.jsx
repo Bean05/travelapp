@@ -140,15 +140,17 @@ export default function TripCardModal({ oneCard }) {
               </Typography>
               <Typography>
                 <strong>
-                  Контакты:
+                  Телефон:
                 </strong>
                 {' '}
                 {' '}
                 {oneCard.User.phone}
               </Typography>
-              <a href={`tg://resolve?domain=${oneCard.User.telegram}`}>
-                Телеграм
-              </a>
+              {oneCard?.User?.telegram !== null ? (
+                <a href={`tg://resolve?domain=${oneCard.User.telegram}`}>
+                  Телеграм
+                </a>
+              ) : ''}
             </ModalDialog>
           </Modal>
         )}

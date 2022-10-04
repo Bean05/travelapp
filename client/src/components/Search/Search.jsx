@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  TextField, Box, Button, Link, Grid,
+  TextField, Box, Button, Grid,
 } from '@mui/material/';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -8,6 +8,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useDispatch, useSelector } from 'react-redux';
 import './search.css';
 // import axios from 'axios';
+import { Link } from 'react-router-dom';
 import {
   addSearch, searchSetTrip, setTripFunction, randomSetTrip,
 } from '../../redux/actions/searchTripActions';
