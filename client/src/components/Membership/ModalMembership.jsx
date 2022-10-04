@@ -1,25 +1,25 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { Transition } from 'react-transition-group';
 import Button from '@mui/joy/Button';
 import Modal from '@mui/joy/Modal';
 import ModalDialog from '@mui/joy/ModalDialog';
 import Typography from '@mui/joy/Typography';
-import { addMemberAsync } from '../../../redux/actions/tripCardActions';
+// import { addMemberAsync } from '../../redux/actions/tripCardActions';
 
 // import { NavLink } from 'react-router-dom';
 
-export default function TripCardModal({ oneCard }) {
+export default function ModalMembership({ oneCard }) {
   const [open, setOpen] = React.useState(false);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const user = useSelector((state) => state.user);
 
-  const clickHandler = (id) => {
-    dispatch(addMemberAsync(id));
-  };
-  // console.log('TripCardModal---oneCard->', oneCard);
+  // const clickHandler = (id) => {
+  //   dispatch(addMemberAsync(id));
+  // };
+  // console.log('------', oneCard);
   return (
     <>
       <Button variant="outlined" color="neutral" onClick={() => setOpen(true)}>
@@ -68,7 +68,7 @@ export default function TripCardModal({ oneCard }) {
                 // level="inherit"
                     fontSize="10px"
                   >
-                    <h4>{oneCard.tripName}</h4>
+                    <h4>{oneCard.Trip.tripName}</h4>
                   </Typography>
                   <Typography
                     id="fade-modal-dialog-description"
@@ -80,7 +80,7 @@ export default function TripCardModal({ oneCard }) {
                       {' '}
                       {' '}
                     </strong>
-                    {oneCard.date}
+                    {oneCard.Trip.date}
                   </Typography>
                   <Typography
                     id="fade-modal-dialog-description"
@@ -92,7 +92,7 @@ export default function TripCardModal({ oneCard }) {
                       {' '}
 
                     </strong>
-                    {oneCard.cityStart}
+                    {oneCard.Trip.cityStart}
                   </Typography>
                   <Typography
                     id="fade-modal-dialog-description"
@@ -103,7 +103,7 @@ export default function TripCardModal({ oneCard }) {
                       Куда:
                       {' '}
                     </strong>
-                    {oneCard.cityWhere}
+                    {oneCard.Trip.cityWhere}
                   </Typography>
 
                   <Typography
@@ -116,7 +116,7 @@ export default function TripCardModal({ oneCard }) {
                       {' '}
 
                     </strong>
-                    {oneCard.aboutTrip}
+                    {oneCard.Trip.aboutTrip}
                   </Typography>
 
                   <Typography
@@ -129,7 +129,7 @@ export default function TripCardModal({ oneCard }) {
                       {' '}
 
                     </strong>
-                    {oneCard.aboutMembers}
+                    {oneCard.Trip.aboutMembers}
                   </Typography>
 
                   <Typography
@@ -141,10 +141,10 @@ export default function TripCardModal({ oneCard }) {
                       Cколько человек всего:
                       {' '}
                     </strong>
-                    {oneCard.membersCount}
+                    {oneCard.Trip.membersCount}
 
                   </Typography>
-                  <Typography
+                  {/* <Typography
                     id="fade-modal-dialog-description"
                     fontSize="30px"
                     textColor="text.tertiary"
@@ -155,7 +155,7 @@ export default function TripCardModal({ oneCard }) {
                     </strong>
                     {oneCard?.Memberships?.length}
 
-                  </Typography>
+                  </Typography> */}
                   <Typography
                     fontSize="30px"
                   >
@@ -172,9 +172,10 @@ export default function TripCardModal({ oneCard }) {
                       Телеграм
                     </a>
                   ) : ''}
-                  <Button onClick={() => clickHandler(oneCard.id)} variant="outlined" color="neutral">
+                  {/* <Button onClick={() => clickHandler(oneCard.id)}
+                  variant="outlined" color="neutral">
                     Еду
-                  </Button>
+                  </Button> */}
 
                 </ModalDialog>
               </Modal>

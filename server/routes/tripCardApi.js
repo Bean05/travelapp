@@ -45,11 +45,10 @@ router.patch('/update/:id', fileMiddleware.single('tripPhoto'), async (req, res)
 router.patch('/newmember/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const newMember = await Membership.create(
-      { tripId: id, userId: req.session.userId, request: null },
+    const [newMember, created] = await Membership.findOrCreate(
+      { where: { userId: req.session.userId, tripId: id, request: null } },
     );
-    // console.log('newmember ---', newMember);
-    res.json(newMember);
+    if (created) { res.json(newMember); }
   } catch (error) {
     console.log(error);
   }

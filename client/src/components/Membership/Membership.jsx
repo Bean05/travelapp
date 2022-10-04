@@ -1,8 +1,11 @@
 import { Button } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { setAllMembersAsync } from '../../redux/actions/membershipActions';
+import ModalMembership from './ModalMembership';
+// import TripCardModal from '../TripCardComponent/TripCardModal';
+// import TripCardModal from '../TripCardComponent/TripCardModal/TripCardModal';
 // import TripCard from '../TripCardComponent/TripCard/TripCard';
 
 export default function Membership() {
@@ -51,7 +54,14 @@ export default function Membership() {
                 </div>
                 <div className="user">
                   <img src={`http://localhost:3001/${el?.Trip.User.photo}`} alt={el?.Trip.User.name} />
+                  <div className="user-info">
+                    Организатор
+                    <Link to={`/page/${el?.Trip.User.id}`}>
+                      <h5>{el.Trip.User.name}</h5>
+                    </Link>
+                  </div>
                 </div>
+                <ModalMembership oneCard={el} />
                 <div>
                   {el.request === null
                     && (<Button variant="outlined"> Ожидайте подтверждения </Button>)}
