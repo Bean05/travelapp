@@ -6,9 +6,6 @@ const router = express.Router();
 
 router.get('/allcards', async (req, res) => {
   const allCards = await Trip.findAll({ include: [Membership, User] });
-  //   { include: [{ model: Trip, include: [User] }, User] },
-
-  console.log('SERVER', allCards);
   res.json(allCards);
 });
 
@@ -30,14 +27,30 @@ router.post('/create', fileMiddleware.single('tripPhoto'), async (req, res) => {
       aboutTrip,
       membersCount,
     });
-    console.log('NEEEEWCAAARD', newCard);
     res.json(newCard);
   } catch (error) {
     console.log(error);
   }
-  // const { input } = req.body;
-  // const newCard = await Trip.create({ tripName: input }); // прописать все поля
-  // res.json(newCard);
+});
+router.patch('/update/:id', fileMiddleware.single('tripPhoto'), async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Trip.update(req.body, { where: { id } });
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
+router.patch('/newmember/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const [newMember, created] = await Membership.findOrCreate(
+      { where: { userId: req.session.userId, tripId: id, request: null } },
+    );
+    if (created) { res.json(newMember); }
+  } catch (error) {
+    console.log(error);
+  }
+});
 module.exports = router;

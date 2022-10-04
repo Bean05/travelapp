@@ -1,8 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 .searchFatherDiv{
-  margin-top: 200px;
-  margin-bottom: 100px;
-}
-.searchFatherDiv{
+  margin-top: 10px;
+  margin-bottom: 20px;
   white-space: pre-wrap;
   width:100%;
 }
@@ -10,7 +9,6 @@
 .SearchInput {
   width: 50%;
   };
-
   .indexDiv{
     align-items: center;
 
@@ -20,4 +18,31 @@
     width: 30%;
     color: rgb(6, 109, 226);
   }
- 
+  * {
+    box-sizing: border-box;
+  }
+  /* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #f7f8fc;
+    
+  } */
+  .containerCard {
+    color: #10182f;
+    display: flex;
+    width: 1040px;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .box{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }

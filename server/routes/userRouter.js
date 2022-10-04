@@ -9,7 +9,6 @@ router.post('/signup', fileMiddleware.single('photo'), async (req, res) => {
   const {
     name, email, password, phone, social,
   } = req.body;
-  console.log(req.body);
   if (name && email && password && phone && social
   ) {
     try {
@@ -32,7 +31,7 @@ router.post('/signup', fileMiddleware.single('photo'), async (req, res) => {
       }
       return res.sendStatus(401);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       return res.sendStatus(500);
     }
   }
@@ -55,7 +54,7 @@ router.post('/signin', async (req, res) => {
       }
       return res.sendStatus(401);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       return res.sendStatus(500);
     }
   }
@@ -71,18 +70,16 @@ router.get('/session', (req, res) => {
   res.json(req.session);
 });
 
-router.get('/page/:id', async (req, res) => {
+router.get('/user/:id', async (req, res) => {
   const { id } = req.params;
   const allInfo = await User.findOne({ where: { id } });
-  console.log(allInfo);
   res.json(allInfo);
 });
 
-router.post('/page/:id', async (req, res) => {
+router.post('/user/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const reqBody = req.body;
-    console.log(reqBody);
     delete reqBody.password;
     const oneInfo = await User.findOne({ where: { id } });
     Object.assign(oneInfo, reqBody);
@@ -94,7 +91,7 @@ router.post('/page/:id', async (req, res) => {
   }
 });
 
-router.patch('/page/:id', async (req, res) => {
+router.patch('/user/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const reqBody = req.body;
@@ -112,6 +109,15 @@ router.post('/check', (req, res) => {
     return res.json(req.session.user);
   }
   return res.sendStatus(401);
+});
+
+router.get('/user/:id', async (req, res) => {
+  const { id } = req.params;
+  const oneInfo = await User.findOne({
+    where: { id },
+    attributes: ['name', 'about', 'photo', 'city', 'age', 'social', 'pets', 'habits', 'drivLic', 'transport', 'telegram', 'phone'],
+  });
+  res.json(oneInfo);
 });
 
 module.exports = router;

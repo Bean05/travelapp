@@ -6,7 +6,9 @@ const FileStore = require('session-file-store')(session);
 const path = require('path');
 const userRouter = require('./routes/userRouter');
 const tripCardApi = require('./routes/tripCardApi');
-// const membershipApi = require('./routes/membershipApi');
+const userPageApi = require('./routes/userPageApi');
+const tripSearchRouter = require('./routes/tripSearchRouter');
+const membershipApi = require('./routes/membershipApi');
 
 require('dotenv').config();
 
@@ -14,6 +16,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // app.use(express.json({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
+// app.use((req, res, next) => { req.url = decodeURI(req.url); next(); });
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors({
@@ -22,7 +26,6 @@ app.use(cors({
 }));
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(session({
   name: 'sid',
   secret: process.env.SESSION_SECRET ?? 'test',
@@ -37,6 +40,8 @@ app.use(session({
 
 app.use('/api/users', userRouter);
 app.use('/api/trip', tripCardApi);
-// app.use('/api/membership', membershipApi);
+app.use('/api/userinfo', userPageApi);
+app.use('/api/v1', tripSearchRouter);
+app.use('/api/membership', membershipApi);
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));
