@@ -6,7 +6,7 @@ import {
 } from 'reactstrap';
 import { allUserTrips } from '../../../redux/actions/allUserTripsActions';
 
-export default function TravelWith() {
+export default function CommentsUserSend() {
   const oneUserTrips = useSelector((state) => state.oneUserTrips);
   const dispatch = useDispatch();
   const { id } = useParams();

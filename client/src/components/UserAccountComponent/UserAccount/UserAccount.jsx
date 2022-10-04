@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { allInfo } from '../../../redux/actions/userActions';
 import UserAccountTrips from '../MyTrips/UserAccountTrips';
+import Membership from '../../Membership/Membership';
 import CommentsUserSend from '../CommentsUserSend';
 
 export default function UserAccount() {
@@ -102,6 +103,7 @@ export default function UserAccount() {
         </Grid>
       </Grid>
       <UserAccountTrips />
+      <Membership />
       <CommentsUserSend />
     </Container>
   );
