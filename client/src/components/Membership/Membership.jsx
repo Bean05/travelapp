@@ -7,10 +7,8 @@ import { setAllMembersAsync } from '../../redux/actions/membershipActions';
 
 export default function Membership() {
   const membership = useSelector((state) => state.membership);
-  //   const tripCard = useSelector((state) => state.tripCard);
   const { id } = useParams();
   const allTrip = membership.filter((el) => el.userId === +id);
-  // const myTrips = allTrip.map(())
   const dispatch = useDispatch();
 
   // console.log('Users trips:', allTrip);
@@ -55,11 +53,11 @@ export default function Membership() {
                   <img src={`http://localhost:3001/${el?.Trip.User.photo}`} alt={el?.Trip.User.name} />
                 </div>
                 <div>
-                  {/* {allTrip.request === 'null' ?
-                  (<div> Ожидайте подтверждение </div>) : (<> </>)} */}
-                  {allTrip?.request === true
-                    ? (<Button variant="outlined"> Вы едете! </Button>)
-                    : (<Button variant="outlined">Организатор отклонил заявку</Button>)}
+                  {el.request === null
+                    && (<Button variant="outlined"> Ожидайте подтверждения </Button>)}
+                  {el?.request === true
+                    && (<Button variant="outlined">Вы едете!</Button>)}
+                  {el?.request === false && (<Button variant="outlined">Организатор отклонил заявку</Button>)}
                 </div>
               </div>
             </div>

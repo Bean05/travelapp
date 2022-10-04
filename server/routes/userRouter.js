@@ -73,7 +73,6 @@ router.get('/session', (req, res) => {
 router.get('/user/:id', async (req, res) => {
   const { id } = req.params;
   const allInfo = await User.findOne({ where: { id } });
-  // console.log(allInfo);
   res.json(allInfo);
 });
 
@@ -81,7 +80,6 @@ router.post('/user/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const reqBody = req.body;
-    // console.log(reqBody);
     delete reqBody.password;
     const oneInfo = await User.findOne({ where: { id } });
     Object.assign(oneInfo, reqBody);
@@ -119,7 +117,6 @@ router.get('/user/:id', async (req, res) => {
     where: { id },
     attributes: ['name', 'about', 'photo', 'city', 'age', 'social', 'pets', 'habits', 'drivLic', 'transport', 'telegram', 'phone'],
   });
-  console.log(`ONEINFO ${oneInfo}`);
   res.json(oneInfo);
 });
 

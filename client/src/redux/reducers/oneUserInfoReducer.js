@@ -1,6 +1,6 @@
 import { SET_ONE_INFO } from '../types';
 
-export default function oneUserInfoReducer(state = {}, action) {
+export default function oneUserInfoReducer(state = [], action) {
   const { type, payload } = action;
   switch (type) {
     case SET_ONE_INFO:
