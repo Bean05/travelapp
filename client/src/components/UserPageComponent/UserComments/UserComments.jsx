@@ -1,7 +1,7 @@
 import { Avatar, TextField } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import {
   Card, CardBody, CardSubtitle, CardText, CardTitle,
 } from 'reactstrap';
@@ -12,8 +12,11 @@ import { setAllComments, submitMessage } from '../../../redux/actions/allComment
 
 export default function UserComments() {
   const [input, setInput] = useState({ text: '', stars: '', photo: '' });
+
   const dispatch = useDispatch();
   const { id } = useParams();
+  const navigate = useNavigate();
+
   useEffect(() => { dispatch(setAllComments(id)); }, []);
 
   const allComments = useSelector((state) => state.allComments);
@@ -24,6 +27,7 @@ export default function UserComments() {
   const submitHandler = (e) => {
     // e.preventDefault();
     dispatch(submitMessage(e, input, setInput, id));
+    navigate(`/page/${id}`);
   };
 
   console.log(input);

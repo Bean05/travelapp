@@ -27,7 +27,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route element={<ProtectedRoute isAllowed={!user.id} />}>
+        <Route element={<ProtectedRoute redirect="/" isAllowed={!user.id} />}>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
         </Route>
