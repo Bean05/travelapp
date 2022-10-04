@@ -99,7 +99,6 @@ export default function UserAccount() {
               ) : (<> </>)}
             </ListGroup>
           )}
-
         </Grid>
       </Grid>
       <UserAccountTrips />
