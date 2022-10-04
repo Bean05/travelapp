@@ -63,4 +63,17 @@ router.patch('/update', fileMiddleware.single('tripPhoto'), async (req, res) => 
   // const newCard = await Trip.create({ tripName: input }); // прописать все поля
   // res.json(newCard);
 });
+
+router.patch('/newmember/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const newMember = await Membership.create(
+      { tripId: id, userId: req.session.userId, request: null },
+    );
+    // console.log('newmember ---', newMember);
+    res.json(newMember);
+  } catch (error) {
+    console.log(error);
+  }
+});
 module.exports = router;
