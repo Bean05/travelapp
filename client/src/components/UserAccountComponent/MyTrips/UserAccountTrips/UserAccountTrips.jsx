@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { allUserTrips } from '../../../../redux/actions/allUserTripsActions';
+import SubmitButton from '../../SubmitButton';
 import ChangeTrip from '../ChangeTrip';
 
 export default function UserAccountTrips() {
@@ -47,6 +48,7 @@ export default function UserAccountTrips() {
                   <img src={`http://localhost:3001/${user?.photo}`} alt={user?.name} />
                 </div>
                 <ChangeTrip tripId={el.id} />
+                <SubmitButton tripId={el.id} />
               </div>
             </div>
           </div>

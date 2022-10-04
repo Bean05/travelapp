@@ -11,7 +11,7 @@ export default function CommentsUserSend() {
   const dispatch = useDispatch();
   const { id } = useParams();
   useEffect(() => dispatch(allUserTrips(id)), []);
-  console.log(oneUserTrips);
+  // console.log(oneUserTrips);
   return (
     <div>
       {oneUserTrips && oneUserTrips?.map((el) => (el.author === id ? (

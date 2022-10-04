@@ -13,10 +13,10 @@ export default function Membership() {
   // const myTrips = allTrip.map(())
   const dispatch = useDispatch();
 
-  console.log('Users trips:', allTrip);
-  console.log(membership);
+  // console.log('Users trips:', allTrip);
+  // console.log(membership);
   //   console.log('tripCard---', tripCard);
-  console.log('params: ', id);
+  // console.log('params: ', id);
 
   useEffect(() => {
     dispatch(setAllMembersAsync());
@@ -57,7 +57,7 @@ export default function Membership() {
                 <div>
                   {/* {allTrip.request === 'null' ?
                   (<div> Ожидайте подтверждение </div>) : (<> </>)} */}
-                  {allTrip.request === true
+                  {allTrip?.request === true
                     ? (<Button variant="outlined"> Вы едете! </Button>)
                     : (<Button variant="outlined">Организатор отклонил заявку</Button>)}
                 </div>
