@@ -1,7 +1,7 @@
 import { Avatar, TextField } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {
   Card, CardBody, CardSubtitle, CardText, CardTitle,
 } from 'reactstrap';
@@ -15,22 +15,18 @@ export default function UserComments() {
 
   const dispatch = useDispatch();
   const { id } = useParams();
-  const navigate = useNavigate();
 
   useEffect(() => { dispatch(setAllComments(id)); }, []);
 
   const allComments = useSelector((state) => state.allComments);
-  // console.log('ALL COMMENT', allComments);
 
   const inputHandler = useCallback((e) => setInput((prev) => (
     { ...prev, [e.target.name]: e.target.value }), []));
-  const submitHandler = (e) => {
-    // e.preventDefault();
-    dispatch(submitMessage(e, input, setInput, id));
-    navigate(`/page/${id}`);
+
+  const submitHandler = () => {
+    dispatch(submitMessage(input, setInput, id));
   };
 
-  console.log(input);
   return (
     <>
 
@@ -46,14 +42,14 @@ export default function UserComments() {
           <CardBody key={el.id} style={{ marginTop: '-20px' }}>
             <CardSubtitle>
               от кого:
-              <Link to={`/page/${el.authorId.id}`}>{el.authorId.name}</Link>
+              <Link to={`/page/${el?.authorId?.id}`}>{el?.authorId?.name}</Link>
             </CardSubtitle>
             <Avatar
               alt="Remy Sharp"
               style={{
                 marginLeft: '10px', marginTop: '15px', width: '50px', height: '50px',
               }}
-              src={`http://localhost:3001/${el?.authorId.photo}`}
+              src={`http://localhost:3001/${el?.authorId?.photo}`}
             />
             <p />
             <CardSubtitle
@@ -61,16 +57,16 @@ export default function UserComments() {
               tag="h6"
             >
               <StarBorderPurple500SharpIcon />
-              {el.stars}
+              {el?.stars}
             </CardSubtitle>
             <CardText>
-              {el.text}
+              {el?.text}
             </CardText>
           </CardBody>
         ))}
       </Card>
       <div>Оставить комментарий обо мне</div>
-      <Box onSubmit={(e) => submitHandler(e, input)} component="form">
+      <Box component="form">
         <TextField id="outlined-basic" label="Ваш отзыв" variant="outlined" name="text" value={input.text} onChange={inputHandler} />
         <div style={{ marginTop: '15px' }} />
         <TextField id="outlined-basic" label="Ваш оценка от 1 до 10" variant="outlined" name="stars" value={input.stars} onChange={inputHandler} />
@@ -80,7 +76,8 @@ export default function UserComments() {
         <Button
           color="info"
           variant="outlined"
-          type="submit"
+          type="button"
+          onClick={() => submitHandler()}
         >
           Оставить отзыв
         </Button>
