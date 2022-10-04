@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 router.patch('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(req.body);
+    // console.log(req.body);
     const newD = await Membership.update({ request: req.body.status }, { where: { id } });
     console.log(newD);
     res.sendStatus(200);
