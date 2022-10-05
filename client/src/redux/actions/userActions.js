@@ -7,7 +7,10 @@ export const logoutUser = () => ({ type: LOGOUT });
 export const checkAuth = () => (dispatch) => {
   axios.post('/api/users/check', { withCredentials: true })
     .then((res) => dispatch(setAuthUser(res.data)))
-    .catch(console.log);
+    .catch((e) => {
+      dispatch(setAuthUser({}));
+      console.log(e);
+    });
 };
 
 // export const signinUser = (e, inputs, setError) => (dispatch) => {
