@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 .searchFatherDiv{
-  margin-top: 10px;
+  margin-top: 5%;
   margin-bottom: 20px;
   white-space: pre-wrap;
   width:100%;
@@ -10,11 +11,7 @@
   width: 50%;
   background-color: aliceblue;
   };
-  .indexDiv{
-    align-items: center;
-
-  }
-  .textSearch{
+   .textSearch{
     font-style: italic;
     width: 30%;
     color: rgb(6, 109, 226);

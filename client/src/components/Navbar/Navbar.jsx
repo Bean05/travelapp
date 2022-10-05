@@ -16,9 +16,9 @@ function Navbar() {
   return (
     <div className="myNavbar">
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar variant="dense">
-            <IconButton href="/" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+        <AppBar position="fixed" display="flex" alignItems="center" sx={{ zIndex: 1200 }}>
+          <Toolbar variant="outlined" aria-label="outlined button group">
+            <IconButton href="/" edge="start" color="inherit" variant="outlined" aria-label="outlined button group" sx={{ mr: '30%' }}>
               Travel App
             </IconButton>
 
