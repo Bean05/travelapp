@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Container, Grid, Button, Avatar,
+  Container, Grid, Avatar,
 } from '@mui/material';
 import { ListGroup, ListGroupItem } from 'reactstrap';
-
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { allInfo } from '../../../redux/actions/userActions';
+import EditButton from '../EditButton/EditButton';
 import UserAccountTrips from '../MyTrips/UserAccountTrips';
 import Membership from '../../Membership/Membership';
 
@@ -16,22 +16,14 @@ export default function UserAccount() {
   const { id } = useParams();
 
   useEffect(() => { dispatch(allInfo(id)); }, []);
-  const [editing, setEditing] = useState(false);
+  const [editing] = useState(false);
 
   const social = user?.social;
   const telega = user?.telegram;
 
   return (
     <Container>
-      <Button
-        variant="contained"
-        onClick={() => setEditing(!editing)}
-        style={{
-          width: '35px', height: '25px', fontSize: '50%',
-        }}
-      >
-        Изменить
-      </Button>
+      <EditButton />
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <Avatar

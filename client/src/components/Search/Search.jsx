@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   TextField, Box, Button, Grid,
 } from '@mui/material/';
@@ -24,7 +24,7 @@ export default function Search() {
     cityWhere: '',
   });
   const { searchTrip } = useSelector((state) => state);
-  console.log('searchTrip', searchTrip);
+  // console.log('searchTrip', searchTrip);
   useEffect(() => {
     if (!window.initState?.allBase) {
       dispatch(setTripFunction());
@@ -32,9 +32,9 @@ export default function Search() {
       delete window.initState.allBase;
     }
   }, []);
-  const inputHandler = (e) => {
-    setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  const inputHandler = useCallback(
+    (e) => setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }), []),
+  );
   const submitHandler = async (e) => {
     e.preventDefault();
     dispatch(searchSetTrip({
@@ -132,7 +132,6 @@ export default function Search() {
                           <h5>{el.User.name}</h5>
                         </Link>
                       </div>
-                      {console.log('элемент в поиске', el)}
                     </div>
                     <TripCardModal oneCard={el} />
                   </div>
