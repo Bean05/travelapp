@@ -47,7 +47,6 @@ router.put('/updateuser/:id', fileMiddleware.single('photo'), async (req, res) =
       email: req.body.email,
       phone: req.body.phone,
       social: req.body.social,
-      // photo: req.file.filename || req.body.photo,
       about: req.body.about,
       age: req.body.age,
       pets: req.body.pets,
@@ -57,7 +56,6 @@ router.put('/updateuser/:id', fileMiddleware.single('photo'), async (req, res) =
       transport: req.body.transport,
       telegram: req.body.telegram,
     });
-    // console.log('UPDATE>>>', update);
     res.json(update);
   } catch (e) {
     console.log(e);

@@ -65,8 +65,6 @@ export default function ChangeUserAccountModal() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const dataFoto = new FormData();
-    dataFoto.append('photo', input.photo);
     if (input.name
       && input.email
       && input.phone
@@ -85,7 +83,7 @@ export default function ChangeUserAccountModal() {
         city: input.city,
         transport: input.transport,
         telegram: input.telegram,
-      }, id, setModalUpdate, dataFoto));
+      }, id, setModalUpdate));
       dispatch(allInfo(id));
     } else { setError(true); }
   };
