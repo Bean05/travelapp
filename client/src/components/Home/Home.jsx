@@ -11,7 +11,10 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="home">
+      <div className="videoWrapper">
+        <video src="/travel.mp4" autoPlay muted loop preload="auto" />
+      </div>
       <div>
         <h1>Сайт о путешествиях с друзьями</h1>
       </div>
