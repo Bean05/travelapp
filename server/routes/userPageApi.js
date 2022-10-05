@@ -46,7 +46,8 @@ router.post('/newcoment/:id', async (req, res) => {
   const newRating = await Rating.create({
     text, photo, stars, userId: id, author: req.session.userId,
   });
-  res.json(newRating);
+  const oneUser = await Rating.findOne({ where: { id: newRating.id }, include: { model: User, as: 'authorId' } });
+  res.json(oneUser);
 });
 
 module.exports = router;
