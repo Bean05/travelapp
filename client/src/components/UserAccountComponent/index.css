@@ -1,6 +1,125 @@
-/* .accountContainer{
-    background: green;
-}
-.editButton{
+/* @media screen and (max-width: 600px) {
+    .accountContainer {
+        width: auto;
+    }
 
+    .avatar .avatarDiv {
+        max-width: 100%;
+        min-width: 70px;
+        max-height: 100%;
+        min-width: 70px;
+    }
+
+    .info {
+        max-width: 150px;
+        max-height: 150px;
+
+    }
+} */
+
+/* @media screen and (min-width: 800px) {
+    .accountContainer {
+        width: auto;
+    }
+
+    .avatar {
+        max-width: 350px;
+        max-height: 350px;
+    }
+} */
+
+/* .accountDiv {
+    background: green;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+
+.accountDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+}
+
+.cardDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 30%;
+    margin-left: 7%;
+    margin-top: 7%;
+}
+
+#muiCard {
+    width: 80%;
+
+
+}
+
+.divCard {
+    background: red;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#cardBoxArea {
+    background: violet;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 0, 55px, 0, 15px;
+
+
+}
+
+#conteinerMove {
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start ;
+    flex-wrap: nowrap;
+    height: 550px;
+    width: 700px;
+    overflow: hidden;
+    overflow-x: scroll;
+    justify-content: space-around;
+}
+
+#myTrips {
+    background: green;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 700px;
+    width: 60%;
+}
+
+/* #OneCard {
+    width: 55%;
+
+} */
+
+/* .avatarDiv {
+    width: 350px;
+    display: flex;
+    height: 350px;
+    overflow: hidden;
+
+}
+
+.avatar {
+    width: 350px;
+    border-radius: 50%;
+    height: 350px;
+    object-fit: cover;
+}
+
+
+.info {
+    margin-top: 15px;
+    width: 80%;
+    height: auto;
+    justify-self: center;
 } */

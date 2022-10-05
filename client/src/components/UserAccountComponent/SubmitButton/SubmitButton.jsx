@@ -6,7 +6,7 @@ import Modal from '@mui/joy/Modal';
 import ModalDialog from '@mui/joy/ModalDialog';
 import Typography from '@mui/joy/Typography';
 import Grid from '@mui/material/Grid';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Avatar, CssBaseline } from '@mui/material';
 import { Box } from '@mui/system';
 import axios from 'axios';
@@ -15,7 +15,6 @@ import { setAllMembersAsync } from '../../../redux/actions/membershipActions';
 export default function SubmitButton() {
   const membership = useSelector((state) => state.membership);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   //   const navigate = useNavigate();
   const { id } = useParams();
   //   console.log(id);
@@ -27,11 +26,12 @@ export default function SubmitButton() {
   const changeFalse = (value, idMem) => {
     axios.patch(`/api/membership/${idMem}`, { status: value })
       .then((res) => res.data);
-    navigate(`/user/${id}`);
+    setOpen(false);
   };
+
   useEffect(() => {
     dispatch(setAllMembersAsync());
-  }, []);
+  }, [open]);
   return (
     <>
       {value1.length !== 0 ? (
