@@ -8,6 +8,7 @@
 
 .SearchInput {
   width: 50%;
+  background-color: aliceblue;
   };
   .indexDiv{
     align-items: center;
@@ -21,15 +22,15 @@
   * {
     box-sizing: border-box;
   }
-  /* body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    background-color: #f7f8fc;
+  .divBackground {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('./search.jpg');
+   
     
-  } */
-  .containerCard {
+  } 
+  /* .containerCard {
     color: #10182f;
     display: flex;
     width: 1040px;
@@ -38,6 +39,10 @@
     flex-wrap: wrap;
     flex-direction: row;
     font-family: "Roboto", sans-serif;
+  } */
+  .containerCard{
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .box{
