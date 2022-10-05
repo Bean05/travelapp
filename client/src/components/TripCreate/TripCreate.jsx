@@ -69,8 +69,8 @@ export default function TripCreate() {
   && inputs.aboutTrip
   && inputs.membersCount) {
       axios.post('/api/trip/create', data)
-        .then((res) => setInputs(res.data.path));
-      navigate('/');
+        .then((res) => setInputs(res.data.path))
+        .then(navigate('/'));
     } else { setError(true); }
   };
   return (

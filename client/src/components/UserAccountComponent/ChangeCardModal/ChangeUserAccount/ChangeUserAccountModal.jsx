@@ -10,7 +10,7 @@ import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Stack from '@mui/material/Stack';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUserCard } from '../../../../redux/actions/searchTripActions';
+import { updateUserCard, updateUserPfoto } from '../../../../redux/actions/searchTripActions';
 import { allInfo } from '../../../../redux/actions/userActions';
 
 export default function ChangeUserAccountModal() {
@@ -20,7 +20,6 @@ export default function ChangeUserAccountModal() {
   useEffect(() => { dispatch(allInfo(id)); }, [modalUpdate]);
   const [error, setError] = useState(false);
   const user = useSelector((state) => state.user);
-  console.log('USER: ', user);
   const [input, setInput] = useState({
     name: user.name,
     email: user.email,
@@ -54,7 +53,6 @@ export default function ChangeUserAccountModal() {
       telegram: user.telegram,
     });
   }, [user]);
-  console.log('INPUTS: ', input);
 
   const changeHandlerImg = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.files[0] }));
@@ -65,14 +63,15 @@ export default function ChangeUserAccountModal() {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    const dataFoto = new FormData();
+    dataFoto.append('photo', input.photo);
+    dispatch(updateUserPfoto(dataFoto, id));
     if (input.name
-      && input.email
       && input.phone
       && input.social
       && input.photo) {
       dispatch(updateUserCard({
         name: input.name,
-        email: input.email,
         phone: input.phone,
         social: input.social,
         about: input.about,
@@ -148,19 +147,6 @@ export default function ChangeUserAccountModal() {
                   autoComplete="name"
                   autoFocus
                   value={input.name}
-                  onChange={changeHandler}
-                />
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="email"
-                  label="email"
-                  type="email"
-                  id="emailID"
-                  autoComplete="email"
-                  autoFocus
-                  value={input.email}
                   onChange={changeHandler}
                 />
                 <TextField
@@ -290,23 +276,22 @@ export default function ChangeUserAccountModal() {
                     variant="contained"
                     component="label"
                   >
-                    Фото профиля*
+                    Аватарка
                     <input
                       hidden
-                      required
                       accept="image/*"
-                      name="tripPhoto"
+                      name="photo"
                       multiple
                       type="file"
                       onChange={changeHandlerImg}
                     />
                   </Button>
                   <IconButton color="primary" aria-label="upload picture" component="label">
-                    <input hidden accept="image/*" type="file" />
+                    {/* <input hidden accept="image/*" type="file" /> */}
                     <PhotoCamera />
                   </IconButton>
                 </Stack>
-                {error && <p style={{ color: 'red', fontSize: '30px' }}>Заполни все поля</p>}
+                {error && <p style={{ color: 'red', fontSize: '30px' }}>Заполни обязательные поля*</p>}
                 <Box display="flex" alignItems="center" sx={{ justifyContent: 'center', mt: 2 }}>
                   <Button
                     type="submit"
