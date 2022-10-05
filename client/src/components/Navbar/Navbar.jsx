@@ -7,25 +7,35 @@ import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { purple } from '@mui/material/colors';
 import { logoutUserAsync } from '../../redux/actions/userActions';
 import '../../main.css';
 
 function Navbar() {
+  const color = purple[800];
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   return (
     <div className="myNavbar">
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="fixed" display="flex" alignItems="center" sx={{ zIndex: 1200 }}>
-          <Toolbar variant="outlined" aria-label="outlined button group">
-            <IconButton href="/" edge="start" color="inherit" variant="outlined" aria-label="outlined button group" sx={{ mr: '30%' }}>
+        <AppBar sx={{ zIndex: 1200, height: 80, backgroundColor: color }}>
+          <Toolbar sx={{
+            my: 'auto', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}
+          >
+            <IconButton
+              href="/"
+              edge="start"
+              color="inherit"
+              variant="outlined"
+              aria-label="outlined button group"
+              sx={{ position: 'fixed', left: '1rem' }}
+            >
               Travel App
             </IconButton>
-
             {user.id
               ? (
-                <>
-
+                <Box>
                   <Button component={NavLink} to="/create" variant="filled">
                     Создать поездку
                   </Button>
@@ -38,20 +48,16 @@ function Navbar() {
                   <IconButton onClick={() => dispatch(logoutUserAsync())} edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
                     <LogoutIcon />
                   </IconButton>
-
-                </>
-              )
-              : (
-                <>
-
+                </Box>
+              ) : (
+                <Box>
                   <Button component={NavLink} to="/signup" variant="filled">
                     Зарегистрироваться
                   </Button>
                   <Button component={NavLink} to="/signin" variant="filled">
                     Войти
                   </Button>
-
-                </>
+                </Box>
               )}
           </Toolbar>
         </AppBar>
