@@ -39,7 +39,7 @@ export default function SignIn() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://otvprim.ru/wp-content/uploads/2019/10/freedom-2768515_960_720-752x440.jpg)',
+            backgroundImage: 'url(http://st.gde-fon.com/wallpapers_original/499249_noch_more_luna_bereg_pejzazh_3872x2592_www.Gde-Fon.com.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) => (t.palette.mode === 'light'
               ? t.palette.grey[50] : t.palette.grey[900]),
@@ -50,6 +50,7 @@ export default function SignIn() {
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
+              backgroundImage: 'url(http://st.gde-fon.com/wallpapers_original/499249_noch_more_luna_bereg_pejzazh_3872x2592_www.Gde-Fon.com.jpg)',
               my: 8,
               mx: 4,
               display: 'flex',
