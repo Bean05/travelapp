@@ -7,6 +7,7 @@ export const UPDATE_POST = 'UPDATE_POST';
 // TripCard
 export const SET_ALL_CARDS = 'SET_ALL_CARDS';
 export const ADD_CARD = 'ADD_CARD';
+export const ADD_MEMBER = 'ADD_MEMBER';
 
 // OneUserInfo
 export const SET_ONE_INFO = 'SET_ONE_INFO';
@@ -21,3 +22,6 @@ export const UPDATE_USER = 'UPDATE_USER';
 
 // Membership
 export const SET_ALL_MEMBERS = 'SET_ALL_MEMBERS';
+
+// State
+export const SET_ALL_STATE = 'SET_ALL_STATE';

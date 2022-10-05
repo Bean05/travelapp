@@ -7,8 +7,13 @@ import { ListGroup, ListGroupItem } from 'reactstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { allInfo } from '../../../redux/actions/userActions';
+<<<<<<< HEAD
 import UserAccountTrips from '../UserAccountTrips';
 import EditButton from '../EditButton/EditButton';
+=======
+import UserAccountTrips from '../MyTrips/UserAccountTrips';
+import Membership from '../../Membership/Membership';
+>>>>>>> dev
 
 export default function UserAccount() {
   const dispatch = useDispatch();
@@ -90,10 +95,10 @@ export default function UserAccount() {
               ) : (<> </>)}
             </ListGroup>
           )}
-
         </Grid>
       </Grid>
       <UserAccountTrips />
+      <Membership />
     </Container>
   );
 }

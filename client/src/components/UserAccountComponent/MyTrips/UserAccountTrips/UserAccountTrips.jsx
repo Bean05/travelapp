@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { allUserTrips } from '../../../redux/actions/allUserTripsActions';
-import '../../TripCardComponent/TripCard/tripCardStyle.css';
-import ChangeCardModal from '../ChangeCardModal/ChangeCardModal';
+import { allUserTrips } from '../../../../redux/actions/allUserTripsActions';
+import SubmitButton from '../../SubmitButton';
+import ChangeTrip from '../ChangeTrip';
 
 export default function UserAccountTrips() {
   const dispatch = useDispatch();
-
   const { id } = useParams();
+
   useEffect(() => { dispatch(allUserTrips(id)); }, []);
 
   const allTrips = useSelector((state) => state.oneUserTrips);
@@ -16,7 +16,7 @@ export default function UserAccountTrips() {
   return (
 
     <div className="containerCard">
-      <h3>Все поездки</h3>
+      <h3>Мои поездки</h3>
       {allTrips && allTrips.length < 1 ? (<div>Поездок еще нет</div>) : (allTrips.map((el) => (
         <div key={el?.id}>
           <div className="box">
@@ -46,7 +46,8 @@ export default function UserAccountTrips() {
                 <div className="user">
                   <img src={`http://localhost:3001/${user?.photo}`} alt={user?.name} />
                 </div>
-                <ChangeCardModal />
+                <ChangeTrip tripId={el.id} />
+                <SubmitButton />
               </div>
             </div>
           </div>

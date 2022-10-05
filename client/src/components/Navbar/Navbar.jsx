@@ -17,7 +17,7 @@ function Navbar() {
       <AppBar position="static">
         <Toolbar variant="dense">
           <IconButton href="/" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-            Friends Trip
+            Travel App
           </IconButton>
 
           {user.id
