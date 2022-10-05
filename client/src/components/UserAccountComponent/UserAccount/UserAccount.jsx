@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { allInfo } from '../../../redux/actions/userActions';
 import UserAccountTrips from '../UserAccountTrips';
+import EditButton from '../EditButton/EditButton';
 
 export default function UserAccount() {
   const dispatch = useDispatch();
@@ -22,15 +23,7 @@ export default function UserAccount() {
 
   return (
     <Container>
-      <Button
-        variant="contained"
-        onClick={() => setEditing(!editing)}
-        style={{
-          width: '35px', height: '25px', fontSize: '50%',
-        }}
-      >
-        Изменить
-      </Button>
+      <EditButton />
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <Avatar

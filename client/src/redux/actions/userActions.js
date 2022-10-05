@@ -43,11 +43,11 @@ export const logoutUserAsync = () => (dispatch) => {
     .catch(console.log);
 };
 
-export const editHandler = (id, input) => (dispatch) => {
-  axios.patch(`/api/users/user/${id}`, input)
-    .then((res) => dispatch(setAuthUser(res.data)))
-    .catch(console.log);
-};
+// export const editHandler = (id, input) => (dispatch) => {
+// axios.patch(`/api/users/user/${id}`, input)
+//   .then((res) => dispatch(setAuthUser(res.data)))
+//   .catch(console.log);
+// };
 
 export const allInfo = (id) => (dispatch) => {
   axios(`/api/users/user/${id}`)

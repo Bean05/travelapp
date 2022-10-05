@@ -26,11 +26,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route element={<ProtectedRoute redirect="/" isAllowed={!user.id} />}>
+        <Route element={<ProtectedRoute isAllowed={!user?.id} />}>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
         </Route>
-        <Route element={<ProtectedRoute redirect="/signup" isAllowed={!!user.id} />}>
+        <Route element={<ProtectedRoute isAllowed={!!user.id} />}>
           <Route path="/search" element={<Search />} />
           <Route path="/page/:id" element={<UserPage />} />
           <Route path="/create" element={<TripCreate />} />

@@ -94,18 +94,18 @@ router.post('/user/:id', async (req, res) => {
   }
 });
 
-router.patch('/user/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const reqBody = req.body;
-    const newInfo = await User.findOne({ where: { id } });
-    Object.assign(newInfo, reqBody);
-    newInfo.save();
-    res.json(newInfo);
-  } catch (err) {
-    console.log(err);
-  }
-});
+// router.patch('/user/:id', async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const reqBody = req.body;
+//     const newInfo = await User.findOne({ where: { id } });
+//     Object.assign(newInfo, reqBody);
+//     newInfo.save();
+//     res.json(newInfo);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
 
 router.post('/check', (req, res) => {
   if (req.session.user) {
