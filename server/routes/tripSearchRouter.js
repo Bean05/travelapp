@@ -2,8 +2,10 @@ const express = require('express');
 const {
   Trip, User, Sequelize, sequelize,
 } = require('../db/models');
+const fileMiddleware = require('../middleware/file');
 
 const router = express.Router();
+
 router.post('/trip', async (req, res) => {
   const trip = await Trip.findAll({ include: User });
   res.json(trip);
@@ -36,5 +38,28 @@ router.post('/random', async (req, res) => {
   const random = await Trip.findOne({ order: Sequelize.literal('random()'), include: User });
   res.json(random);
 });
-
+router.put('/updateuser/:id', fileMiddleware.single('photo'), async (req, res) => {
+  console.log('PFOTO>>>>>', req.body.file);
+  try {
+    const Id = await User.findByPk(req.params.id);
+    const update = await Id.update({
+      name: req.body.name,
+      email: req.body.email,
+      phone: req.body.phone,
+      social: req.body.social,
+      about: req.body.about,
+      age: req.body.age,
+      pets: req.body.pets,
+      habits: req.body.habits,
+      drivLic: req.body.drivLic,
+      city: req.body.city,
+      transport: req.body.transport,
+      telegram: req.body.telegram,
+    });
+    res.json(update);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
 module.exports = router;
