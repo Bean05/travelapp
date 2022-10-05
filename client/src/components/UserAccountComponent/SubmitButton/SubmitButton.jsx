@@ -21,13 +21,12 @@ export default function SubmitButton() {
   //   console.log(id);
   const allTrip = membership.filter((el) => el.Trip.User.id === +id);
   const value1 = allTrip.filter((el) => el.request === null);
-  // const memId = value1.
-  //   console.log('поездки самого юзера ', allTrip);
-  //   console.log('поездки самого юзера, которые он должен подтвердить ', value1);
+  // console.log('поездки самого юзера ', allTrip);
+  console.log('поездки самого юзера, которые он должен подтвердить ', value1);
   const [open, setOpen] = React.useState(false);
   const changeFalse = (value, idMem) => {
     axios.patch(`/api/membership/${idMem}`, { status: value })
-      .then((res) => console.log(res.data));
+      .then((res) => res.data);
     navigate(`/user/${id}`);
   };
   useEffect(() => {
