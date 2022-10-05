@@ -37,11 +37,11 @@ z-index: 1; */
     height: 70px;
 }
 
-.myNavbar {
+/* .myNavbar {
     position: absolute;
     z-index: 2;
     width: 100%;
-}
+} */
 
 .allCards {
     position: absolute;

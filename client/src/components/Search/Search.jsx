@@ -73,7 +73,7 @@ export default function Search() {
             </Box>
             <Box display="flex" alignItems="center" sx={{ justifyContent: 'space-around' }}>
               <Box display="flex" alignItems="center" sx={{ mt: 2, ml: '17%' }}>
-                <Button onClick={() => dispatch(randomSetTrip())} color="success" size="large" variant="contained">Случайно</Button>
+                <Button onClick={() => dispatch(randomSetTrip())} color="success" size="large" variant="contained">Cлучайно</Button>
               </Box>
               <Box display="flex" alignItems="center" sx={{ mt: 2, mr: '17%' }}>
                 <Button variant="contained" type="submit" size="large">   Найти   </Button>

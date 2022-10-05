@@ -22,7 +22,7 @@ export default function UserAccount() {
   const telega = user?.telegram;
 
   return (
-    <Container>
+    <Container sx={{ marginTop: '3%' }}>
       <EditButton />
       <Grid container spacing={2}>
         <Grid item xs={4}>

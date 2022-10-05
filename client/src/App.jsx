@@ -14,7 +14,7 @@ import ProtectedRoute from './HOCs/ProtectedRoute';
 import UserPage from './components/UserPageComponent/UserPage';
 import Test from './components/Testoviy';
 import LoaderWrapper from './HOCs/LoaderWrapper';
-import './main.css';
+// import './main.css';
 
 function App() {
   const dispatch = useDispatch();
