@@ -72,7 +72,7 @@ export default function SignUp() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://dalinfotour.ru/uploads/People_Friends__entertainment__recreation_A_trip_to_the_sea_012981_.jpg)',
+            backgroundImage: 'url(https://funart.pro/uploads/posts/2021-04/1617344608_36-p-oboi-temnie-gori-38.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) => (t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900]),
             backgroundSize: 'cover',
@@ -82,6 +82,7 @@ export default function SignUp() {
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
+              backgroundImage: 'url(https://funart.pro/uploads/posts/2021-04/1617344608_36-p-oboi-temnie-gori-38.jpg)',
               my: 8,
               mx: 4,
               display: 'flex',
