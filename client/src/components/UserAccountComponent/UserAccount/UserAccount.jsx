@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 import { allInfo } from '../../../redux/actions/userActions';
 import UserAccountTrips from '../MyTrips/UserAccountTrips';
 import Membership from '../../Membership/Membership';
+import '../index.css';
 
 export default function UserAccount() {
   const dispatch = useDispatch();
@@ -22,17 +23,18 @@ export default function UserAccount() {
   const telega = user?.telegram;
 
   return (
-    <Container>
+    <Container className="accountContainer">
       <Button
+        className="editButton"
         variant="contained"
         onClick={() => setEditing(!editing)}
-        style={{
-          width: '35px', height: '25px', fontSize: '50%',
-        }}
+        // style={{
+        //   width: '35px', height: '25px', fontSize: '50%',
+        // }}
       >
         Изменить
       </Button>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} style={{ background: 'red' }}>
         <Grid item xs={4}>
           <Avatar
             alt="Remy Sharp"
