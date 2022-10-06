@@ -16,6 +16,13 @@ import './tripCreate.css';
 const theme = createTheme();
 
 export default function TripCreate() {
+//   const dispatch = useDispatch();
+//   const { id } = useParams();
+  //   const [img, setImg] = useState(null);
+  //   const [tripPhoto, setTripPhoto] = useState(null);
+
+  // console.log(user);
+
   const navigate = useNavigate();
   const [error, setError] = useState(false);
   const [inputs, setInputs] = useState({

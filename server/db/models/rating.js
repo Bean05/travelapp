@@ -18,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
   Rating.init({
     text: DataTypes.TEXT,
     author: DataTypes.INTEGER,
-    photo: DataTypes.TEXT,
     stars: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
   }, {

@@ -7,7 +7,7 @@ module.exports = {
         password: '123',
         phone: '8(916)764-62-81',
         social: 'https://www.instagram.com/veryire/',
-        photo: 'images/ira.jpeg',
+        photo: 'images/ira.png',
         about: 'Всем привет! Меня зовут Ира. В прошлом я была редактором Cosmopolitan, а сейчас я блогер, активно веду свой Instagram-аккаунт о путешествиях, в которых меня всегда сопровождает собака породы хаски Спейс. Она мой лучший друг.',
         age: 26,
         pets: 'милейшая собака',
