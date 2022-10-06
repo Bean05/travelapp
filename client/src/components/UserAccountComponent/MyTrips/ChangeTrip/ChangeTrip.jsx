@@ -60,7 +60,7 @@ export default function ChangeTrip({ tripId }) {
       <Button
         variant="outlined"
         color="neutral"
-        sx={{ mt: 2, ml: '30%' }}
+        sx={{ ml: '30%' }}
         onClick={() => setOpen(true)}
       >
         ИЗМЕНИТЬ
