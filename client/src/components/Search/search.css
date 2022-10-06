@@ -43,8 +43,14 @@
     margin-right: auto;
   }
   
-  .box{
+  /* .box{
      display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  } */
+  #boxSearch{
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
