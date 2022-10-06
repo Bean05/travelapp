@@ -6,7 +6,12 @@
   white-space: pre-wrap;
   width:100%;
 }
-
+/* .proverka{
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('./mapHand.jpg');
+} */
 .SearchInput {
   width: 50%;
   background-color: aliceblue;
@@ -23,7 +28,7 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('./search.jpg');
+    background-image: url('./search2.jpg');
    
     
   } 
