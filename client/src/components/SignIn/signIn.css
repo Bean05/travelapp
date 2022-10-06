@@ -1,18 +1,12 @@
-.upback {
-    background: url('./signUp.jpeg');
+.inback {
+    background: url('./signIn.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 
-.boxup {
-    background: url('./signUp.jpeg'); 
-    border-radius: 1rem;
-    /* filter: blur(10px); */
-}
-
-.inputup {
+.inputin {
     background-color: rgb(167, 195, 241);
     margin: 0px 10px;
     border-radius: 1rem;
