@@ -15,9 +15,9 @@ export default function Home() {
     <div className="home">
       <div className="videoWrapper">
         <div className="myVideo">
-          <div className="logo">
+          {/* <div className="logo">
             <img src="/logo2.png" alt="logo" style={{ borderRadius: '50%' }} />
-          </div>
+          </div> */}
           <video src="/travel.mp4" autoPlay muted loop preload="auto" style={{ width: '100%' }} />
           <div className="text">
             <h1>САЙТ ДЛЯ ПОИСКА ЛУЧШИХ ПОПУТЧИКОВ И НОВЫХ ДРУЗЕЙ! </h1>
