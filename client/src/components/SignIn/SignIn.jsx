@@ -79,9 +79,9 @@ export default function SignIn() {
                   label="Пароль"
                   type="password"
                   id="password"
+
                   // autoComplete="current-password"
                   style={{ width: '80%', marginLeft: '10%', mt: 2 }}
-
                 />
 
                 <Button
