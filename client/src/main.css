@@ -27,6 +27,7 @@ z-index: 1; */
 }
 
 .text{
+    font-style: oblique;
     position: absolute;
     z-index: 2;
     top: 45%;
