@@ -12,7 +12,7 @@ import { Stack } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signupUser } from '../../redux/actions/userActions';
-import './style.css';
+import './signUp.css';
 
 const theme = createTheme();
 
@@ -81,7 +81,6 @@ export default function SignUp() {
             <Box
               className="boxup"
               sx={{
-                // backgroundImage: 'url(./signUp.jpeg)',
                 my: 8,
                 mx: 4,
                 display: 'flex',
