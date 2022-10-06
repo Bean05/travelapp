@@ -101,6 +101,7 @@ export default function SignUp() {
                 component="form"
                 noValidate
                 sx={{ mt: 1 }}
+                autoComplete="off"
               >
                 <TextField
                   className="inputup"
@@ -110,7 +111,7 @@ export default function SignUp() {
                   id="name"
                   label="Имя"
                   name="name"
-                  autoComplete="name"
+                  // autoComplete="name"
                   autoFocus
                   value={inputs.name}
                   onChange={changeHandler}
@@ -125,7 +126,7 @@ export default function SignUp() {
                   id="email"
                   label="Почта"
                   name="email"
-                  autoComplete="email"
+                  // autoComplete="email"
                   autoFocus
                   value={inputs.email}
                   onChange={changeHandler}
@@ -141,7 +142,7 @@ export default function SignUp() {
                   label="Пароль"
                   type="password"
                   id="password"
-                  autoComplete="current-password"
+                  // autoComplete="current-password"
                   value={inputs.password}
                   onChange={changeHandler}
                   style={{ width: '80%', marginLeft: '10%' }}
@@ -155,7 +156,7 @@ export default function SignUp() {
                   id="phone"
                   label="Телефон"
                   name="phone"
-                  autoComplete="phone"
+                  // autoComplete="phone"
                   autoFocus
                   value={inputs.phone}
                   onChange={changeHandler}
@@ -170,7 +171,7 @@ export default function SignUp() {
                   id="social"
                   label="Соц.Сеть"
                   name="social"
-                  autoComplete="social"
+                  // autoComplete="social"
                   autoFocus
                   value={inputs.social}
                   onChange={changeHandler}

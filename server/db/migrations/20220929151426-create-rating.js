@@ -15,9 +15,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      photo: {
-        type: Sequelize.TEXT,
-      },
       stars: {
         type: Sequelize.INTEGER,
         allowNull: false,

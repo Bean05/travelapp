@@ -85,7 +85,7 @@ export default function SignIn() {
               <Typography component="h1" variant="h5">
                 Авторизация
               </Typography>
-              <Box component="form" noValidate onSubmit={(e) => dispatch(signinUser(e, Object.fromEntries(new FormData(e.target))))} sx={{ mt: 1 }}>
+              <Box component="form" autoComplete="off" noValidate onSubmit={(e) => dispatch(signinUser(e, Object.fromEntries(new FormData(e.target))))} sx={{ mt: 1 }}>
                 <TextField
                   className="inputin"
                   margin="normal"
@@ -94,7 +94,7 @@ export default function SignIn() {
                   id="email"
                   label="Почта"
                   name="email"
-                  autoComplete="email"
+                  // autoComplete="email"
                   autoFocus
                   style={{ width: '80%', marginLeft: '10%', mt: 2 }}
                 />
@@ -107,7 +107,7 @@ export default function SignIn() {
                   label="Пароль"
                   type="password"
                   id="password"
-                  autoComplete="current-password"
+                  // autoComplete="current-password"
                   style={{ width: '80%', marginLeft: '10%', mt: 2 }}
                 />
                 {/* {error && <p>Заполни все поля</p>} */}

@@ -21,7 +21,7 @@ export default function SubmitButton() {
   const allTrip = membership.filter((el) => el.Trip.User.id === +id);
   const value1 = allTrip.filter((el) => el.request === null);
   // console.log('поездки самого юзера ', allTrip);
-  console.log('поездки самого юзера, которые он должен подтвердить ', value1);
+  // console.log('поездки самого юзера, которые он должен подтвердить ', value1);
   const [open, setOpen] = React.useState(false);
   const changeFalse = (value, idMem) => {
     axios.patch(`/api/membership/${idMem}`, { status: value })
