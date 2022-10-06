@@ -11,7 +11,6 @@ import { allInfo } from '../../../redux/actions/userActions';
 import EditButton from '../EditButton/EditButton';
 import UserAccountTrips from '../MyTrips/UserAccountTrips';
 import Membership from '../../Membership/Membership';
-import '../index.css';
 
 export default function UserAccount() {
   const dispatch = useDispatch();
@@ -28,7 +27,6 @@ export default function UserAccount() {
     <div className="bg-image">
       <div className="blur">
         <div className="accountDiv">
-
           <div className="cardDiv">
             <Card
               id="muiCard"

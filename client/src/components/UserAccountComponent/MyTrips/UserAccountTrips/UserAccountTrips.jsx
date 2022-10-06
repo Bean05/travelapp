@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { allUserTrips } from '../../../../redux/actions/allUserTripsActions';
 import SubmitButton from '../../SubmitButton';
 import ChangeTrip from '../ChangeTrip';
+import '../../index.css';
 
 export default function UserAccountTrips() {
   const dispatch = useDispatch();
@@ -16,11 +17,17 @@ export default function UserAccountTrips() {
   return (
 
     <div id="myTrips" className="mytrips">
-      <h3 style={{ marginTop: '15px', marginLeft: '15px', fontSize: '40px' }}>Организованные мной поездки</h3>
+      <h3 style={{ marginTop: '10px', marginLeft: '15px', fontSize: '40px' }}>Организованные мной поездки</h3>
       <div id="conteinerMove">
         {allTrips && allTrips.length < 1 ? (<p>Поездок еще нет</p>) : (allTrips.map((el) => (
           <div className="box" id="cardBoxArea">
-            <div className="card" id="OneCard" style={{ width: '300px', background: '#a8a199' }}>
+            <div
+              className="card"
+              id="OneCard"
+              style={{
+                width: '300px', height: '520px', background: '#bec2c5', marginBottom: '20%',
+              }}
+            >
               <div className="card-header">
                 <img src={`http://localhost:3001/${el?.tripPhoto}`} alt={el?.tripName} />
               </div>

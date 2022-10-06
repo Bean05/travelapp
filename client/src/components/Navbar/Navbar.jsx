@@ -35,30 +35,45 @@ function Navbar() {
             </IconButton>
             {user.id
               ? (
-                <Box>
+                <Box id="boxNav">
                   <Button component={NavLink} to="/create" variant="filled">
-                    Создать поездку
+                    <p style={{ fontSize: '20px', paddingTop: '14px' }}>Создать поездку</p>
                   </Button>
                   <Button component={NavLink} to="/search" variant="filled">
-                    Найти поездку
+                    <p style={{ fontSize: '20px', paddingTop: '14px' }}>Найти поездку</p>
                   </Button>
                   <Button component={NavLink} to={`/user/${user.id}`} variant="filled">
-                    Личная страница
+                    <p style={{ fontSize: '20px', paddingTop: '14px' }}>Личная страница</p>
                   </Button>
                   <IconButton onClick={() => dispatch(logoutUserAsync())} edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
                     <LogoutIcon />
                   </IconButton>
                 </Box>
+
               ) : (
                 <Box>
                   <Button component={NavLink} to="/signup" variant="filled">
-                    Зарегистрироваться
+                    <p style={{ fontSize: '20px', paddingTop: '14px' }}>Зарегистрироваться</p>
                   </Button>
                   <Button component={NavLink} to="/signin" variant="filled">
-                    Войти
+                    <p style={{ fontSize: '20px', paddingTop: '14px' }}>Войти</p>
                   </Button>
                 </Box>
               )}
+            <NavLink
+              to="/"
+              style={{
+                borderRadius: '50%', height: '55px', position: 'absolute', right: '15px',
+              }}
+            >
+              <img
+                src="/logo2.png"
+                alt="logo"
+                style={{
+                  borderRadius: '50%', height: '60px',
+                }}
+              />
+            </NavLink>
           </Toolbar>
         </AppBar>
       </Box>
