@@ -47,7 +47,7 @@ export default function UserAccountTrips() {
                   <img src={`http://localhost:3001/${user?.photo}`} alt={user?.name} />
                 </div>
                 <ChangeTrip tripId={el.id} />
-                <SubmitButton />
+                <SubmitButton cardId={el.id} />
               </div>
             </div>
           </div>
