@@ -8,7 +8,7 @@ body {
 }
 
 .videoWrapper {
-/* position: relative;
+    /* position: relative;
 z-index: 1; */
 }
 
@@ -26,13 +26,15 @@ z-index: 1; */
     top: 8%;
 }
 
+
 .text{
+    font-style: oblique;
     position: absolute;
     z-index: 2;
     top: 45%;
     left: 10%;
     color: beige;
-    background: linear-gradient( #000428, #004e92);
+    background: linear-gradient(#000428, #004e92);
     align-items: center;
     height: 70px;
 }
@@ -50,7 +52,7 @@ z-index: 1; */
     /* left: 13%; */
     background: linear-gradient(#000428, #004e92);
     width: 100%;
-     /* background: url('http://media-s3-us-east-1.ceros.com/business-insider/images/2018/05/14/3e3b00ae7b8c36512e1fe570a27b5ea8/airplane-gif-dr.gif'); 
+    /* background: url('http://media-s3-us-east-1.ceros.com/business-insider/images/2018/05/14/3e3b00ae7b8c36512e1fe570a27b5ea8/airplane-gif-dr.gif'); 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -60,3 +62,4 @@ z-index: 1; */
 .card {
     margin-left: 50px;
 }
+

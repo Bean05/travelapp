@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Transition } from 'react-transition-group';
 import Button from '@mui/joy/Button';
 import Modal from '@mui/joy/Modal';
@@ -9,20 +9,32 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { CssBaseline } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { allUserTrips } from '../../../../redux/actions/allUserTripsActions';
 
 export default function ChangeTrip({ tripId }) {
-  //   const dispatch = useDispatch();
   const { id } = useParams();
+  const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch();
 
-  const navigate = useNavigate();
+  useEffect(() => { dispatch(allUserTrips(id)); }, [open]);
+
+  const allTrips = useSelector((state) => state.oneUserTrips);
   const [error, setError] = useState(false);
   const [inputs, setInputs] = useState({
-    aboutMembers: '',
-    aboutTrip: '',
-    membersCount: '',
+    aboutMembers: allTrips[0].aboutMembers,
+    aboutTrip: allTrips[0].aboutTrip,
+    membersCount: allTrips[0].membersCount,
   });
+  useEffect(() => {
+    setInputs({
+      aboutMembers: allTrips[0].aboutMembers,
+      aboutTrip: allTrips[0].aboutTrip,
+      membersCount: allTrips[0].membersCount,
+    });
+  }, [allTrips]);
 
   const changeHandler = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -39,13 +51,18 @@ export default function ChangeTrip({ tripId }) {
   && inputs.membersCount) {
       axios.patch(`/api/trip/update/${tripId}`, data)
         .then((res) => setInputs(res.data.path));
-      navigate(`/user/${id}`);
+      setOpen(false);
     } else { setError(!error); }
   };
-  const [open, setOpen] = React.useState(false);
+
   return (
     <>
-      <Button variant="outlined" color="neutral" onClick={() => setOpen(true)}>
+      <Button
+        variant="outlined"
+        color="neutral"
+        sx={{ mt: 2, ml: '30%' }}
+        onClick={() => setOpen(true)}
+      >
         ИЗМЕНИТЬ
       </Button>
       <Transition in={open} timeout={400}>
@@ -75,6 +92,10 @@ export default function ChangeTrip({ tripId }) {
               aria-labelledby="fade-modal-dialog-title"
               aria-describedby="fade-modal-dialog-description"
               sx={{
+                width: '50%',
+                maxHeight: '97%',
+                overflow: 'auto',
+                background: '#d7ccc8',
                 opacity: 0,
                 transition: 'opacity 300ms',
                 ...{
@@ -101,7 +122,7 @@ export default function ChangeTrip({ tripId }) {
                       id="aboutMembers"
                       autoComplete="aboutMembers"
                       autoFocus
-                      value={inputs.aboutMembers}
+                      value={inputs?.aboutMembers}
                       onChange={changeHandler}
                     />
                     <TextField
@@ -114,7 +135,7 @@ export default function ChangeTrip({ tripId }) {
                       id="aboutTrip"
                       autoComplete="aboutTrip"
                       autoFocus
-                      value={inputs.aboutTrip}
+                      value={inputs?.aboutTrip}
                       onChange={changeHandler}
                     />
                     <TextField
@@ -127,7 +148,7 @@ export default function ChangeTrip({ tripId }) {
                       id="membersCount"
                       autoComplete="membersCount"
                       autoFocus
-                      value={inputs.membersCount}
+                      value={inputs?.membersCount}
                       onChange={changeHandler}
                     />
                     <Button
@@ -135,7 +156,14 @@ export default function ChangeTrip({ tripId }) {
                       onSubmit={(e) => submitHandler(e, inputs)}
                       fullWidth
                       variant="contained"
-                      sx={{ mt: 3, mb: 2 }}
+                      sx={{
+                        mt: 3,
+                        mb: 2,
+                        border: 'solid',
+                        borderColor: '#a1887f',
+                        width: '20%',
+                        ml: '41%',
+                      }}
                     >
                       Поменять!
                     </Button>

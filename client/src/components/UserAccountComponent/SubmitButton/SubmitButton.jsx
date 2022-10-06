@@ -12,14 +12,15 @@ import { Box } from '@mui/system';
 import axios from 'axios';
 import { setAllMembersAsync } from '../../../redux/actions/membershipActions';
 
-export default function SubmitButton() {
+export default function SubmitButton({ cardId }) {
   const membership = useSelector((state) => state.membership);
   const dispatch = useDispatch();
   //   const navigate = useNavigate();
   const { id } = useParams();
-  //   console.log(id);
+  // console.log(id);
+  // console.log('cardID', cardId);
   const allTrip = membership.filter((el) => el.Trip.User.id === +id);
-  const value1 = allTrip.filter((el) => el.request === null);
+  const value1 = allTrip.filter((el) => el.request === null && el.tripId === cardId);
   // console.log('поездки самого юзера ', allTrip);
   // console.log('поездки самого юзера, которые он должен подтвердить ', value1);
   const [open, setOpen] = React.useState(false);

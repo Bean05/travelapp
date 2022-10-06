@@ -48,7 +48,7 @@ export default function Search() {
     <div className="divBackground">
       <Grid container>
         <Grid item xs={1} />
-        <Grid item xs={10}>
+        <Grid item xs={10} className="proverka">
           <form onSubmit={submitHandler} className="searchFatherDiv">
             <Box display="flex" alignItems="center" sx={{ justifyContent: 'center', mt: 2 }}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
