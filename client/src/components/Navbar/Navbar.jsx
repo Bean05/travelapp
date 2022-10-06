@@ -7,12 +7,12 @@ import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { purple } from '@mui/material/colors';
+import { indigo } from '@mui/material/colors';
 import { logoutUserAsync } from '../../redux/actions/userActions';
 import '../../main.css';
 
 function Navbar() {
-  const color = purple[800];
+  const color = indigo[900];
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   return (
