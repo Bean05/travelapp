@@ -24,6 +24,15 @@ export const randomSetTrip = () => (dispatch) => {
     .catch(console.log);
 };
 
+export const updateUserPfoto = (input, id) => (dispatch) => {
+  console.log('FOTO INPUT>>>>', input);
+  axios.put(`/api/v1/userfoto/${id}`, input)
+    .then((res) => {
+      dispatch(setUpdateUser(res.data));
+    })
+    .catch(console.log);
+};
+
 export const updateUserCard = (input, id, setModalUpdate) => (dispatch) => {
   axios.put(`/api/v1/updateuser/${id}`, input)
     .then((res) => {

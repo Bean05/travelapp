@@ -27,7 +27,7 @@ export default function UserComments() {
     dispatch(submitMessage(input, setInput, id));
   };
 
-  console.log(allComments);
+  // console.log(allComments);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Box, Button, CircularProgress } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
@@ -23,12 +23,12 @@ export default function Membership() {
     dispatch(setAllMembersAsync());
   }, []);
   return (
-    <div className="containerCard">
-      <h3>Я участвую</h3>
-      {allTrip && allTrip.length < 1 ? (<div>Поездок еще нет</div>) : (allTrip.map((el) => (
-        <div key={el?.Trip.id}>
+    <div className="containerCard" id="otherTripAll">
+      <h3 style={{ marginTop: '15px', marginLeft: '15px', fontSize: '40px' }}>Я участвую</h3>
+      <div id="otherTripMove">
+        {allTrip && allTrip.length < 1 ? (<div>Поездок еще нет</div>) : (allTrip.map((el) => (
           <div className="box">
-            <div className="card">
+            <div className="card" style={{ width: '300px', background: '#a8a199' }}>
               <div className="card-header">
                 <img src={`http://localhost:3001/${el?.Trip.tripPhoto}`} alt={el?.Trip.tripName} />
               </div>
@@ -56,7 +56,7 @@ export default function Membership() {
                   <img src={`http://localhost:3001/${el?.Trip.User.photo}`} alt={el?.Trip.User.name} />
                   <div className="user-info">
                     Организатор
-                    <Link to={`/page/${el?.Trip.User.id}`}>
+                    <Link to={`/page/${el?.Trip.User.id}`} style={{ textDecoration: 'none', color: '#1f2f40' }}>
                       <h5>{el.Trip.User.name}</h5>
                     </Link>
                   </div>
@@ -64,16 +64,27 @@ export default function Membership() {
                 <ModalMembership oneCard={el} />
                 <div>
                   {el.request === null
-                    && (<Button variant="outlined"> Ожидайте подтверждения </Button>)}
+                    && (
+                    <div>
+                      <Box sx={{
+                        display: 'flex', gap: 2, alignItems: 'center', flexWrap: 'wrap',
+                      }}
+                      >
+                        <CircularProgress determinate value={50} />
+                        <p style={{ fontSize: '20px', color: '#FFD300' }}>Ожидайте подтверждения</p>
+                      </Box>
+                    </div>
+                    )}
+
                   {el?.request === true
-                    && (<Button variant="outlined">Вы едете!</Button>)}
+                    && (<div>Вы едете!</div>)}
                   {el?.request === false && (<Button variant="outlined">Организатор отклонил заявку</Button>)}
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      )))}
+        )))}
+      </div>
     </div>
 
   );

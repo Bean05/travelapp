@@ -38,8 +38,7 @@ router.post('/random', async (req, res) => {
   const random = await Trip.findOne({ order: Sequelize.literal('random()'), include: User });
   res.json(random);
 });
-router.put('/updateuser/:id', fileMiddleware.single('photo'), async (req, res) => {
-  console.log('PFOTO>>>>>', req.body.file);
+router.put('/updateuser/:id', async (req, res) => {
   try {
     const Id = await User.findByPk(req.params.id);
     const update = await Id.update({
@@ -57,6 +56,19 @@ router.put('/updateuser/:id', fileMiddleware.single('photo'), async (req, res) =
       telegram: req.body.telegram,
     });
     res.json(update);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+router.put('/userfoto/:id', fileMiddleware.single('photo'), async (req, res) => {
+  console.log('PFOTO>>>>>', req.file);
+  try {
+    const Id = await User.findByPk(req.params.id);
+    await Id.update({
+      photo: req.file.filename,
+    });
+    res.sendStatus(200);
   } catch (e) {
     console.log(e);
     res.sendStatus(500);

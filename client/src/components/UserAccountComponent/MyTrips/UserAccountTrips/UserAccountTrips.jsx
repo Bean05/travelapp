@@ -15,12 +15,12 @@ export default function UserAccountTrips() {
   const user = useSelector((state) => state.user);
   return (
 
-    <div id="myTrips">
-      <h3 style={{ marginTop: '15px', marginLeft: '15px', fontSize: '50px' }}>Поездки, которые я организовал</h3>
+    <div id="myTrips" className="mytrips">
+      <h3 style={{ marginTop: '15px', marginLeft: '15px', fontSize: '40px' }}>Организованные мной поездки</h3>
       <div id="conteinerMove">
-        {allTrips && allTrips.length < 1 ? (<div>Поездок еще нет</div>) : (allTrips.map((el) => (
+        {allTrips && allTrips.length < 1 ? (<p>Поездок еще нет</p>) : (allTrips.map((el) => (
           <div className="box" id="cardBoxArea">
-            <div className="card" id="OneCard" style={{ width: '355px' }}>
+            <div className="card" id="OneCard" style={{ width: '300px', background: '#a8a199' }}>
               <div className="card-header">
                 <img src={`http://localhost:3001/${el?.tripPhoto}`} alt={el?.tripName} />
               </div>
