@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import {
-  Container, Avatar, Grid,
-} from '@mui/material';
-import { ListGroup, ListGroupItem } from 'reactstrap';
+import AspectRatio from '@mui/joy/AspectRatio';
+import Card from '@mui/joy/Card';
+import CardOverflow from '@mui/joy/CardOverflow';
+import Typography from '@mui/joy/Typography';
 import { useSelector, useDispatch } from 'react-redux';
 import { oneUser } from '../../../redux/actions/oneUserInfoActions';
 import UserTrips from '../UserTrips/UserTrips';
 import UserComments from '../UserComments';
+import '../index.css';
 
 export default function UserAccount() {
   const dispatch = useDispatch();
@@ -21,115 +22,106 @@ export default function UserAccount() {
   const telega = oneUserInfo?.telegram;
 
   return (
-    <Container>
-      <Grid container spacing={2}>
-        <Grid item xs={4}>
-          <Avatar
-            alt="Remy Sharp"
-            style={{
-              marginLeft: '100px', marginTop: '150px', width: '150px', height: '150px',
-            }}
-            src={`http://localhost:3001/${oneUserInfo?.photo}`}
-          />
-        </Grid>
-        <Grid item xs={8}>
-
-          <ListGroup
-            key={oneUserInfo.id}
-            style={{
-              marginTop: '150px', width: '80%', heigh: '100px',
+    <div className="allFlex">
+      <div className="pageDiv">
+        <div className="cardPageDiv">
+          <Card
+            id="muiCardPage"
+            variant="outlined"
+            sx={{
+              marginTop: '20%', margin: '0',
             }}
           >
-            <ListGroupItem>
-              <strong>Имя:</strong>
-              {' '}
+            <CardOverflow>
+              <AspectRatio ratio="1">
+                <img
+                  style={{
+                    width: '100%', height: '100%', objectFit: 'cover', verticalAlign: 'middle',
+                  }}
+                  src={`http://localhost:3001/${oneUserInfo?.photo}`}
+                  alt=""
+                />
+              </AspectRatio>
+            </CardOverflow>
+            <Typography level="h2" sx={{ fontSize: 'md', mt: 2 }}>
+              <h3>Имя</h3>
               {oneUserInfo?.name}
-            </ListGroupItem>
-            <ListGroupItem>
-              <strong>Обо мне:</strong>
+            </Typography>
+            {!oneUserInfo?.about && (
+            <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
+              <h3>Обо мне</h3>
+              {oneUserInfo.about}
+            </Typography>
+            )}
+            {oneUserInfo?.age !== null && (
+            <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
+              <h3>Возраст</h3>
               {' '}
-              {oneUserInfo?.about}
-            </ListGroupItem>
-            {oneUserInfo?.age !== null ? (
-              <ListGroupItem>
-                {' '}
-                <strong>Возраст:</strong>
-                {' '}
-                {oneUserInfo.age}
-              </ListGroupItem>
-            ) : <> </>}
-            <ListGroupItem>
-              <strong> Телефон:</strong>
-              {' '}
+              {oneUserInfo.age}
+            </Typography>
+            )}
+            <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
+              <h3>Телефон</h3>
+
               {oneUserInfo?.phone}
-            </ListGroupItem>
-            {oneUserInfo?.pets !== null
-              ? (
-                <ListGroupItem>
-                  <strong> Мои домашние питомцы: </strong>
-                  {' '}
-                  {oneUserInfo.pets}
-                </ListGroupItem>
-              ) : <> </>}
-            {oneUserInfo?.habits !== null
-              ? (
-                <ListGroupItem>
-                  <strong> Мои привычки:</strong>
-                  {' '}
-                  {oneUserInfo.habits}
-                </ListGroupItem>
-              ) : <> </>}
-            {oneUserInfo?.city !== null
-              ? (
-                <ListGroupItem>
-                  <strong>  Откуда я: </strong>
-                  {' '}
-                  {oneUserInfo.city}
-                </ListGroupItem>
-              ) : <> </>}
-            {oneUserInfo?.drivLic !== null
-              ? (
-                <ListGroupItem>
-                  <strong> Категория прав: </strong>
-                  {' '}
-                  {oneUserInfo.drivLic}
-                </ListGroupItem>
-              ) : <> </>}
-            {oneUserInfo?.transport !== null
-              ? (
-                <ListGroupItem>
-                  <strong>  Мой траспорт: </strong>
-                  {' '}
-                  {oneUserInfo?.transport}
-                </ListGroupItem>
-              ) : <> </>}
-            <ListGroupItem key={social}>
-              <a href={social} style={{ textDecoration: 'none' }}>
+
+            </Typography>
+            {oneUserInfo?.pets !== null && (
+            <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
+              <h3>Животные:</h3>
+              {oneUserInfo.pets}
+            </Typography>
+            )}
+            {oneUserInfo?.habits !== null && (
+            <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
+              <h3>Мои привычки</h3>
+              {oneUserInfo.habits}
+            </Typography>
+            )}
+            {oneUserInfo?.city !== null && (
+            <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
+              <h3>Город</h3>
+              {oneUserInfo.city}
+            </Typography>
+            )}
+            {oneUserInfo?.drivLic !== null && (
+            <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
+              <h3>Водительские права</h3>
+              {oneUserInfo.drivLic}
+            </Typography>
+            )}
+            {oneUserInfo?.transport !== null && (
+            <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
+              <h3>Транспорт</h3>
+              {oneUserInfo?.transport}
+            </Typography>
+            )}
+            <Typography level="body2" sx={{ mt: 0.5, mb: 2 }} key={social}>
+              <a href={social} style={{ textDecoration: 'none', color: '#1f2f40' }}>
                 <img
                   src="https://www.svgrepo.com/show/216563/image-photo.svg"
                   alt="social"
                   style={{ width: '30px', heigh: '30px' }}
                 />
                 {' '}
-                <strong>  Моя соц.сеть </strong>
+                Моя соц.сеть
               </a>
-            </ListGroupItem>
-            {oneUserInfo?.telegram !== null
-              ? (
-                <ListGroupItem key={telega}>
-                  <a
-                    href={`tg://resolve?domain=${telega}`}
-                    style={{ textDecoration: 'none' }}
-                  >
-                    Связаться со мной в  Телеграм
-                  </a>
-                </ListGroupItem>
-              ) : <> </>}
-          </ListGroup>
-        </Grid>
-      </Grid>
-      <UserTrips />
+            </Typography>
+            {social !== null && (
+            <Typography level="body2" sx={{ mt: 0.5, mb: 2 }} key={telega}>
+              <a
+                href={`tg://resolve?domain=${telega}`}
+                style={{ textDecoration: 'none', color: '#1f2f40' }}
+              >
+                Связаться со мной в  Телеграм
+              </a>
+            </Typography>
+            )}
+          </Card>
+        </div>
+        <UserTrips />
+      </div>
       <UserComments />
-    </Container>
+    </div>
   );
 }

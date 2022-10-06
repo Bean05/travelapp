@@ -9,6 +9,7 @@ import StarBorderPurple500SharpIcon from '@mui/icons-material/StarBorderPurple50
 import { Box } from '@mui/system';
 import Button from '@mui/joy/Button';
 import { setAllComments, submitMessage } from '../../../redux/actions/allCommentsActions';
+import '../index.css';
 
 export default function UserComments() {
   const [input, setInput] = useState({ text: '', stars: '', photo: '' });
@@ -30,8 +31,7 @@ export default function UserComments() {
   // console.log(allComments);
 
   return (
-    <>
-
+    <div className="allComments">
       <Card
         style={{
           width: '18rem',
@@ -67,23 +67,25 @@ export default function UserComments() {
           </CardBody>
         ))}
       </Card>
-      <div>Оставить комментарий обо мне</div>
-      <Box component="form">
-        <TextField id="outlined-basic" label="Ваш отзыв" variant="outlined" name="text" value={input.text} onChange={inputHandler} />
-        <div style={{ marginTop: '15px' }} />
-        <TextField id="outlined-basic" label="Ваш оценка от 1 до 10" variant="outlined" name="stars" value={input.stars} onChange={inputHandler} />
-        <div style={{ marginTop: '15px' }} />
-        <TextField id="outlined-basic" label="ссылка на фотографию" variant="outlined" name="photo" value={input.photo} onChange={inputHandler} />
-        <div style={{ marginTop: '15px' }} />
-        <Button
-          color="info"
-          variant="outlined"
-          type="button"
-          onClick={() => submitHandler()}
-        >
-          Оставить отзыв
-        </Button>
-      </Box>
-    </>
+      <div className="sendedComments">
+        <h4>Оставить комментарий обо мне</h4>
+        <Box component="form">
+          <TextField id="outlined-basic" label="Ваш отзыв" variant="outlined" name="text" value={input.text} onChange={inputHandler} />
+          <div style={{ marginTop: '15px' }} />
+          <TextField id="outlined-basic" label="Ваш оценка от 1 до 10" variant="outlined" name="stars" value={input.stars} onChange={inputHandler} />
+          <div style={{ marginTop: '15px' }} />
+          <TextField id="outlined-basic" label="ссылка на фотографию" variant="outlined" name="photo" value={input.photo} onChange={inputHandler} />
+          <div style={{ marginTop: '15px' }} />
+          <Button
+            color="info"
+            variant="outlined"
+            type="button"
+            onClick={() => submitHandler()}
+          >
+            Оставить отзыв
+          </Button>
+        </Box>
+      </div>
+    </div>
   );
 }
