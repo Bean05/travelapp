@@ -81,6 +81,7 @@ export default function SignUp() {
             <Box
               className="boxup"
               sx={{
+                // backgroundImage: 'url(./signUp.jpeg)',
                 my: 8,
                 mx: 4,
                 display: 'flex',
@@ -178,7 +179,6 @@ export default function SignUp() {
                 />
                 <Stack direction="row" alignItems="center" spacing={2}>
                   <Button
-                    className="ava"
                     variant="contained"
                     component="label"
                     style={{ width: '20%', marginLeft: '40%', mt: 2 }}
