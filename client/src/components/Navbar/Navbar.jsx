@@ -49,7 +49,6 @@ function Navbar() {
                     <LogoutIcon />
                   </IconButton>
                 </Box>
-
               ) : (
                 <Box>
                   <Button component={NavLink} to="/signup" variant="filled">
