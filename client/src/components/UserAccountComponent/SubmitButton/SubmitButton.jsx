@@ -6,7 +6,7 @@ import Modal from '@mui/joy/Modal';
 import ModalDialog from '@mui/joy/ModalDialog';
 import Typography from '@mui/joy/Typography';
 import Grid from '@mui/material/Grid';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Avatar, CssBaseline } from '@mui/material';
 import { Box } from '@mui/system';
 import axios from 'axios';
@@ -15,24 +15,23 @@ import { setAllMembersAsync } from '../../../redux/actions/membershipActions';
 export default function SubmitButton() {
   const membership = useSelector((state) => state.membership);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   //   const navigate = useNavigate();
   const { id } = useParams();
   //   console.log(id);
   const allTrip = membership.filter((el) => el.Trip.User.id === +id);
   const value1 = allTrip.filter((el) => el.request === null);
-  // const memId = value1.
-  //   console.log('поездки самого юзера ', allTrip);
-  //   console.log('поездки самого юзера, которые он должен подтвердить ', value1);
+  // console.log('поездки самого юзера ', allTrip);
+  console.log('поездки самого юзера, которые он должен подтвердить ', value1);
   const [open, setOpen] = React.useState(false);
   const changeFalse = (value, idMem) => {
     axios.patch(`/api/membership/${idMem}`, { status: value })
-      .then((res) => console.log(res.data));
-    navigate(`/user/${id}`);
+      .then((res) => res.data);
+    setOpen(false);
   };
+
   useEffect(() => {
     dispatch(setAllMembersAsync());
-  }, []);
+  }, [open]);
   return (
     <>
       {value1.length !== 0 ? (

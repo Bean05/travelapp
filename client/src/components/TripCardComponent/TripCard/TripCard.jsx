@@ -15,7 +15,7 @@ export default function TripCard() {
     <Box className="containerCard" sx={{ width: '62.5 rem', mx: 'auto' }}>
       {allCards && allCards?.map((el) => (
         <div key={el.id}>
-          <Box sx={{ flexGrow: 1, my: '1rem' }}>
+          <Box sx={{ flexGrow: 1, my: '1 rem' }}>
             <Grid container spacing={4}>
               <div className="card">
                 <div className="card-header">

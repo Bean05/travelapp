@@ -1,0 +1,18 @@
+.inback {
+    background: url('./signIn.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.boxin {
+    background: url('./signIn.jpg'); 
+    border-radius: 1rem;
+}
+
+.inputin {
+    background-color: rgb(167, 195, 241);
+    margin: 0px 10px;
+    border-radius: 1rem;
+}

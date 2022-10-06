@@ -8,6 +8,8 @@
 
 .boxup {
     background: url('./signUp.jpeg'); 
+    border-radius: 1rem;
+    /* filter: blur(10px); */
 }
 
 .inputup {

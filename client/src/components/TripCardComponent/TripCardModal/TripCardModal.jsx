@@ -40,8 +40,8 @@ export default function TripCardModal({ oneCard }) {
                       backdropFilter: 'none',
                       transition: 'opacity 400ms, backdrop-filter 400ms',
                       ...{
-                        entering: { opacity: 1, backdropFilter: 'blur(50px)' },
-                        entered: { opacity: 1, backdropFilter: 'blur(50px)' },
+                        entering: { opacity: 1, backdropFilter: 'blur(30px)' },
+                        entered: { opacity: 1, backdropFilter: 'blur(30px)' },
                       }[state],
                     },
                   },
@@ -66,9 +66,9 @@ export default function TripCardModal({ oneCard }) {
                     id="fade-modal-dialog-description"
                 // component="h2"
                 // level="inherit"
-                    fontSize="10px"
+                    fontSize="30px"
                   >
-                    <h4>{oneCard.tripName}</h4>
+                    <strong>{oneCard.tripName}</strong>
                   </Typography>
                   <Typography
                     id="fade-modal-dialog-description"
@@ -194,8 +194,8 @@ export default function TripCardModal({ oneCard }) {
                       backdropFilter: 'none',
                       transition: 'opacity 400ms, backdrop-filter 400ms',
                       ...{
-                        entering: { opacity: 1, backdropFilter: 'blur(50px)' },
-                        entered: { opacity: 1, backdropFilter: 'blur(50px)' },
+                        entering: { opacity: 1, backdropFilter: 'blur(30px)' },
+                        entered: { opacity: 1, backdropFilter: 'blur(30px)' },
                       }[state],
                     },
                   },

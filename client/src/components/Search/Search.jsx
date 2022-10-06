@@ -99,7 +99,7 @@ export default function Search() {
         {searchTrip?.filter((el) => (search
           ? el.User.name.toLowerCase().includes(search.toLowerCase()) : true)).map((el) => (
             <div key={el.id}>
-              <div className="box">
+              <div className="box" id="boxSearch">
                 <div className="card">
                   <div className="card-header">
                     <img src={`http://localhost:3001/${el.tripPhoto}`} alt={el.tripName} />
