@@ -80,7 +80,7 @@ export default function SignIn() {
                   type="password"
                   id="password"
                   autoComplete="current-password"
-                  style={{ width: '80%', marginLeft: '28%', mt: 2 }}
+                  style={{ width: '80%', marginLeft: '28%' }}
                 />
 
                 <Button
