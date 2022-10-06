@@ -33,6 +33,8 @@ export default function SubmitButton({ cardId }) {
   useEffect(() => {
     dispatch(setAllMembersAsync());
   }, [open]);
+
+  console.log(value1);
   return (
     <>
       {value1.length !== 0 ? (
@@ -114,7 +116,7 @@ export default function SubmitButton({ cardId }) {
                         >
                           <Link style={{ textDecoration: 'none' }} to={`/page/${el.User.id}`}>{el.User.name}</Link>
                           <a
-                            href={(`tg://resolve?domain=${el.User.social}`)}
+                            href={(`tg://resolve?domain=${el.User.telegram}`)}
                             style={{ textDecoration: 'none', mr: '50%' }}
                           >
                             Связаться со мной
