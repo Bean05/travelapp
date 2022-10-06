@@ -60,7 +60,6 @@ export default function UserAccountTrips() {
           </div>
         )))}
       </div>
-
     </div>
   );
 }
