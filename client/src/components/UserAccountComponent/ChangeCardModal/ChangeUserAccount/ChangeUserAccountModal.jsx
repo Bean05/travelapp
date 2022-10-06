@@ -121,7 +121,7 @@ export default function ChangeUserAccountModal() {
                 width: '50%',
                 maxHeight: '97%',
                 overflow: 'auto',
-                background: '#F5F5F5',
+                background: '#e0e0e0',
                 opacity: 0,
                 transition: 'opacity 300ms',
                 ...{
@@ -292,20 +292,31 @@ export default function ChangeUserAccountModal() {
                   </IconButton>
                 </Stack>
                 {error && <p style={{ color: 'red', fontSize: '30px' }}>Заполни обязательные поля*</p>}
-                <Box display="flex" alignItems="center" sx={{ justifyContent: 'center', mt: 2 }}>
+                <Box display="flex" alignItems="center" sx={{ justifyContent: 'space-around', mt: 2 }}>
                   <Button
                     type="submit"
                     fullWidth
                     variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
+                    sx={{
+                      mt: 3,
+                      mb: 2,
+                      border: 'solid',
+                      width: '20%',
+                      borderColor: '#a1887f',
+                    }}
                   >
                     Изменить!
                   </Button>
                   <Button
                     onClick={() => setModalUpdate(false)}
                     fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
+                    sx={{
+                      mt: 3,
+                      mb: 2,
+                      border: 'solid',
+                      borderColor: '#bcaaa4',
+                      width: '20%',
+                    }}
                   >
                     Отмена!
                   </Button>
