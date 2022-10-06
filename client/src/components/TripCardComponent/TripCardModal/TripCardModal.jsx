@@ -1,11 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { Transition } from 'react-transition-group';
 import Button from '@mui/joy/Button';
 import Modal from '@mui/joy/Modal';
 import ModalDialog from '@mui/joy/ModalDialog';
 import Typography from '@mui/joy/Typography';
+import TelegramIcon from '@mui/icons-material/Telegram';
+// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { addMemberAsync } from '../../../redux/actions/tripCardActions';
 
 // import { NavLink } from 'react-router-dom';
@@ -14,12 +16,15 @@ export default function TripCardModal({ oneCard }) {
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   const user = useSelector((state) => state.user);
 
   const clickHandler = (id) => {
     dispatch(addMemberAsync(id));
+    navigate(`/user/${user.id}`);
   };
-  // console.log('TripCardModal---oneCard->', oneCard);
+  // console.log(oneCard);
   return (
     <>
       <Button variant="outlined" color="neutral" onClick={() => setOpen(true)}>
@@ -40,8 +45,8 @@ export default function TripCardModal({ oneCard }) {
                       backdropFilter: 'none',
                       transition: 'opacity 400ms, backdrop-filter 400ms',
                       ...{
-                        entering: { opacity: 1, backdropFilter: 'blur(50px)' },
-                        entered: { opacity: 1, backdropFilter: 'blur(50px)' },
+                        entering: { opacity: 1, backdropFilter: 'blur(30px)' },
+                        entered: { opacity: 1, backdropFilter: 'blur(30px)' },
                       }[state],
                     },
                   },
@@ -66,9 +71,9 @@ export default function TripCardModal({ oneCard }) {
                     id="fade-modal-dialog-description"
                 // component="h2"
                 // level="inherit"
-                    fontSize="10px"
+                    fontSize="30px"
                   >
-                    <h4>{oneCard.tripName}</h4>
+                    <strong>{oneCard.tripName}</strong>
                   </Typography>
                   <Typography
                     id="fade-modal-dialog-description"
@@ -166,16 +171,18 @@ export default function TripCardModal({ oneCard }) {
                     {' '}
                     {oneCard.User.phone}
                   </Typography>
-
-                  {oneCard?.User?.telegram !== null ? (
-                    <a href={`tg://resolve?domain=${oneCard.User.telegram}`}>
-                      Телеграм
-                    </a>
-                  ) : ''}
-                  <Button onClick={() => clickHandler(oneCard.id)} variant="outlined" color="neutral">
-                    Еду
-                  </Button>
-
+                  <>
+                    {oneCard?.User?.telegram !== null ? (
+                      <a href={`tg://resolve?domain=${oneCard.User.telegram}`}>
+                        <TelegramIcon />
+                      </a>
+                    ) : ''}
+                    {oneCard?.User?.id !== user.id ? (
+                      <Button onClick={() => clickHandler(oneCard.id)} variant="outlined" color="neutral">
+                        Еду
+                      </Button>
+                    ) : ''}
+                  </>
                 </ModalDialog>
               </Modal>
             )}
@@ -194,8 +201,8 @@ export default function TripCardModal({ oneCard }) {
                       backdropFilter: 'none',
                       transition: 'opacity 400ms, backdrop-filter 400ms',
                       ...{
-                        entering: { opacity: 1, backdropFilter: 'blur(50px)' },
-                        entered: { opacity: 1, backdropFilter: 'blur(50px)' },
+                        entering: { opacity: 1, backdropFilter: 'blur(30px)' },
+                        entered: { opacity: 1, backdropFilter: 'blur(30px)' },
                       }[state],
                     },
                   },

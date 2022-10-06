@@ -1,0 +1,187 @@
+/* p {
+    color: #1f2f40;
+} */
+
+h {
+    color: #1f2f40;
+}
+
+
+.accountDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: absolute;
+    z-index: 100;
+    background-image: url('../../../public/imgonline-com-ua-Blur-e1vF3GY5xH.png');
+    object-fit: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    width: 100%;
+    padding-bottom: 3%;
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+}
+
+#muiCard {
+    width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    border: rgba(4, 55, 116, 0);
+    height: 20%;
+    /* background: #bec2c5; */
+    background-image: url('../../../public/1612431723_57-p-fon-bezhevo-korichnevii-gradient-62.jpg');
+    z-index: 100;
+
+}
+
+/*личная инфо*/
+.cardDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 30%;
+    margin-left: 7%;
+    margin-top: 5%;
+    z-index: 100;
+
+}
+
+/*карта див все  поездки*/
+.divCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 60%;
+    margin-top: 5%;
+    margin-right: 5%;
+}
+
+/*мои поездки я организатор*/
+#myTrips {
+    /* background: green; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 680px;
+    width: 100%;
+    border-radius: 1%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.888);
+    /* background: #bec2c5; */
+    background-image: url('../../../public/1612431723_57-p-fon-bezhevo-korichnevii-gradient-62.jpg');
+
+}
+
+#conteinerMove {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    /* background: aqua; */
+    margin-top: 2%;
+    height: 100%;
+    width: 100%;
+    overflow-x: scroll;
+    justify-content: flex-start;
+    scrollbar-width: var(--scrollbarWidth);
+    scrollbar-color: var(--scrollbarThumbColor) var(--scrollbarBgColor);
+}
+
+#conteinerMove {
+    --scrollbarBgColor: rgba(53, 56, 60, 0.699);
+    --scrollbarThumbColor: rgb(57, 60, 62);
+    --scrollbarThumbColorSecond: rgba(134, 117, 117, 0.923);
+    --scrollbarWidth: 10px;
+    --scrollbarBorder: 0 solid var(--scrollbarBgColor);
+    --scrollbarBorderRadius: calc(var(--scrollbarWidth) / 4);
+}
+
+#conteinerMove {
+    scrollbar-width: var(--scrollbarWidth);
+    scrollbar-color: var(--scrollbarThumbColor) var(--scrollbarBgColor);
+    position: relative;
+}
+
+#conteinerMove::-webkit-scrollbar {
+    width: var(--scrollbarWidth);
+    position: relative;
+}
+
+#conteinerMove::-webkit-scrollbar-track {
+    background: var(--scrollbarBgColor);
+    border-radius: var(--scrollbarBorderRadius);
+}
+
+#conteinerMove::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbarThumbColor);
+    border-radius: var(--scrollbarBorderRadius);
+    border: var(--scrollbarBorder);
+    background-image: linear-gradient(180deg,
+            var(--scrollbarThumbColor) 0%,
+            var(--scrollbarThumbColorSecond) 90%);
+}
+
+
+#otherTripAll {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 680px;
+    width: 100%;
+    border-radius: 1%;
+    margin-top: 4%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.888);
+    background-image: url('../../../public/1612431723_57-p-fon-bezhevo-korichnevii-gradient-62.jpg');
+
+}
+
+#otherTripMove {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    /* background: aqua; */
+    margin-top: 2%;
+    height: 100%;
+    width: 100%;
+    overflow-x: scroll;
+    justify-content: flex-start;
+    scrollbar-width: var(--scrollbarWidth);
+    scrollbar-color: var(--scrollbarThumbColor) var(--scrollbarBgColor);
+}
+
+#otherTripMove {
+    --scrollbarBgColor: rgba(53, 56, 60, 0.699);
+    --scrollbarThumbColor: rgb(57, 60, 62);
+    --scrollbarThumbColorSecond: rgba(134, 117, 117, 0.923);
+    --scrollbarWidth: 10px;
+    --scrollbarBorder: 0 solid var(--scrollbarBgColor);
+    --scrollbarBorderRadius: calc(var(--scrollbarWidth) / 4);
+}
+
+#otherTripMove {
+    scrollbar-width: var(--scrollbarWidth);
+    scrollbar-color: var(--scrollbarThumbColor) var(--scrollbarBgColor);
+    position: relative;
+}
+
+#otherTripMove::-webkit-scrollbar {
+    width: var(--scrollbarWidth);
+    position: relative;
+}
+
+#otherTripMove::-webkit-scrollbar-track {
+    background: var(--scrollbarBgColor);
+    border-radius: var(--scrollbarBorderRadius);
+}
+
+#otherTripMove::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbarThumbColor);
+    border-radius: var(--scrollbarBorderRadius);
+    border: var(--scrollbarBorder);
+    background-image: linear-gradient(180deg,
+            var(--scrollbarThumbColor) 0%,
+            var(--scrollbarThumbColorSecond) 90%);
+}

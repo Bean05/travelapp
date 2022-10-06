@@ -7,7 +7,10 @@ export const logoutUser = () => ({ type: LOGOUT });
 export const checkAuth = () => (dispatch) => {
   axios.post('/api/users/check', { withCredentials: true })
     .then((res) => dispatch(setAuthUser(res.data)))
-    .catch(console.log);
+    .catch((e) => {
+      dispatch(setAuthUser({}));
+      console.log(e);
+    });
 };
 
 // export const signinUser = (e, inputs, setError) => (dispatch) => {
@@ -43,11 +46,11 @@ export const logoutUserAsync = () => (dispatch) => {
     .catch(console.log);
 };
 
-export const editHandler = (id, input) => (dispatch) => {
-  axios.patch(`/api/users/user/${id}`, input)
-    .then((res) => dispatch(setAuthUser(res.data)))
-    .catch(console.log);
-};
+// export const editHandler = (id, input) => (dispatch) => {
+// axios.patch(`/api/users/user/${id}`, input)
+//   .then((res) => dispatch(setAuthUser(res.data)))
+//   .catch(console.log);
+// };
 
 export const allInfo = (id) => (dispatch) => {
   axios(`/api/users/user/${id}`)

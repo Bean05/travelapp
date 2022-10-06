@@ -1,4 +1,3 @@
-import { Container } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { useDispatch, useSelector } from 'react-redux';
@@ -15,6 +14,7 @@ import ProtectedRoute from './HOCs/ProtectedRoute';
 import UserPage from './components/UserPageComponent/UserPage';
 import Test from './components/Testoviy';
 import LoaderWrapper from './HOCs/LoaderWrapper';
+// import './main.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ function App() {
 
   const user = useSelector((state) => state.user);
   return (
-    <Container>
+    <div className="myContainer">
       <LoaderWrapper>
         <Navbar />
         <Routes>
@@ -42,7 +42,7 @@ function App() {
           </Route>
         </Routes>
       </LoaderWrapper>
-    </Container>
+    </div>
   );
 }
 

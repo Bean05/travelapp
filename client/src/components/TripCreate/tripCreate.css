@@ -1,0 +1,22 @@
+.tripcreate {
+    background-image: url('./tripCreate.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.boxtripcreate {
+    /* background: #CDD6DB;
+opacity: .3; */
+    /* background: url('./tripCreate.jpeg');
+    border-radius: 1rem; */
+    /* filter: blur(10px); */
+
+}
+
+.inputtripcreate {
+    background-color: rgb(238, 221, 188);
+    margin: 0px 10px;
+    border-radius: 1rem;
+}

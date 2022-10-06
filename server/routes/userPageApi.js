@@ -42,11 +42,12 @@ router.get('/allcoments/:id', async (req, res) => {
 router.post('/newcoment/:id', async (req, res) => {
   const { id } = req.params;
   // console.log('BODYY', req.body);
-  const { text, stars, photo } = req.body;
+  const { text, stars } = req.body;
   const newRating = await Rating.create({
-    text, photo, stars, userId: id, author: req.session.userId,
+    text, stars, userId: id, author: req.session.userId,
   });
-  res.json(newRating);
+  const oneUser = await Rating.findOne({ where: { id: newRating.id }, include: { model: User, as: 'authorId' } });
+  res.json(oneUser);
 });
 
 module.exports = router;

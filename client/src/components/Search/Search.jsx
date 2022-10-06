@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   TextField, Box, Button, Grid,
 } from '@mui/material/';
@@ -24,7 +24,7 @@ export default function Search() {
     cityWhere: '',
   });
   const { searchTrip } = useSelector((state) => state);
-  console.log('searchTrip', searchTrip);
+  // console.log('searchTrip', searchTrip);
   useEffect(() => {
     if (!window.initState?.allBase) {
       dispatch(setTripFunction());
@@ -32,9 +32,9 @@ export default function Search() {
       delete window.initState.allBase;
     }
   }, []);
-  const inputHandler = (e) => {
-    setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  const inputHandler = useCallback(
+    (e) => setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }), []),
+  );
   const submitHandler = async (e) => {
     e.preventDefault();
     dispatch(searchSetTrip({
@@ -45,10 +45,10 @@ export default function Search() {
       .then((data) => dispatch(addSearch(data.data)));
   };
   return (
-    <>
+    <div className="divBackground">
       <Grid container>
         <Grid item xs={1} />
-        <Grid item xs={10}>
+        <Grid item xs={10} className="proverka">
           <form onSubmit={submitHandler} className="searchFatherDiv">
             <Box display="flex" alignItems="center" sx={{ justifyContent: 'center', mt: 2 }}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -73,10 +73,10 @@ export default function Search() {
             </Box>
             <Box display="flex" alignItems="center" sx={{ justifyContent: 'space-around' }}>
               <Box display="flex" alignItems="center" sx={{ mt: 2, ml: '17%' }}>
-                <Button onClick={() => dispatch(randomSetTrip())} color="success" size="large" variant="outlined">Испытать судьбу</Button>
+                <Button onClick={() => dispatch(randomSetTrip())} color="success" size="large" variant="contained">Cлучайно</Button>
               </Box>
               <Box display="flex" alignItems="center" sx={{ mt: 2, mr: '17%' }}>
-                <Button type="submit" size="large" variant="outlined">   Найти   </Button>
+                <Button variant="contained" type="submit" size="large">   Найти   </Button>
               </Box>
             </Box>
             <Box display="flex" alignItems="center" sx={{ justifyContent: 'center', mt: 2 }}>
@@ -99,7 +99,7 @@ export default function Search() {
         {searchTrip?.filter((el) => (search
           ? el.User.name.toLowerCase().includes(search.toLowerCase()) : true)).map((el) => (
             <div key={el.id}>
-              <div className="box">
+              <div className="box" id="boxSearch">
                 <div className="card">
                   <div className="card-header">
                     <img src={`http://localhost:3001/${el.tripPhoto}`} alt={el.tripName} />
@@ -132,7 +132,6 @@ export default function Search() {
                           <h5>{el.User.name}</h5>
                         </Link>
                       </div>
-                      {console.log('элемент в поиске', el)}
                     </div>
                     <TripCardModal oneCard={el} />
                   </div>
@@ -142,6 +141,6 @@ export default function Search() {
         ))}
       </div>
 
-    </>
+    </div>
   );
 }
