@@ -15,7 +15,7 @@ export default function UserAccountTrips() {
   const user = useSelector((state) => state.user);
   return (
 
-    <div className="containerCard">
+    <div className="containerCardSearch">
       <h3>Мои поездки</h3>
       {allTrips && allTrips.length < 1 ? (<div>Поездок еще нет</div>) : (allTrips.map((el) => (
         <div key={el?.id}>
