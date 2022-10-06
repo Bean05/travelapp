@@ -23,6 +23,9 @@ h {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 5%;
 
 }
 
@@ -31,7 +34,8 @@ h {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     border: rgba(4, 55, 116, 0);
     height: 20%;
-    background-image: url('../../../public/1613122442_108-p-fon-razmitii-zheltii-123.jpg');
+    background-image: url('../../../public/1612431723_57-p-fon-bezhevo-korichnevii-gradient-62.jpg');
+
 }
 
 /*личная инфо*/
@@ -43,14 +47,7 @@ h {
     margin-left: 7%;
     margin-top: 5%;
     z-index: 100;
-
 }
-
-.allComments {
-    display: flex;
-    flex-direction: row;
-}
-
 
 /*мои поездки я организатор*/
 #userTrips {
@@ -88,7 +85,7 @@ h {
 #conteinerMovePage {
     --scrollbarBgColor: rgba(53, 56, 60, 0.699);
     --scrollbarThumbColor: rgb(57, 60, 62);
-    --scrollbarThumbColorSecond: rgba(134, 117, 117, 0.923);
+    --scrollbarThumbColorSecond: rgba(170, 158, 158, 0.938);
     --scrollbarWidth: 10px;
     --scrollbarBorder: 0 solid var(--scrollbarBgColor);
     --scrollbarBorderRadius: calc(var(--scrollbarWidth) / 4);
@@ -120,5 +117,14 @@ h {
 }
 
 .sendedComments {
-    background: green;
+    background: rgba(190, 208, 236, 0.938) ;
+    margin-left: 10%;
+    border-radius: 2%;
+}
+
+#commentCard{
+    background: rgba(190, 208, 236, 0.938) ;
+}
+#commentsAbout{
+    background: rgba(190, 208, 236, 0.938) ;
 }
