@@ -128,3 +128,11 @@ h {
 #commentsAbout{
     background: rgba(190, 208, 236, 0.938) ;
 }
+
+#textComment {
+    font-size: 20px;
+}
+
+#author {
+    margin-top: 10px;
+}

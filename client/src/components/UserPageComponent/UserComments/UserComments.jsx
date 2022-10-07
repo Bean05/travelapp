@@ -148,14 +148,16 @@ export default function UserComments() {
               key={el.id}
               style={{ marginTop: '-20px' }}
             >
-              <CardSubtitle>
+              <CardSubtitle id="author">
                 от кого:
+                {' '}
+                {' '}
                 <Link to={`/page/${el?.authorId?.id}`}>{el?.authorId?.name}</Link>
               </CardSubtitle>
               <Avatar
                 alt="Remy Sharp"
                 style={{
-                  marginLeft: '10px', marginTop: '15px', width: '50px', height: '50px',
+                  marginLeft: '10px', marginTop: '15px', width: '50px', height: '60px',
                 }}
                 src={`http://localhost:3001/${el?.authorId?.photo}`}
               />
@@ -167,7 +169,7 @@ export default function UserComments() {
                 <StarBorderPurple500SharpIcon />
                 {el?.stars}
               </CardSubtitle>
-              <CardText>
+              <CardText id="textComment">
                 {el?.text}
               </CardText>
             </CardBody>
