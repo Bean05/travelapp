@@ -50,7 +50,7 @@ export default function UserAccount() {
                 <h3>Имя</h3>
                 {user?.name}
               </Typography>
-              {!user?.about && (
+              {user?.about && (
               <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
                 <h3>Обо мне</h3>
                 {user.about}
