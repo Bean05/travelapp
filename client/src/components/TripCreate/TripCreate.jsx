@@ -112,6 +112,7 @@ export default function TripCreate() {
                 component="form"
                 noValidate
                 sx={{ mt: 1 }}
+                autoComplete="off"
               >
                 <TextField
                   className="inputtripcreate"
@@ -121,7 +122,7 @@ export default function TripCreate() {
                   id="tripName"
                   label="Название поездки"
                   name="tripName"
-                  autoComplete="tripName"
+                  // autoComplete="tripName"
                   autoFocus
                   value={inputs.tripName}
                   onChange={changeHandler}
@@ -149,7 +150,7 @@ export default function TripCreate() {
                   label="Город - откуда"
                   type="cityStart"
                   id="cityStart"
-                  autoComplete="cityStart"
+                  // autoComplete="cityStart"
                   autoFocus
                   value={inputs.cityStart}
                   onChange={changeHandler}
@@ -163,7 +164,7 @@ export default function TripCreate() {
                   label="Город - куда"
                   type="cityWhere"
                   id="cityWhere"
-                  autoComplete="cityWhere"
+                  // autoComplete="cityWhere"
                   autoFocus
                   value={inputs.cityWhere}
                   onChange={changeHandler}
@@ -177,7 +178,7 @@ export default function TripCreate() {
                   label="С кем хотелось бы в путь"
                   type="aboutMembers"
                   id="aboutMembers"
-                  autoComplete="aboutMembers"
+                  // autoComplete="aboutMembers"
                   autoFocus
                   value={inputs.aboutMembers}
                   onChange={changeHandler}
@@ -191,7 +192,7 @@ export default function TripCreate() {
                   label="Подробнее о поездке"
                   type="aboutTrip"
                   id="aboutTrip"
-                  autoComplete="aboutTrip"
+                  // autoComplete="aboutTrip"
                   autoFocus
                   value={inputs.aboutTrip}
                   onChange={changeHandler}
@@ -205,7 +206,7 @@ export default function TripCreate() {
                   label="Количество участников"
                   type="membersCount"
                   id="membersCount"
-                  autoComplete="membersCount"
+                  // autoComplete="membersCount"
                   autoFocus
                   value={inputs.membersCount}
                   onChange={changeHandler}
